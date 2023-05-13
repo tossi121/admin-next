@@ -5,8 +5,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DashboardLayout from 'components/Layouts';
 import Head from 'next/head';
-import { AuthProvider } from '_contexts/auth';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from '_context/authContext';
 
 const layouts = {
   DashboardLayout: DashboardLayout,
@@ -17,15 +17,12 @@ function MyApp({ Component, pageProps }) {
   const Layout = layouts[Component.layout] || ((pageProps) => <Component>{pageProps}</Component>);
   return (
     <>
-      {/* <Head>
-        <title>Yuva Kabaddi</title>
-      </Head>
       <ToastContainer />
-      <AuthProvider> */}
+      <AuthProvider> 
       <Layout>
         <Component {...pageProps} />
       </Layout>
-      {/* </AuthProvider> */}
+      </AuthProvider>
     </>
   );
 }

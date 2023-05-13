@@ -1,4 +1,13 @@
-import { fetcher } from '_helper/ApiBase';
+import { fetcher } from "_helper/ApiBase";
+
+export async function getLoginAdmin(params) {
+  try {
+    const response = await fetcher('POST', process.env.LOGIN, params);
+    return response;
+  } catch (err) {
+    return err;
+  }
+}
 
 export async function getUserDataList() {
   try {

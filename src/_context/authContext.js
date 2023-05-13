@@ -12,7 +12,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     getUserData();
   }, []);
-  // console.log('Cookies.get(123)', Cookies.get());
 
   async function getUserData() {
     const token = Cookies.get('token');

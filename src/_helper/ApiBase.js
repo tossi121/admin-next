@@ -21,9 +21,9 @@ export async function fetcher(method, url, params) {
     if (method == 'GET') {
       const updateHeader = setHeader();
       updateHeader['params'] = params;
-      response = await Axios.get(`${process.env.BASE_API_URL}${url}`, updateHeader);
+      response = await Axios.get(`${process.env.BASE_URL}${url}`, updateHeader);
     } else {
-      response = await Axios.post(`${process.env.BASE_API_URL}${url}`, params, setHeader());
+      response = await Axios.post(`${process.env.BASE_URL}${url}`, params, setHeader());
     }
     if (response.status == 200) {
       return successResponse(response);
@@ -37,16 +37,16 @@ export async function fetcher(method, url, params) {
 
 function successResponse(response) {
   return {
-    result: response.data.result,
-    data: response.data['resultData'],
-    message: response.data['resultMessage'],
+    result: response?.data?.result,
+    data: response?.data['resultData'],
+    message: response?.data['resultMessage'],
   };
 }
 
 function errorResponse(response) {
   return {
-    result: response.data.result,
+    result: response?.data?.result,
     data: null,
-    message: response.data['resultMessage'],
+    message: response?.data['resultMessage'],
   };
 }
