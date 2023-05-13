@@ -1,8 +1,8 @@
 import { fetcher } from "_helper/ApiBase";
 
-export async function getUserDataList() {
+export async function getLoginAdmin(params) {
   try {
-    const response = await fetcher('POST', process.env.LOGIN);
+    const response = await fetcher('POST', process.env.LOGIN, params);
     return response;
   } catch (err) {
     return err;

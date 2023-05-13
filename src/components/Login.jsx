@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 import { Button, Form } from 'react-bootstrap';
-// import { getLoginAdmin } from '../../_services/nifty_service_api';
-// import { useAuth } from '_context/authContext';
+import { getLoginAdmin } from '_services/nifty_service_api';
+import { useAuth } from '_context/authContext';
 
 const Login = () => {
   const initialValues = { email: '', password: '' };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const history = useHistory();
   const { isLoggedIn, getUserData } = useAuth();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,11 +19,6 @@ const Login = () => {
     setFormErrors('');
   };
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      history.push('/user-management/all-user');
-    }
-  }, [isLoggedIn]);
 
   const handleLogin = async (e) => {
     if (e) {
@@ -45,12 +39,13 @@ const Login = () => {
   async function callLoginApi(params) {
     setIsLoading(true);
     const response = await getLoginAdmin(params);
+    console.log(response)
     if (response?.result == 1) {
       const token = response.data;
       Cookies.set('token', token, { expires: 30, path: '/' });
       toast.success(response.message);
       getUserData();
-      history.push('/user-management/all-user');
+      // history.push('/user-management/all-user');
       setIsLoading(false);
     } else {
       toast.error(response.message);
@@ -76,19 +71,19 @@ const Login = () => {
 
   return (
     <>
-      <AuthLayout>
+      {/* <AuthLayout> */}
         <div className="auth-logo mx-auto">
-          <Link to="/auth/login" className="logo logo-dark text-center">
-            <span className="logo-lg">
+          {/* <Link to="/auth/login" className="logo logo-dark text-center"> */}
+            {/* <span className="logo-lg">
               <img src={logoDark} alt="logo" width={170} />
-            </span>
-          </Link>
+            </span> */}
+          {/* </Link> */}
 
-          <Link to="/auth/login" className="logo logo-light text-center">
-            <span className="logo-lg">
+          {/* <Link to="/auth/login" className="logo logo-light text-center"> */}
+            {/* <span className="logo-lg">
               <img src={logoLight} alt="logo" height="24" />
-            </span>
-          </Link>
+            </span> */}
+          {/* </Link> */}
         </div>
 
         <h6 className="h5 mb-0 mt-3">Welcome back!</h6>
@@ -127,7 +122,7 @@ const Login = () => {
             {isLoading && <span className="spinner-border spinner-border-sm ms-3 text-white" role="status"></span>}
           </Button>
         </div>
-      </AuthLayout>
+      {/* </AuthLayout> */}
     </>
   );
 };
