@@ -8,37 +8,25 @@ function setHeader() {
       'Content-Type': 'application/json',
     },
   };
-
-  if (Cookies.get('access_Token') != '') {
-    _headers['headers']['Authorization'] = `Bearer ${Cookies.get('access_token')}`;
+  if (Cookies.get('token')) {
+    _headers['headers']['Authorization'] = `Bearer ${Cookies.get('token')}`;
   }
   return _headers;
 }
 
-export function mutipartHeader() {
-  const _headers = {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  };
-  if (Cookies.get('access_token')) {
-    _headers['headers']['Authorization'] = `Bearer ${Cookies.get('access_token')}`;
-  }
-  return _headers;
-}
-
+// API fetch Base
 export async function fetcher(method, url, params) {
   try {
     let response;
     if (method == 'GET') {
       const updateHeader = setHeader();
       updateHeader['params'] = params;
-      response = await Axios.get(`${process.env.BASE_URL}${url}`, updateHeader);
+      response = await Axios.get(`${process.env.BASE_API_URL}${url}`, updateHeader);
     } else {
-      response = await Axios.post(`${process.env.BASE_URL}${url}`, params, setHeader());
+      response = await Axios.post(`${process.env.BASE_API_URL}${url}`, params, setHeader());
     }
-    if (response.status) {
-      return successResponse(response.data);
+    if (response.status == 200) {
+      return successResponse(response);
     } else {
       return errorResponse(response);
     }
@@ -49,16 +37,16 @@ export async function fetcher(method, url, params) {
 
 function successResponse(response) {
   return {
-    status: true,
-    data: response['results'],
-    message: response['message'],
+    result: response.data.result,
+    data: response.data['resultData'],
+    message: response.data['resultMessage'],
   };
 }
 
 function errorResponse(response) {
   return {
-    status: false,
+    result: response.data.result,
     data: null,
-    message: response['message'],
+    message: response.data['resultMessage'],
   };
 }
