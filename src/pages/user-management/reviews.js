@@ -1,12 +1,11 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-
-const AllUserData = dynamic(import('components/UserManagement/AllUser/AllUserData'));
+const UserReview = dynamic(import('components/UserManagement/Review/UserReview'));
 
 function DefaultPage() {
   return (
     <>
-      <AllUserData />
+      <UserReview />
     </>
   );
 }

@@ -8,9 +8,10 @@ import { faPen, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { getUserDataList } from '_services/nifty_service_api';
 import TableLoader from '_utils/Loader/TableLoader';
 import Link from 'next/link';
-import CommonPagination from 'components/Pagination/CommonPagination';
+import CommonPagination from 'components/Pagination /CommonPagination';
+// import CommonPagination from 'components/Pagination/CommonPagination';
 
-function UserManagement() {
+function AllUserData() {
   const [userList, setUserList] = useState([]);
   const [totalItems, setTotalItems] = useState(null);
   const [totalPages, setTotalPages] = useState(null);
@@ -229,7 +230,7 @@ function UserManagement() {
                                     </span>
                                   </td>
                                   <td>
-                                    <Link target={'_blank'} href={`/user-details/${item.user_id}`}>
+                                    <Link target={'_blank'} href={`/user-management/${item.user_id}`}>
                                       <button className="btn btn-primary">View</button>
                                     </Link>
                                   </td>
@@ -268,4 +269,4 @@ function UserManagement() {
   );
 }
 
-export default UserManagement;
+export default AllUserData;

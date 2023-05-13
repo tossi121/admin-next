@@ -1,12 +1,12 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-const AllUserData = dynamic(import('components/UserManagement/AllUser/AllUserData'));
+const UserOrders = dynamic(import('components/UserManagement/Order/UserOrders'));
 
 function DefaultPage() {
   return (
     <>
-      <AllUserData />
+      <UserOrders />
     </>
   );
 }
