@@ -1,0 +1,125 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #000 !important;
+}
+
+.logout-btn {
+  width: max-content;
+  &:hover {
+    color: #5369f8 !important;
+    transition: ease-in-out 0.4s;
+  }
+  &:hover svg {
+    color: #5369f8 !important;
+  }
+}
+
+.login-box {
+  height: 100vh;
+}
+
+.input-login {
+  input {
+    outline: none;
+    transition: 0.1s ease-out;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &:focus + label {
+      color: #5369f8;
+      top: 0 !important;
+      transform: translateY(-90%) scale(0.9);
+    }
+    &:not(:placeholder-shown) + label {
+      top: 0 !important;
+      transform: translateY(-90%) scale(0.9);
+    }
+    &:focus ~ .login-icon {
+      color: #5369f8 !important;
+    }
+  }
+
+  .input-label {
+    position: relative;
+    &:after {
+      display: block;
+      content: '';
+      border-bottom: solid 1px #5369f8 !important;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+
+    &:hover:after {
+      transform: scaleX(1);
+    }
+
+    label {
+      top: 10px !important;
+      transition: 0.1s ease-out;
+    }
+    .login-icon {
+      top: 15px;
+    }
+  }
+}
+
+.fin-select {
+  position: relative;
+  &::before {
+    display: block;
+    position: relative;
+    top: 38px;
+    content: '';
+    border-bottom: solid 1px #5369f8 !important;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+  &:hover::before {
+    transform: scaleX(1);
+  }
+  &::after {
+    content: '';
+    // background: url('../../images/down-arrow.svg') no-repeat;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    right: 0;
+    top: 1rem;
+    transition: 300ms transform 200ms;
+  }
+  // &:active::after {
+  //   // transform: rotate(-180deg);
+  // }
+  .fin-field {
+    appearance: none;
+    padding: 0.9rem 0 0 0;
+    &:valid + .fin-label,
+    &:focus + .fin-label {
+      transform: scale(0.75) translate(0.5em, -100%);
+      transition: 200ms transform ease-out;
+      color: #5369f8;
+      margin-left: -5px;
+      font-size: 18px;
+    }
+
+    &:not(:focus) + .fin-label {
+      color: #4b4b5a !important;
+    }
+  }
+  .fin-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 0.2rem 0;
+    pointer-events: none;
+    transform-origin: 0 0;
+    transition: 200ms transform ease-out 200ms;
+  }
+}

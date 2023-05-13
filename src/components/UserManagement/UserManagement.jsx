@@ -7,6 +7,8 @@ import { faPen, faSearch } from '@fortawesome/free-solid-svg-icons';
 // import PrimeMembership from './PrimeMembership';
 import { getUserDataList } from '_services/nifty_service_api';
 import TableLoader from '_utils/Loader/TableLoader';
+import Link from 'next/link';
+import CommonPagination from 'components/Pagination/CommonPagination';
 
 function UserManagement() {
   const [userList, setUserList] = useState([]);
@@ -227,7 +229,7 @@ function UserManagement() {
                                     </span>
                                   </td>
                                   <td>
-                                    <Link target={'_blank'} to={`/user-details/${item.user_id}`}>
+                                    <Link target={'_blank'} href={`/user-details/${item.user_id}`}>
                                       <button className="btn btn-primary">View</button>
                                     </Link>
                                   </td>
