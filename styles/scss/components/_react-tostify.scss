@@ -1,0 +1,12 @@
+.Toastify__toast-container {
+  top: 4rem !important;
+}
+.custom-progress-bar {
+  background-color: var(--label-green) !important;
+}
+.toast-body {
+  color: var(--label-green) !important;
+  svg {
+    fill: var(--label-green) !important;
+  }
+}
