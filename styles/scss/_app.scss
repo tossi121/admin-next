@@ -2,9 +2,7 @@
 @import '_base.scss';
 @import '_variables.scss';
 @import 'components/_react-tostify.scss';
-@import "./customStye/login";
-@import "./customStye/pagination";
-@import "./customStye/user_management";
-
-// dashboard
-@import 'components/dashboard/_dashboardlayout.scss';
+@import 'components/login';
+@import 'components/pagination';
+@import 'components/user_management';
+@import 'components/layout.scss';

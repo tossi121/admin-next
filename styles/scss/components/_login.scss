@@ -1,0 +1,47 @@
+.login {
+  input {
+    outline: none;
+    transition: 0.1s ease-out;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &:focus + label {
+      color: var(--base-link-color);
+      top: 0 !important;
+      opacity: 1;
+      transform: translateY(-90%) scale(0.9);
+    }
+    &:not(:placeholder-shown) + label {
+      top: 0 !important;
+      transform: translateY(-90%) scale(0.9);
+    }
+    &:focus ~ .login-icon {
+      color: var(--base-link-color) !important;
+    }
+  }
+  .input-label {
+    position: relative;
+    &:after {
+      display: block;
+      content: '';
+      border-bottom: solid 1px var(--base-link-color) !important;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+
+    &:hover:after {
+      transform: scaleX(1);
+    }
+
+    label {
+      opacity: 0.7;
+      top: 10px !important;
+      transition: 0.1s ease-out;
+    }
+    .login-icon {
+      top: 15px;
+    }
+  }
+}

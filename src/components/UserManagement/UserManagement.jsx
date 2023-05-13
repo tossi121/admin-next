@@ -165,7 +165,7 @@ function UserManagement() {
                   {selectBox()}
                   {UserselectBox()}
                   <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                    <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                    <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2" />
                     <input
                       type="text"
                       className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"

@@ -13,7 +13,7 @@ const CommonPagination = (props) => {
     totalCount,
     currentPage,
     setCurrentPage,
-     isLoading,
+    isLoading,
   } = props;
   const [numData, setNumData] = useState(null);
   const [numFirst, setNumFirst] = useState(null);
@@ -93,13 +93,16 @@ const CommonPagination = (props) => {
         )}
 
         <ul className="pagination-container pagination-bar mb-0 p-0 d-flex align-items-center justify-content-end ms-auto mt-md-0 list-unstyled">
-          <li className={`pagination-item ${(currentPage === 1 && 'disabled') || ''}`} onClick={onPrevious}>
+          <li
+            className={`pagination-item ${(currentPage === 1 && 'disabled') || ''} ${(isLoading && 'disabled') || ''}`}
+            onClick={onPrevious}
+          >
             <FontAwesomeIcon icon={faChevronLeft} width={8} />
           </li>
           {paginationRange.map((pageNumber, page) => {
             if (pageNumber === DOTS) {
               return (
-                <li className="pagination-item dots" key={page}>
+                <li className={`pagination-item ${(isLoading && 'disabled') || ''}`} dots key={page}>
                   &#8230;
                 </li>
               );
@@ -107,7 +110,9 @@ const CommonPagination = (props) => {
             return (
               <>
                 <li
-                  className={`pagination-item ${(pageNumber === currentPage && 'selected') || ''}`}
+                  className={`pagination-item ${(pageNumber === currentPage && 'selected') || ''} ${
+                    (isLoading && 'disabled') || ''
+                  }`}
                   onClick={() => onPageChange(pageNumber)}
                 >
                   {pageNumber.toLocaleString('en-IN')}
@@ -115,7 +120,12 @@ const CommonPagination = (props) => {
               </>
             );
           })}
-          <li className={`pagination-item ${(currentPage === lastPage && 'disabled') || ''}`} onClick={onNext}>
+          <li
+            className={`pagination-item ${(currentPage === lastPage && 'disabled') || ''}  ${
+              (isLoading && 'disabled') || ''
+            } `}
+            onClick={onNext}
+          >
             <FontAwesomeIcon icon={faChevronLeft} width={8} />
           </li>
         </ul>

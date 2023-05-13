@@ -16,7 +16,7 @@ function Sidebar(props) {
       >
         <div className="menu-wrapper position-relative">
           <span
-            className={`btn-expanded card-border rounded-circle position-absolute justify-content-center p-2 bg-white d-lg-flex d-none cursor-pointer`}
+            className="btn-expanded rounded-circle position-absolute justify-content-center p-2 bg-white d-lg-flex d-none cursor-pointer border"
             onClick={ToggleFun}
           >
             <FontAwesomeIcon icon={faAngleRight} width={16} className={`fs-14 ${toggle ? 'arrow-left-icon' : ''}`} />
