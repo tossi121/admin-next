@@ -10,7 +10,7 @@ import TableLoader from '_utils/Loader/TableLoader';
 import Link from 'next/link';
 import CommonPagination from 'components/Pagination/CommonPagination';
 
-function UserManagement() {
+function AllUserData() {
   const [userList, setUserList] = useState([]);
   const [totalItems, setTotalItems] = useState(null);
   const [totalPages, setTotalPages] = useState(null);
@@ -22,13 +22,7 @@ function UserManagement() {
   const lengthMenu = [10, 20, 50, 100];
   const [userFilter, setUserFilter] = useState('0,1');
   const [searchInput, setSearchInput] = useState('');
-  // const { isLoggedIn } = useAuth();
 
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -229,7 +223,7 @@ function UserManagement() {
                                     </span>
                                   </td>
                                   <td>
-                                    <Link target={'_blank'} href={`/user-details/${item.user_id}`}>
+                                    <Link target={'_blank'} href={`/user-management/user-details/${item.user_id}`}>
                                       <button className="btn btn-primary">View</button>
                                     </Link>
                                   </td>
@@ -268,4 +262,4 @@ function UserManagement() {
   );
 }
 
-export default UserManagement;
+export default AllUserData;
