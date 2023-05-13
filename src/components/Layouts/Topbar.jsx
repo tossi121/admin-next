@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
 import { Row, Col, Dropdown } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell } from '@fortawesome/free-regular-svg-icons';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useAuth } from '_contexts/auth';
 
 function Topbar(props) {
   const { ToggleFun } = props;
-  // const { logoutUser, userAllDetails } = useAuth();
 
   return (
     <>

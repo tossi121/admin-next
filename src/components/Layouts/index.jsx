@@ -1,8 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
-import { useAuth } from '_contexts/auth';
 
 const Sidebar = dynamic(import('./Sidebar'));
 const Topbar = dynamic(import('./Topbar'));
