@@ -9,18 +9,18 @@ export async function getLoginAdmin(params) {
   }
 }
 
-export async function getUserDataList() {
+export async function getUserDataList(params) {
   try {
-    const response = await fetcher('GET', process.env.USER_LIST_DATA);
+    const response = await fetcher('GET', process.env.USER_LIST_DATA, params);
     return response;
   } catch (err) {
     return err;
   }
 }
 
-export async function getUserOrderData() {
+export async function getUserOrderData(params) {
   try {
-    const response = await fetcher('GET', process.env.USER_ORDER_LIST_DATA);
+    const response = await fetcher('GET', process.env.USER_ORDER_LIST_DATA, params);
     return response;
   } catch (err) {
     throw err;

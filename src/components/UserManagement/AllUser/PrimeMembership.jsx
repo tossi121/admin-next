@@ -1,7 +1,7 @@
 import { Button, Card, Col, Form, Modal, Row } from 'react-bootstrap';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { updateUserPlan } from '../../../../_services/nifty_service_api';
+// import { updateUserPlan } from '../../../../_services/nifty_service_api';
 
 const PrimeMembership = (props) => {
   const { show, setShow, selectedId, userDetailsData } = props;
