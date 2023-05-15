@@ -136,7 +136,7 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #000 !important;
 }
 
-button {
+.web-button {
   background-color: var(--base-link-color) !important;
   border: 1px solid transparent !important;
   &:hover {

@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useContext, createContext } from 'react';
@@ -8,12 +9,17 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isContextLoaded, setIsContextLoaded] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
-    getUserData();
-  }, []);
+    if (isLoggedIn) {
+      getUserData();
+    } else {
+      router.push('/login');
+    }
+  }, [isContextLoaded, isLoggedIn]);
 
-  async function getUserData() {
+  function getUserData() {
     const token = Cookies.get('token');
     if (token) {
       setIsLoggedIn(true);

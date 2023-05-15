@@ -138,7 +138,7 @@ const Login = () => {
               </div>
 
               <div className="text-center">
-                <Button type="submit" className="w-100 mt-3" disabled={isLoading} onClick={handleLogin}>
+                <Button type="submit" className="w-100 mt-3 web-button" disabled={isLoading} onClick={handleLogin}>
                   Login
                   {isLoading && (
                     <span className="spinner-border spinner-border-sm ms-3 text-white" role="status"></span>

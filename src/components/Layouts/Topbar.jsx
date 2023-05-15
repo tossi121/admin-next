@@ -1,22 +1,45 @@
 import { Row, Col, Dropdown } from 'react-bootstrap';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { faRightToBracket, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Cookies from 'js-cookie';
+import { useAuth } from '_context/authContext';
 
 function Topbar(props) {
+  const { getUserData } = useAuth();
   const { ToggleFun } = props;
-
+  const router = useRouter();
+  function logout() {
+    Cookies.remove('token');
+    getUserData();
+    router.push('/login');
+  }
   return (
     <>
       <div className="w-100 top-bar position-sticky top-0 bg-white">
         <Row className="mx-0 h-100 align-items-center">
-          <Col lg={'12'}>
+          <Col>
             <div className="d-flex align-items-center">
               <div className="d-flex justify-content-center logo-wrapper align-items-center">
-                <Link href={'/dashboard'}>
-                  <Image src="/images/logo.svg" alt="logo" className='ms-3' width={160} height={65} />
+                <Link href={'/'}>
+                  <Image src="/images/logo.svg" alt="logo" className="ms-3" width={160} height={65} />
                 </Link>
               </div>
-              <button className="bg-transparent border-0  pt-2 toggle-btn d-lg-none d-block ms-auto">
+              <div className="ms-auto">
+                <Dropdown>
+                  <Dropdown.Toggle className="rounded-circle border-0 bg-white" id="dropdown-basic">
+                    <FontAwesomeIcon width={15} height={15} icon={faUserAlt} className="base-link-color" />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="ps-2" onClick={logout}>
+                    <FontAwesomeIcon width={15} height={15} icon={faRightToBracket} className="base-link-color" />
+                    <span className="base-link-color ms-2 fw-normal cursor-pointer">Logout</span>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+
+              <button className="bg-transparent border-0 web-button pt-2 toggle-btn d-lg-none d-block ms-auto">
                 <Image
                   src="/images/dashboard-icons/toggle.svg"
                   onClick={ToggleFun}
@@ -25,84 +48,6 @@ function Topbar(props) {
                   alt="toggle-img"
                 />
               </button>
-              <div className="ms-auto  d-lg-block d-none me-3">
-                <ul className="ps-0 mb-0 d-flex flex-row align-items-center navbar-nav py-0">
-                  <li className="nav-item ms-2 position-relative">
-                    <div className="Profile notification-wraper">
-                      {/* <Dropdown className="px-0 py-0 rounded-2 ">
-                        <Dropdown.Toggle
-                          variant="none"
-                          className="text-start Profile-box-dropdown base-color-3 bg-white py-2 border-0
-                 d-flex align-items-center fs-14 fw-400 base-color-9"
-                          id="dropdown-basic"
-                        >
-                          <FontAwesomeIcon
-                            icon={faBell}
-                            className="fs-24 fw-400"
-                            width={18}
-                            height={18}
-                          ></FontAwesomeIcon>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="w-100 rounded-4">
-                          <Dropdown.Item className="py-2 fs-14 base-color-3">12 Notification</Dropdown.Item>
-                          <Dropdown.Item className="py-2 fs-14 base-color-3">16 Notification</Dropdown.Item>
-                          <Dropdown.Item className="py-2 fs-14 base-color-3">20 Notification</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown> */}
-                    </div>
-                  </li>
-                  <li className="nav-item ms-2 position-relative">
-                    <div className="member-login d-flex align-items-center">
-                      {/* {(userAllDetails?.profile_image && (
-                        <Image
-                          src={userAllDetails?.image_path + userAllDetails?.profile_image}
-                          width={45}
-                          height={45}
-                          alt="user"
-                          className="img-fluid rounded-circle"
-                        />
-                      )) || (
-                        <Image
-                          src="/images/dashboard-images/user-img.png"
-                          width={45}
-                          height={45}
-                          alt="user"
-                          className="img-fluid rounded-circle"
-                        />
-                      )} */}
-                      <div className="info-member ms-2">
-                        <span className="base-color fw-700 fs-14">
-                          {/* {userAllDetails?.name.length > 24
-                            ? `${userAllDetails?.name.substring(0, 24)}...`
-                            : userAllDetails?.name} */}
-                        </span>
-                        <div className="Profile">
-                          <Dropdown className="px-0 py-0 rounded-2">
-                            <Dropdown.Toggle
-                              variant="none"
-                              className="text-start Profile-box-dropdown base-color-3 bg-white p-0 border-0
-                 d-flex align-items-center fs-12 fw-400 base-color-9"
-                              id="dropdown-basic"
-                            >
-                              {/* <span className="pe-3">{userAllDetails?.role[0].role_name}</span> */}
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu className="w-100 rounded-4">
-                              <Dropdown.Item className="py-2 fs-14 base-color-3">
-                                <Link className="base-color-3 d-block" href={'/dashboard/profile'}>
-                                  Profile
-                                </Link>
-                              </Dropdown.Item>
-                              {/* <Dropdown.Item className="py-2 fs-14 base-color-3" type="button" onClick={logoutUser}>
-                                Logout
-                              </Dropdown.Item> */}
-                            </Dropdown.Menu>
-                          </Dropdown>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
             </div>
           </Col>
         </Row>

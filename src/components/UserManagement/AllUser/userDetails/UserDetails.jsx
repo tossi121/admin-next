@@ -20,7 +20,6 @@ import CommonPagination from 'components/Pagination/CommonPagination';
 
 function UserDetails(props) {
   const {userId} = props
-console.log(userId, 'iii')
 
   // const { isLoggedIn } = useAuth();
   const [isLoading, setIsLoading] = useState(true);

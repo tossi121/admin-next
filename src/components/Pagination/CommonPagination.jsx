@@ -21,11 +21,11 @@ const CommonPagination = (props) => {
   function onPageChange(page) {
     setCurrentPage(page);
   }
-  useEffect(() => {
-    if (data) {
-      setCurrentPage(1);
-    }
-  }, [pageSize]);
+  // useEffect(() => {
+  //   if (data) {
+  //     setCurrentPage(1);
+  //   }
+  // }, [pageSize]);
 
   const paginationRange = usePagination({ currentPage, totalCount, siblingCount, pageSize });
 

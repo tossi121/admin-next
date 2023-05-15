@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Badge, Card, Col, Row, Table } from 'react-bootstrap';
+import { Badge, Button, Card, Col, Row, Table } from 'react-bootstrap';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -23,7 +23,6 @@ function AllUserData() {
   const [userFilter, setUserFilter] = useState('0,1');
   const [searchInput, setSearchInput] = useState('');
 
-
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       userDataList();
@@ -33,7 +32,7 @@ function AllUserData() {
 
   async function userDataList() {
     const params = {
-      pageNumber: currentPage,
+      pageNumber: 2,
       pageSize: pageSize,
       search_keyword: searchInput,
       is_prime: userFilter,
@@ -147,7 +146,7 @@ function AllUserData() {
       <section>
         <Row>
           <Col>
-              <h5 className="fw-semibold ms-3 mb-4">All Users</h5>
+            <h5 className="fw-semibold ms-3 mb-4">All Users</h5>
           </Col>
         </Row>
 
@@ -159,7 +158,12 @@ function AllUserData() {
                   {selectBox()}
                   {UserselectBox()}
                   <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                    <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2" />
+                    <FontAwesomeIcon
+                      icon={faSearch}
+                      width="16"
+                      height="16"
+                      className="position-absolute end-0 mt-1 me-2"
+                    />
                     <input
                       type="text"
                       className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -179,14 +183,30 @@ function AllUserData() {
                       <Table className="table mb-0">
                         <thead>
                           <tr>
-                            <th className='base-color-1 fw-semibold fs-14' scope="col">Name</th>
-                            <th className='base-color-1 fw-semibold fs-14' scope="col">Email Address</th>
-                            <th className='base-color-1 fw-semibold fs-14' scope="col">Mobile No.</th>
-                            <th className='base-color-1 fw-semibold fs-14' scope="col">Sign Up Date</th>
-                            <th className='base-color-1 fw-semibold fs-14' scope="col">Prime User</th>
-                            <th className='base-color-1 fw-semibold fs-14' scope="col">Platform</th>
-                            <th className='base-color-1 fw-semibold fs-14' scope="col">Active Plan</th>
-                            <th className='base-color-1 fw-semibold fs-14' scope="col">Action</th>
+                            <th className="base-color-1 fw-semibold fs-14" scope="col">
+                              Name
+                            </th>
+                            <th className="base-color-1 fw-semibold fs-14" scope="col">
+                              Email Address
+                            </th>
+                            <th className="base-color-1 fw-semibold fs-14" scope="col">
+                              Mobile No.
+                            </th>
+                            <th className="base-color-1 fw-semibold fs-14" scope="col">
+                              Sign Up Date
+                            </th>
+                            <th className="base-color-1 fw-semibold fs-14" scope="col">
+                              Prime User
+                            </th>
+                            <th className="base-color-1 fw-semibold fs-14" scope="col">
+                              Platform
+                            </th>
+                            <th className="base-color-1 fw-semibold fs-14" scope="col">
+                              Active Plan
+                            </th>
+                            <th className="base-color-1 fw-semibold fs-14" scope="col">
+                              Action
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -224,7 +244,7 @@ function AllUserData() {
                                   </td>
                                   <td>
                                     <Link target={'_blank'} href={`/user-management/user-details/${item.user_id}`}>
-                                      <button className="btn btn-primary">View</button>
+                                      <Button className="web-button">View</Button>
                                     </Link>
                                   </td>
                                 </tr>
