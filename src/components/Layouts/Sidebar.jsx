@@ -1,76 +1,94 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleRight, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 function Sidebar(props) {
-  const { toggle, ToggleFun, toggleResponsive, setToggleResponsive } = props;
+  const { toggle, ToggleFun, toggleResponsive } = props;
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Add your link items here
+  const links = [
+    { text: 'All Users', url: '/user-management' },
+    { text: 'Queries', url: '/user-management/queries' },
+    { text: 'Orders', url: '/user-management/orders' },
+    { text: 'Reviews', url: '/user-management/reviews' },
+    { text: 'Active Prime Users', url: '/user-management/active-prime-user' },
+  ];
+
+  // Function to toggle dropdown visibility
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // useEffect(() => {
+  //   if (linksView) {
+  //     setIsOpen(!open);
+  //   }
+  // }, [isOpen]);
 
   return (
     <>
       <section
-        className={`sidebar-section bg-white position-fixed ${toggle || 'sidebar-sm'} ${
+        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${
           toggleResponsive ? 'hide-sidebar' : 'full-width'
         }`}
       >
-        <div className="menu-wrapper position-relative">
+        {(toggle && (
+          <div className="position-absolute logo-icon">
+            <Link href={'/'}>
+              <Image src="/images/logo.svg" alt="logo" className="ms-3" width={160} height={65} />
+            </Link>
+          </div>
+        )) || (
+          <>
+            <div className="position-absolute logo-icon-sm">
+              <Link href={'/'}>
+                <Image src="/logo-icon.png" alt="logo" className="ms-3" width={30} height={30} />
+              </Link>
+            </div>
+          </>
+        )}
+
+        <div className="menu-wrapper position-relative vh-100">
           <span
-            className="btn-expanded rounded-circle position-absolute justify-content-center p-2 bg-white d-lg-flex d-none cursor-pointer border"
+            className="btn-expanded position-absolute justify-content-center p-2 bg-white d-lg-flex d-none cursor-pointer"
             onClick={ToggleFun}
           >
-            <FontAwesomeIcon icon={faAngleRight} width={16} className={`fs-14 ${toggle ? 'arrow-left-icon' : ''}`} />
+            <FontAwesomeIcon icon={faBars} width={20} className="fs-20" />
           </span>
-          <ul className="navbar-nav px-3 py-3 vh-100">
-            <li className={`nav-item position-relative`} onClick={() => setToggleResponsive(!toggleResponsive)}>
-              <Link href="/user-management">
-                <div
-                  className={`nav-link fw-500 base-color-2 d-flex align-items-center ${
-                    router.pathname === '/user-management' ? 'active' : ''
-                  }`}
-                >
+          <>
+            <ul className={`navbar-nav px-3`}>
+              <li className="nav-item position-relative cursor-pointer" onClick={toggleDropdown}>
+                <div className="nav-link fw-500 base-color-2 d-flex align-items-center">
                   <FontAwesomeIcon icon={faUser} width={16} className="fs-14 mx-1" />
+                  <span className="ms-1 text-nowrap">User Management</span>
 
-                  {(toggle || toggleResponsive) && <span className="ms-1 text-nowrap">User Management</span>}
+                  <button className="ms-5 border-0 bg-whit active">
+                    {(isOpen && <FontAwesomeIcon icon={faAngleDown} />) || <FontAwesomeIcon icon={faAngleRight} />}
+                  </button>
                 </div>
-              </Link>
-            </li>
-            <li className={`nav-item position-relative`} onClick={() => setToggleResponsive(!toggleResponsive)}>
-              <Link href="/stock-list/stock-analysis">
-                <div
-                  className={`nav-link fw-500 base-color-2 d-flex align-items-center ${
-                    router.pathname === '/stock-list/stock-analysis' ? 'active' : ''
-                  }`}
-                >
-                  <FontAwesomeIcon icon={faUser} width={16} className="fs-14 mx-1" />
+              </li>
+            </ul>
 
-                  {(toggle || toggleResponsive) && <span className="ms-1 text-nowrap">Stock List</span>}
-                </div>
-              </Link>
-            </li>
-
-            {/* Other list items */}
-            {/* 
-            <li className="nav-item position-relative" onClick={() => setToggleResponsive(!toggleResponsive)}>
-              <Link href="/dashboard/profile">
-                <div
-                  className={`nav-link fs-16 fw-500 base-color-2 d-flex align-items-center ${
-                    router.pathname === '/dashboard/profile' ? 'active' : ''
-                  }`}
-                >
-                  <Image
-                    src="/images/dashboard-icons/profiles.svg"
-                    width={20}
-                    height={20}
-                    className="sidebar-icons me-4"
-                    alt="sidebar-img"
-                  />
-                  {(toggle || toggleResponsive) && <span className="text-nowrap">My Profile</span>}
-                  {(toggle || toggleResponsive) && <span className="text-nowrap">My Profile</span>}
-                </div>
-              </Link>
-            </li> */}
-          </ul>
+            <div className={`${(isOpen && 'sub-menu') || 'h-0'}`}>
+              {isOpen && (
+                <ul className="list-unstyled w-50 m-auto">
+                  {links.map((link, index) => (
+                    <li key={index} onClick={() => setIsOpen(false)} className="mb-2">
+                      <Link href={link.url} className={`base-color-3 ${router.pathname === link.url ? 'active' : ''}`}>
+                        {link.text}
+                      </Link>
+                      {console.log(router.pathname, link.url)}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </>
         </div>
       </section>
     </>

@@ -5,10 +5,8 @@ import moment from 'moment';
 import TableLoader from '_utils/Loader/TableLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
-// import { useHistory } from 'react-router-dom';
-// import { useAuth } from '../../../../_context/authContext';
-// import CommonPagination from '../../Pagination/CommonPagination';
 import { getActiveUserData } from '_services/nifty_service_api';
+import CommonPagination from 'components/Pagination/CommonPagination';
 
 function ActiveUsers() {
   const [userList, setUserList] = useState([]);
@@ -19,18 +17,11 @@ function ActiveUsers() {
   const [isLoading, setIsLoading] = useState(true);
   const lengthMenu = [10, 20, 50, 100];
   const [searchInput, setSearchInput] = useState('');
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const [sortBy, setsortBy] = useState('membership_id');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
 
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {

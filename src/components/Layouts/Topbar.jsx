@@ -19,36 +19,29 @@ function Topbar(props) {
   return (
     <>
       <div className="w-100 top-bar position-sticky top-0 bg-white">
-        <Row className="mx-0 h-100 align-items-center">
+        <Row className="mx-0 border h-100 align-items-center">
           <Col>
-            <div className="d-flex align-items-center">
-              <div className="d-flex justify-content-center logo-wrapper align-items-center">
-                <Link href={'/'}>
-                  <Image src="/images/logo.svg" alt="logo" className="ms-3" width={160} height={65} />
-                </Link>
-              </div>
-              <div className="ms-auto">
-                <Dropdown>
-                  <Dropdown.Toggle className="rounded-circle border-0 bg-white" id="dropdown-basic">
-                    <FontAwesomeIcon width={15} height={15} icon={faUserAlt} className="base-link-color" />
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu className="ps-2" onClick={logout}>
-                    <FontAwesomeIcon width={15} height={15} icon={faRightToBracket} className="base-link-color" />
-                    <span className="base-link-color ms-2 fw-normal cursor-pointer">Logout</span>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
-
-              <button className="bg-transparent border-0 web-button pt-2 toggle-btn d-lg-none d-block ms-auto">
-                <Image
-                  src="/images/dashboard-icons/toggle.svg"
-                  onClick={ToggleFun}
-                  width={26}
-                  height={26}
-                  alt="toggle-img"
-                />
-              </button>
+            <div className="text-end">
+              <Dropdown>
+                <Dropdown.Toggle className="rounded-circle border-0 bg-white" id="dropdown-basic">
+                  <FontAwesomeIcon width={15} height={15} icon={faUserAlt} className="base-link-color" />
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="ps-2" onClick={logout}>
+                  <FontAwesomeIcon width={15} height={15} icon={faRightToBracket} className="base-link-color" />
+                  <span className="base-link-color ms-2 fw-normal cursor-pointer">Logout</span>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
+
+            <button className="bg-transparent border-0 web-button pt-2 toggle-btn d-lg-none d-block ms-auto">
+              <Image
+                src="/images/dashboard-icons/toggle.svg"
+                onClick={ToggleFun}
+                width={26}
+                height={26}
+                alt="toggle-img"
+              />
+            </button>
           </Col>
         </Row>
       </div>
