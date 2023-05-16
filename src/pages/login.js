@@ -4,11 +4,11 @@ import dynamic from 'next/dynamic';
 const Login = dynamic(import('components/Login'));
 
 function DefaultPage() {
-    return (
-        <>
-            <Login />
-        </>
-    );
+  return (
+    <>
+      <Login />
+    </>
+  );
 }
 DefaultPage.layout = '';
 export default DefaultPage;
