@@ -64,7 +64,7 @@ function UserDetails(props) {
     if (userId) {
       userDataDetails();
     }
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     if (searchInput != '') {
@@ -320,11 +320,11 @@ function UserDetails(props) {
                         </div>
                       </Tab>
                       {/*inside tabing */}
-                      {/* <Tab eventKey='screenerfilter' title="Screener Filter">
+                      <Tab eventKey='screenerfilter' title="Screener Filter">
                         <div className="table-responsive table-user text-nowrap">
                           <ScreenerFilter isLoading={isLoading} advancedScreenerFilter={advancedScreenerFilter} AdvancedScreenerData={AdvancedScreenerData} currentPage={currentPage} setCurrentPage={setCurrentPage} setAdvancedScreenerData={setAdvancedScreenerData} liveScreenerFilter={liveScreenerFilter} LiveScreenerData={LiveScreenerData} setLiveScreenerData={setLiveScreenerData} optionScreenerData={optionScreenerData} optionScreenerFilter={optionScreenerFilter} setOptionScreenerData={setOptionScreenerData} />
                         </div>
-                      </Tab> */}
+                      </Tab>
                       <Tab eventKey="active_login_details" title="Login Status">
                         <div className="table-responsive table-user text-nowrap">
                           {(isLoading && <TableLoader />) || (

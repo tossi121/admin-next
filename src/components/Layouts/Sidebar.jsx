@@ -35,6 +35,19 @@ function Sidebar(props) {
                 </div>
               </Link>
             </li>
+            <li className={`nav-item position-relative`} onClick={() => setToggleResponsive(!toggleResponsive)}>
+              <Link href="/stock-list/stock-analysis">
+                <div
+                  className={`nav-link fw-500 base-color-2 d-flex align-items-center ${
+                    router.pathname === '/stock-list/stock-analysis' ? 'active' : ''
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faUser} width={16} className="fs-14 mx-1" />
+
+                  {(toggle || toggleResponsive) && <span className="ms-1 text-nowrap">Stock List</span>}
+                </div>
+              </Link>
+            </li>
 
             {/* Other list items */}
             {/* 

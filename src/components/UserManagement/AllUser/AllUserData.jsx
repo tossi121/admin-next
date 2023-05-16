@@ -10,7 +10,6 @@ import PrimeMembership from './PrimeMembership';
 import CommonPagination from 'components/Pagination/CommonPagination';
 import { getUserDataList } from '_services/nifty_service_api';
 import Link from 'next/link';
-import CommonPagination from 'components/Pagination/CommonPagination';
 
 function UserManagement() {
   const [userList, setUserList] = useState([]);
@@ -46,7 +45,7 @@ function UserManagement() {
 
   async function userDataList() {
     const params = {
-      pageNumber: 2,
+      pageNumber:currentPage,
       pageSize: pageSize,
       search_keyword: searchInput,
       is_prime: userFilter,
@@ -164,9 +163,6 @@ function UserManagement() {
         <Row>
           <Col>
             <h5 className="fw-semibold ms-3 mb-4">All Users</h5>
-            <div className="page-title-box">
-              <h4 className="page-title">All Users</h4>
-            </div>
           </Col>
         </Row>
 
@@ -203,32 +199,8 @@ function UserManagement() {
                       <Table className="table mb-0">
                         <thead>
                           <tr>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Name
-                            </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Email Address
-                            </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Mobile No.
-                            </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Sign Up Date
-                            </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Prime User
-                            </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Platform
-                            </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Active Plan
-                            </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Action
-                            </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('name')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('name')}>
                                 <div>Name</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -237,7 +209,7 @@ function UserManagement() {
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('email')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('email')}>
                                 <div>Email Address</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -246,7 +218,7 @@ function UserManagement() {
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('phone_no')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('phone_no')}>
                                 <div>Mobile No.</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'phone_no' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -255,7 +227,7 @@ function UserManagement() {
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('created_at')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('created_at')}>
                                 <div>Sign Up Date</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -263,9 +235,9 @@ function UserManagement() {
                                 </div>
                               </div>
                             </th>
-                            <th scope="col">Prime User</th>
+                            <th scope="col base-color-1 fw-semibold fs-14">Prime User</th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('platform_type')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('platform_type')}>
                                 <div>Platform</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -274,7 +246,7 @@ function UserManagement() {
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('plan_name')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('plan_name')}>
                                 <div>Active Plan</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -282,7 +254,7 @@ function UserManagement() {
                                 </div>
                               </div>
                             </th>
-                            <th scope="col">Action</th>
+                            <th scope="col base-color-1 fw-semibold fs-14">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -320,7 +292,6 @@ function UserManagement() {
                                   <td>
                                     <Link target={'_blank'} href={`/user-management/user-details/${item.user_id}`}>
                                       <Button className="web-button">View</Button>
-                                      <button className="btn btn-primary">View</button>
                                     </Link>
                                   </td>
                                 </tr>
