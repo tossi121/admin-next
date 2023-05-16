@@ -45,7 +45,7 @@ function UserManagement() {
 
   async function userDataList() {
     const params = {
-      pageNumber:currentPage,
+      pageNumber: currentPage,
       pageSize: pageSize,
       search_keyword: searchInput,
       is_prime: userFilter,
@@ -162,7 +162,7 @@ function UserManagement() {
       <section>
         <Row>
           <Col>
-            <h5 className="fw-semibold ms-3 mb-4">All Users</h5>
+            <h5 className="fw-semibold mb-2">All Users</h5>
           </Col>
         </Row>
 
@@ -200,8 +200,8 @@ function UserManagement() {
                         <thead>
                           <tr>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('name')}>
-                                <div>Name</div>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('name')}>
+                                <div className='table-heading'>Name</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                   <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -209,7 +209,7 @@ function UserManagement() {
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('email')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('email')}>
                                 <div>Email Address</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -218,7 +218,7 @@ function UserManagement() {
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('phone_no')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('phone_no')}>
                                 <div>Mobile No.</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'phone_no' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -227,7 +227,7 @@ function UserManagement() {
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('created_at')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('created_at')}>
                                 <div>Sign Up Date</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -235,9 +235,13 @@ function UserManagement() {
                                 </div>
                               </div>
                             </th>
-                            <th scope="col base-color-1 fw-semibold fs-14">Prime User</th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('platform_type')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1'>
+                                <div>Prime User</div>
+                              </div>
+                            </th>
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('platform_type')}>
                                 <div>Platform</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -246,7 +250,7 @@ function UserManagement() {
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-14' onClick={() => handleSorting('plan_name')}>
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('plan_name')}>
                                 <div>Active Plan</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
@@ -254,7 +258,11 @@ function UserManagement() {
                                 </div>
                               </div>
                             </th>
-                            <th scope="col base-color-1 fw-semibold fs-14">Action</th>
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1'>
+                                <div>Action</div>
+                              </div>
+                            </th>
                           </tr>
                         </thead>
                         <tbody>

@@ -2,6 +2,7 @@ body,
 html {
   scroll-behavior: smooth;
   background-color: #f8f9fa !important;
+  font-family: 'IBM Plex Sans', sans-serif !important;
 }
 
 a {
@@ -11,45 +12,59 @@ a {
 .fw-400 {
   font-weight: 400;
 }
+
 .fw-500 {
   font-weight: 500;
 }
+
 .fw-600 {
   font-weight: 600;
 }
+
 .fw-700 {
   font-weight: 700 !important;
 }
+
 .fs-12 {
   font-size: 12px;
 }
+
 .fs-13 {
   font-size: 13px;
 }
+
 .fs-14 {
   font-size: 14px !important;
 }
+
 .fs-15 {
   font-size: 15px;
 }
+
 .fs-16 {
   font-size: 16px;
 }
+
 .fs-17 {
   font-size: 17px;
 }
+
 .fs-18 {
   font-size: 18px;
 }
+
 .fs-20 {
   font-size: 20px;
 }
+
 .fs-22 {
   font-size: 22px;
 }
+
 .fs-24 {
   font-size: 24px;
 }
+
 .fs-28 {
   font-size: 28px;
 }
@@ -65,12 +80,15 @@ a {
 .base-color {
   color: var(--base-color-1);
 }
+
 .base-link-color {
   color: var(--base-link-color);
 }
+
 .base-color-2 {
   color: var(--base-color-2) !important;
 }
+
 .base-color-3 {
   color: var(--base-color-3);
 }
@@ -107,11 +125,13 @@ a {
   width: 8px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background-color: #ebebeb;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
+
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -123,6 +143,7 @@ input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 input[type='number'] {
   -moz-appearance: textfield;
 }
@@ -139,6 +160,7 @@ input:-webkit-autofill:active {
 .web-button {
   background-color: var(--base-link-color) !important;
   border: 1px solid transparent !important;
+
   &:hover {
     transition: all 0.4s;
     background-color: var(--bg-white) !important;
@@ -151,9 +173,11 @@ input:-webkit-autofill:active {
   th {
     color: var(--base-color-4) !important;
   }
+
   td {
     padding: 0.85rem 0.85rem !important;
   }
+
   tbody {
     tr:hover {
       transition: all 0.4s;
@@ -166,11 +190,13 @@ input:-webkit-autofill:active {
   .jodit-workplace {
     min-height: 300px !important;
   }
+
   .jodit-add-new-line,
   .jodit-status-bar__item-right:last-child {
     display: none !important;
   }
 }
+
 .date-picker {
   input[type='date']::-webkit-calendar-picker-indicator {
     bottom: 0 !important;
@@ -208,12 +234,15 @@ input::file-selector-button {
   .p-content {
     font-size: 12px;
   }
+
   .section-heading {
     font-size: 18px;
   }
+
   .common-heading {
     font-size: 17px;
   }
+
   .card-heading {
     font-size: 16px;
     line-height: 22px !important;
@@ -224,10 +253,12 @@ input::file-selector-button {
   .btn-padding {
     padding: 8px 20px;
   }
+
   .section-title {
     font-size: 28px;
     line-height: 38px;
   }
+
   .section-subtitle {
     font-size: 15px;
     line-height: 21px;
