@@ -184,7 +184,7 @@ const IndianStockProfile = () => {
                             })) ||
                             <tr>
                               <td className="border border-0 p-0 pt-2 ps-2">
-                                <p className="fw-bold fs-5 ">No Data Found</p>
+                                <p>No Data Found</p>
                               </td>
                             </tr>}
                         </tbody>

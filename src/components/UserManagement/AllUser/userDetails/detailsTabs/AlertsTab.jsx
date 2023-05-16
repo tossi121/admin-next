@@ -6,9 +6,9 @@ const AlertsTab = (props) => {
         <table className="table table-responsive subscription-table mb-0">
             <thead>
                 <tr>
-                    <th scope="col">Symbol</th>
-                    <th scope="col">Deliver Method</th>
-                    <th scope="col">Used</th>
+                    <th scope="col" className='table-heading'>Symbol</th>
+                    <th scope="col" className='table-heading'>Deliver Method</th>
+                    <th scope="col" className='table-heading'>Used</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,8 +26,8 @@ const AlertsTab = (props) => {
                             );
                         })) ||
                         <tr>
-                            <td className="border border-0 p-0 pt-2 ps-2">
-                                <p className="fw-bold fs-5 ">No Data Found</p>
+                            <td className="border border-0 p-0 pt-2">
+                                <p>No Data Found</p>
                             </td>
                         </tr>
                     }

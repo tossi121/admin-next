@@ -8,16 +8,16 @@ const TransactionsTab = (props) => {
         <table className="table table-responsive subscription-table mb-0">
             <thead>
                 <tr>
-                    <th scope="col">Order Id</th>
-                    <th scope="col">Purchase Time</th>
-                    <th scope="col">Plan Name</th>
-                    <th scope="col">Plan Type</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Payment Status</th>
-                    <th scope="col">Transaction Id</th>
-                    <th scope="col">Platform</th>
-                    <th scope="col">End Date</th>
-                    <th scope="col">Subscription Status</th>
+                    <th scope="col" className='table-heading'>Order Id</th>
+                    <th scope="col" className='table-heading'>Purchase Time</th>
+                    <th scope="col" className='table-heading'>Plan Name</th>
+                    <th scope="col" className='table-heading'>Plan Type</th>
+                    <th scope="col" className='table-heading'>Amount</th>
+                    <th scope="col" className='table-heading'>Payment Status</th>
+                    <th scope="col" className='table-heading'>Transaction Id</th>
+                    <th scope="col" className='table-heading'>Platform</th>
+                    <th scope="col" className='table-heading'>End Date</th>
+                    <th scope="col" className='table-heading'>Subscription Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +78,7 @@ const TransactionsTab = (props) => {
                             );
                         })) || <tr>
                             <td className="border border-0 p-0 pt-2 ps-2">
-                                <p className="fw-bold fs-5 ">No Data Found</p>
+                                <p>No Data Found</p>
                             </td>
                         </tr>}
                 </>

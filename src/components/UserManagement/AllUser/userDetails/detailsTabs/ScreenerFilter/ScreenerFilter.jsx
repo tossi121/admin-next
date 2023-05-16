@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Nav, Tab } from 'react-bootstrap'
+import { Nav, Tab, Tabs } from 'react-bootstrap'
 // import CommonPagination from '../../../../../Pagination/CommonPagination'
 import AdvancedScreenerTab from './AdvancedScreenerTab'
 import LiveScreenerTab from './LiveScreenerTab'
@@ -15,26 +15,14 @@ const ScreenerFilter = (props) => {
     };
     return (
         <>
-            <Nav
-                as="ul"
-                variant="pills"
-                justify
-                className="navtab-bg p-1"
+            <Tabs
+                defaultActiveKey="details"
+                id="uncontrolled-tab-example"
+                className="mb-3"
                 activeKey={activeTab}
-                onSelect={handleSelect}>
-                <Nav.Item as="li">
-                    <Nav.Link eventKey="advancedScreenerFilter">Advanced Screener Filter</Nav.Link>
-                </Nav.Item>
-                <Nav.Item as="li">
-                    <Nav.Link eventKey="liveScreenerFilter">live Screener Filter</Nav.Link>
-                </Nav.Item>
-                <Nav.Item as="li">
-                    <Nav.Link eventKey="optionScreenerFilter">Option Screener Filter</Nav.Link>
-                </Nav.Item>
-            </Nav>
-
-            <Tab.Content>
-                <Tab.Pane active={activeTab === 'advancedScreenerFilter'} eventKey="advancedScreenerFilter">
+                onSelect={handleSelect}
+            >
+                <Tab eventKey="advancedScreenerFilter" className="mb-1 px-3" title="Advanced Screener Filter">
                     {(isLoading && <TableLoader />) || (
                         <>
                             <AdvancedScreenerTab AdvancedScreenerData={AdvancedScreenerData} />
@@ -50,8 +38,8 @@ const ScreenerFilter = (props) => {
                             )}
                         </>
                     )}
-                </Tab.Pane>
-                <Tab.Pane active={activeTab === 'liveScreenerFilter'} eventKey="liveScreenerFilter">
+                </Tab>
+                <Tab eventKey="liveScreenerFilter" className="mb-1 px-3" title="live Screener Filter">
                     {(isLoading && <TableLoader />) || (
                         <>
                             <LiveScreenerTab LiveScreenerData={LiveScreenerData} />
@@ -67,24 +55,21 @@ const ScreenerFilter = (props) => {
                             )}
                         </>
                     )}
-                </Tab.Pane>
-                <Tab.Pane active={activeTab === 'optionScreenerFilter'} eventKey="optionScreenerFilter">
-                    <>
-                        <LiveOptionTab optionScreenerData={optionScreenerData} />
-                        {optionScreenerFilter.length > 0 && (
-                            <CommonPagination   
-                                data={optionScreenerFilter}
-                                totalCount={optionScreenerFilter.length}
-                                currentPage={currentPage}
-                                setCurrentPage={setCurrentPage}
-                                setCurrentData={setOptionScreenerData}
-                                pageSize={10}
-                            />
-                        )}
-                    </>
-                </Tab.Pane>
-            </Tab.Content>
-
+                </Tab>
+                <Tab eventKey="optionScreenerFilter" className="mb-1 px-3" title="Option Screener Filter">
+                    <LiveOptionTab optionScreenerData={optionScreenerData} />
+                    {optionScreenerFilter.length > 0 && (
+                        <CommonPagination
+                            data={optionScreenerFilter}
+                            totalCount={optionScreenerFilter.length}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                            setCurrentData={setOptionScreenerData}
+                            pageSize={10}
+                        />
+                    )}
+                </Tab>
+            </Tabs>
         </>
     )
 }

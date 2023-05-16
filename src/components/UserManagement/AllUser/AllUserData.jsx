@@ -162,7 +162,7 @@ function UserManagement() {
       <section>
         <Row>
           <Col>
-            <h5 className="fw-semibold mb-2">All Users</h5>
+            <h5 className="fw-500 mb-2">All Users</h5>
           </Col>
         </Row>
 
@@ -201,7 +201,7 @@ function UserManagement() {
                           <tr>
                             <th scope="col">
                               <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('name')}>
-                                <div className='table-heading'>Name</div>
+                                <div className={'fw-500'}>Name</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                   <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -210,7 +210,7 @@ function UserManagement() {
                             </th>
                             <th scope="col">
                               <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('email')}>
-                                <div>Email Address</div>
+                                <div className={'fw-500'}>Email Address</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                   <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -219,7 +219,7 @@ function UserManagement() {
                             </th>
                             <th scope="col">
                               <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('phone_no')}>
-                                <div>Mobile No.</div>
+                                <div className={'fw-500'}>Mobile No.</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'phone_no' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                   <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'phone_no' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -228,7 +228,7 @@ function UserManagement() {
                             </th>
                             <th scope="col">
                               <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('created_at')}>
-                                <div>Sign Up Date</div>
+                                <div className={'fw-500'}>Sign Up Date</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                   <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -237,12 +237,12 @@ function UserManagement() {
                             </th>
                             <th scope="col">
                               <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1'>
-                                <div>Prime User</div>
+                                <div className={'fw-500'}>Prime User</div>
                               </div>
                             </th>
                             <th scope="col">
                               <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('platform_type')}>
-                                <div>Platform</div>
+                                <div className={'fw-500'}>Platform</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                   <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'platform_type' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -251,7 +251,7 @@ function UserManagement() {
                             </th>
                             <th scope="col">
                               <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('plan_name')}>
-                                <div>Active Plan</div>
+                                <div className={'fw-500'}>Active Plan</div>
                                 <div>
                                   <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                   <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'plan_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -260,7 +260,7 @@ function UserManagement() {
                             </th>
                             <th scope="col">
                               <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1'>
-                                <div>Action</div>
+                                <div className={'fw-500'}>Action</div>
                               </div>
                             </th>
                           </tr>
@@ -308,7 +308,7 @@ function UserManagement() {
                               <>
                                 <tr>
                                   <td className="border border-0 p-0 pt-2 ps-2">
-                                    <p className="fw-bold fs-5 ">No Data Found</p>
+                                    <p>No Data Found</p>
                                   </td>
                                 </tr>
                               </>

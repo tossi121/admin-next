@@ -33,9 +33,8 @@ function Sidebar(props) {
   return (
     <>
       <section
-        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${
-          toggleResponsive ? 'hide-sidebar' : 'full-width'
-        }`}
+        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${toggleResponsive ? 'hide-sidebar' : 'full-width'
+          }`}
       >
         {(toggle && (
           <div className="position-absolute logo-icon">
@@ -44,14 +43,14 @@ function Sidebar(props) {
             </Link>
           </div>
         )) || (
-          <>
-            <div className="position-absolute logo-icon-sm">
-              <Link href={'/'}>
-                <Image src="/logo-icon.png" alt="logo" className="ms-3" width={30} height={30} />
-              </Link>
-            </div>
-          </>
-        )}
+            <>
+              <div className="position-absolute logo-icon-sm">
+                <Link href={'/'}>
+                  <Image src="/logo-icon.png" alt="logo" className="ms-3" width={30} height={30} />
+                </Link>
+              </div>
+            </>
+          )}
 
         <div className="menu-wrapper position-relative vh-100">
           <span
@@ -73,16 +72,14 @@ function Sidebar(props) {
                 </div>
               </li>
             </ul>
-
             <div className={`${(isOpen && 'sub-menu') || 'h-0'}`}>
               {isOpen && (
-                <ul className="list-unstyled w-50 m-auto">
+                <ul className="list-unstyled w-100">
                   {links.map((link, index) => (
-                    <li key={index} onClick={() => setIsOpen(false)} className="mb-2">
-                      <Link href={link.url} className={`base-color-3 ${router.pathname === link.url ? 'active' : ''}`}>
+                    <li key={index} onClick={() => setIsOpen(true)} className='w-100 d-flex'>
+                      <Link href={link.url} className={`mb-2 ms-5 w-100 base-color-3 ${router.pathname === link.url ? 'active' : ''}`}>
                         {link.text}
                       </Link>
-                      {console.log(router.pathname, link.url)}
                     </li>
                   ))}
                 </ul>

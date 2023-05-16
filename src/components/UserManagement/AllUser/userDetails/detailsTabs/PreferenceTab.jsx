@@ -5,32 +5,32 @@ const PreferenceTab = (props) => {
     const { userDetails } = props
     return (
         <div className="d-flex align-items-center">
-            <h5 className="me-2 fw-bold">Dark Theme</h5>
+            <h5 className="common-title">Dark Theme</h5>
             {userDetails.dark_mode == false && (
-                <Badge pill bg="" className="me-1 badge-soft-danger">
+                <Badge pill bg="" className="me-1  ms-2 mb-2 badge-soft-danger">
                     Disabled
                 </Badge>
             )}
             {userDetails.dark_mode == true && (
-                <Badge pill bg="" className="me-1 badge-soft-success">
+                <Badge pill bg="" className="me-1 ms-2 mb-2  badge-soft-success">
                     Enabled
                 </Badge>
             )}
-            <div className="d-flex align-items-center mx-3">
-                <h5 className="me-2 fw-bold">Eod Alert</h5>
+            <div className="d-flex align-items-center mx-2">
+                <h5 className="common-title">Eod Alert</h5>
                 {userDetails.eod_alert == false && (
-                    <Badge pill bg="" className="me-1 badge-soft-danger">
+                    <Badge pill bg="" className="me-1 ms-2 mb-2  badge-soft-danger">
                         Disabled
                     </Badge>
                 )}
                 {userDetails.eod_alert == true && (
-                    <Badge pill bg="" className="me-1 badge-soft-success">
+                    <Badge pill bg="" className="me-1 ms-2 mb-2  badge-soft-success">
                         Enabled
                     </Badge>
                 )}
             </div>
             <div className="d-flex align-items-center">
-                <h5 className="me-2 fw-bold">Registered Platform</h5>
+                <h5 className="common-title">Registered Platform</h5>
                 <Badge pill bg="" className="me-1 badge-soft-info">
                     {userDetails.platform_type == 1 && 'Web Desktop'}
                     {userDetails.platform_type == 2 && 'Web Tablet'}

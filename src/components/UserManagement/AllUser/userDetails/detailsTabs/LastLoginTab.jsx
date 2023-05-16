@@ -8,10 +8,10 @@ const LastLoginTab = (props) => {
         <table className="table table-responsive subscription-table mb-0">
             <thead>
                 <tr>
-                    <th scope="col">Last Login</th>
-                    <th scope="col">Platform</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">User Agent</th>
+                    <th scope="col" className='table-heading'>Last Login</th>
+                    <th scope="col" className='table-heading'>Platform</th>
+                    <th scope="col" className='table-heading'>Status</th>
+                    <th scope="col" className='table-heading'>User Agent</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,8 +39,8 @@ const LastLoginTab = (props) => {
                             );
                         })) ||
                         <tr>
-                            <td className="border border-0 p-0 pt-2 ps-2">
-                                <p className="fw-bold fs-5 ">No Data Found</p>
+                            <td className="border border-0 p-0 pt-2">
+                                <p>No Data Found</p>
                             </td>
                         </tr>
                     }
