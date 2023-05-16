@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Badge, Button, Card, Col, Row, Table } from 'react-bootstrap';
 import moment from 'moment';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faSearch } from '@fortawesome/free-solid-svg-icons';
-// import { useAuth } from '../../../../_context/authContext';
-// import PrimeMembership from './PrimeMembership';
-import { getUserDataList } from '_services/nifty_service_api';
 import TableLoader from '_utils/Loader/TableLoader';
-import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltDown, faLongArrowAltUp, faPen, faSearch } from '@fortawesome/free-solid-svg-icons';
+// import { Link, useHistory } from 'react-router-dom';
+// import { useAuth } from '../../../../_context/authContext';
+import PrimeMembership from './PrimeMembership';
 import CommonPagination from 'components/Pagination/CommonPagination';
+import { getUserDataList } from '_services/nifty_service_api';
+import Link from 'next/link';
 
-function AllUserData() {
+function UserManagement() {
   const [userList, setUserList] = useState([]);
   const [totalItems, setTotalItems] = useState(null);
   const [totalPages, setTotalPages] = useState(null);
@@ -22,31 +23,43 @@ function AllUserData() {
   const lengthMenu = [10, 20, 50, 100];
   const [userFilter, setUserFilter] = useState('0,1');
   const [searchInput, setSearchInput] = useState('');
+  // const { isLoggedIn } = useAuth();
+  // const history = useHistory();
+  const [sortBy, setsortBy] = useState('user_id');
+  const [sortType, setsortType] = useState('asc');
+  const [sortToggle, setSortToggle] = useState(false);
+  const [sortStyle, setSortStyle] = useState('text-dark');
+
+  // useEffect(() => {
+  //   if (!isLoggedIn) {
+  //     history.push('/auth/login');
+  //   }
+  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       userDataList();
-    }, 500);
+    }, 300);
     return () => clearTimeout(debounceTimer);
-  }, [currentPage, pageSize, searchInput, userFilter]);
+  }, [currentPage, pageSize, searchInput, userFilter, sortBy, sortType, sortStyle]);
 
   async function userDataList() {
     const params = {
-      pageNumber: 2,
+      pageNumber: currentPage,
       pageSize: pageSize,
       search_keyword: searchInput,
       is_prime: userFilter,
-      order_by: 'created_at',
-      order_dir: 'desc',
+      order_by: sortBy,
+      order_dir: sortType
     };
     setIsLoading(true);
     const response = await getUserDataList(params);
     if (response?.result == 1) {
       const data = response.data;
-      setTotalPages(data.totalPages);
-      setTotalItems(data.totalItems);
       const dataArray = handleUserData(data.items);
       setUserList(dataArray);
+      setTotalPages(data.totalPages);
+      setTotalItems(data.totalItems);
     } else {
       setUserList([]);
     }
@@ -60,7 +73,7 @@ function AllUserData() {
         id: item.id,
         user_id: item.user_id,
         name: (item.name == null && 'N/A') || (item.name == '' && 'N/A') || item.name,
-        email: item.email,
+        email: (item.email == null && 'N/A') || (item.email == '' && 'N/A') || item.email,
         created_at: item.created_at,
         plan_name: (item.plan_name == null && 'No Plan') || (item.plan_name == '' && 'No Plan') || item.plan_name,
         is_prime: item.is_prime,
@@ -117,9 +130,7 @@ function AllUserData() {
               setUserFilter(e.target.value);
             }}
           >
-            <option defaultValue={'0,1'} value={'0,1'}>
-              All User
-            </option>
+            <option defaultValue={'0,1'} value={'0,1'}>All User</option>
             <option value={'1'}>Prime User</option>
             <option value={'0'}>Non Prime User</option>
           </select>
@@ -133,20 +144,25 @@ function AllUserData() {
     setShowPrime(true);
   }
 
+  function handleSorting(params) {
+    setsortBy(params)
+    setSortToggle(prevstate => !prevstate)
+    if (sortToggle) {
+      setsortType('desc')
+      setSortStyle('text-danger')
+    } else {
+      setsortType('asc')
+      setSortStyle('text-success')
+    }
+  }
+
   return (
     <>
-      {showPrime && (
-        <PrimeMembership
-          show={showPrime}
-          userDetailsData={userDataList}
-          setShow={setShowPrime}
-          selectedId={selectedId}
-        />
-      )}
+      {showPrime && <PrimeMembership show={showPrime} userDetailsData={userDataList} setShow={setShowPrime} selectedId={selectedId} />}
       <section>
         <Row>
           <Col>
-            <h5 className="fw-semibold ms-3 mb-4">All Users</h5>
+            <h5 className="fw-semibold mb-2">All Users</h5>
           </Col>
         </Row>
 
@@ -183,29 +199,69 @@ function AllUserData() {
                       <Table className="table mb-0">
                         <thead>
                           <tr>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Name
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('name')}>
+                                <div className='table-heading'>Name</div>
+                                <div>
+                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                </div>
+                              </div>
                             </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Email Address
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('email')}>
+                                <div>Email Address</div>
+                                <div>
+                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                </div>
+                              </div>
                             </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Mobile No.
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('phone_no')}>
+                                <div>Mobile No.</div>
+                                <div>
+                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'phone_no' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'phone_no' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                </div>
+                              </div>
                             </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Sign Up Date
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('created_at')}>
+                                <div>Sign Up Date</div>
+                                <div>
+                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                </div>
+                              </div>
                             </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Prime User
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1'>
+                                <div>Prime User</div>
+                              </div>
                             </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Platform
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('platform_type')}>
+                                <div>Platform</div>
+                                <div>
+                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'platform_type' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                </div>
+                              </div>
                             </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Active Plan
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('plan_name')}>
+                                <div>Active Plan</div>
+                                <div>
+                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'plan_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                </div>
+                              </div>
                             </th>
-                            <th className="base-color-1 fw-semibold fs-14" scope="col">
-                              Action
+                            <th scope="col">
+                              <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1'>
+                                <div>Action</div>
+                              </div>
                             </th>
                           </tr>
                         </thead>
@@ -218,22 +274,21 @@ function AllUserData() {
                                   <td>{item.email}</td>
                                   <td> {item.phone_no}</td>
                                   <td> {moment(item.created_at).format('MMM DD YYYY')}</td>
-                                  <td>
-                                    {item.is_prime ? (
-                                      <Badge pill bg="" className="me-1 fs-6 badge-soft-success">
-                                        Prime
-                                      </Badge>
-                                    ) : (
-                                      <Badge pill bg="" className="me-1 fs-6 badge-soft-danger">
-                                        Not Prime
-                                      </Badge>
-                                    )}
+                                  <td>{item.is_prime ?
+                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-success">
+                                      Prime
+                                    </Badge> :
+                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-danger">
+                                      Not Prime
+                                    </Badge>}
                                   </td>
                                   <td>{item.platform_type}</td>
                                   <td>
-                                    <span className="me-2">{item.plan_name}</span>
+                                    <span className='me-2'>
+                                      {item.plan_name}
+                                    </span>
                                     <span>
-                                      <FontAwesomeIcon
+                                      < FontAwesomeIcon
                                         icon={faPen}
                                         width={16}
                                         className="cursor-pointer"
@@ -250,14 +305,14 @@ function AllUserData() {
                                 </tr>
                               );
                             })) || (
-                            <>
-                              <tr>
-                                <td className="border border-0 p-0 pt-2 ps-2">
-                                  <p className="fw-bold fs-14">No Data Found</p>
-                                </td>
-                              </tr>
-                            </>
-                          )}
+                              <>
+                                <tr>
+                                  <td className="border border-0 p-0 pt-2 ps-2">
+                                    <p className="fw-bold fs-5 ">No Data Found</p>
+                                  </td>
+                                </tr>
+                              </>
+                            )}
                         </tbody>
                       </Table>
                     </>
@@ -277,9 +332,9 @@ function AllUserData() {
             </Card>
           </Col>
         </Row>
-      </section>
+      </section >
     </>
   );
 }
 
-export default AllUserData;
+export default UserManagement;

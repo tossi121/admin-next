@@ -64,7 +64,7 @@ function UserDetails(props) {
     if (userId) {
       userDataDetails();
     }
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     if (searchInput != '') {

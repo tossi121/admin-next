@@ -86,11 +86,11 @@ const CommonPagination = (props) => {
             {totalCount?.toLocaleString('en-IN')} entries
           </p>
         )) || (
-          <p className="mb-sm-0 text-nowrap">
-            Showing {numFirst?.toLocaleString('en-IN')} to {totalCount?.toLocaleString('en-IN')} of{' '}
-            {totalCount?.toLocaleString('en-IN')} entries
-          </p>
-        )}
+            <p className="mb-sm-0 text-nowrap">
+              Showing {numFirst?.toLocaleString('en-IN')} to {totalCount?.toLocaleString('en-IN')} of{' '}
+              {totalCount?.toLocaleString('en-IN')} entries
+            </p>
+          )}
 
         <ul className="pagination-container pagination-bar mb-0 p-0 d-flex align-items-center justify-content-end ms-auto mt-md-0 list-unstyled">
           <li
@@ -110,9 +110,9 @@ const CommonPagination = (props) => {
             return (
               <>
                 <li
-                  className={`pagination-item ${(pageNumber === currentPage && 'selected') || ''} ${
-                    (isLoading && 'disabled') || ''
-                  }`}
+                  className={`pagination-item ${(pageNumber === currentPage && 'selected') || ''} ${(isLoading && 'disabled') || ''
+                    }`}
+                  key={page}
                   onClick={() => onPageChange(pageNumber)}
                 >
                   {pageNumber.toLocaleString('en-IN')}
@@ -121,10 +121,9 @@ const CommonPagination = (props) => {
             );
           })}
           <li
-            className={`pagination-item ${(currentPage === lastPage && 'disabled') || ''}  ${
-              (isLoading && 'disabled') || ''
-            } `}
-            onClick={onNext}
+            className={`pagination-item ${(currentPage === lastPage && 'disabled') || ''}  ${(isLoading && 'disabled') || ''
+              } `}
+              onClick={onNext}
           >
             <FontAwesomeIcon icon={faChevronLeft} width={8} />
           </li>

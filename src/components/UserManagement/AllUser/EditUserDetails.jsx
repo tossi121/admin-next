@@ -2,7 +2,6 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
-// import { getUserDetails, updateUserDetails } from '../../../../_services/nifty_service_api';
 import { toast } from 'react-toastify';
 import moment from 'moment';
 import { getUserDetails, updateUserDetails } from '_services/nifty_service_api';
@@ -52,9 +51,7 @@ const EditUserDetails = (props) => {
                 useremail: data?.email,
                 mobileno: data?.phone_no,
                 android_app_version: data?.user_android_app_version,
-                // is_admin: data?.is_admin,
-                // is_staff: data?.is_staff,
-                // is_superuser: data?.is_superuser,
+
                 user_status: Boolean(data?.is_active).toString(),
                 annualincome: data?.annual_income,
                 city: data?.city,

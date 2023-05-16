@@ -1,8 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import UserDetails from '../../../components/UserManagement/AllUser/userDetails/UserDetails';
 import { useRouter } from 'next/router';
-const ActiveUsers = dynamic(import('components/UserManagement/ActivePrimeUsers/ActiveUsers'));
+const UserDetails = dynamic(import('../../../components/UserManagement/AllUser/userDetails/UserDetails'));
 
 function DefaultPage() {
     const router = useRouter()
