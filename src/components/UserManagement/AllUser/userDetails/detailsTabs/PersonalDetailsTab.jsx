@@ -8,31 +8,31 @@ const PersonalDetailsTab = (props) => {
     <>
       <Row>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Name:</h5>
-          <span className="ms-2">
+          <h5 className="common-title">Name:</h5>
+          <div className="ms-2 mb-1">
             {(userDetails?.name == null && 'N/A') ||
               (userDetails.name == '' && 'N/A') ||
               userDetails.name}
-          </span>
+          </div>
         </Col>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Mobile No.: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Mobile No.: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.phone_no == null && 'N/A') ||
               (userDetails.phone_no == '' && 'N/A') ||
               userDetails.phone_no}
-          </span>
+          </div>
         </Col>
         <Col lg={4} className='d-flex align-items-center'>
-          <h5 className="fw-bold text-nowrap">Email Address:</h5>
-          <span className="mx-2">{userDetails?.email}</span>
+          <h5 className="common-title text-nowrap">Email Address:</h5>
+          <div className="mx-2 mb-2">{userDetails?.email}</div>
           {userDetails.is_email_verify == false && (
-            <Badge pill bg="" className="me-1 badge-soft-danger">
+            <Badge pill bg="success" className="me-1 mb-3 pb-0 badge-soft-danger">
               Not Verified
             </Badge>
           )}
           {userDetails.is_email_verify == true && (
-            <Badge pill bg="" className="me-1 badge-soft-success">
+            <Badge pill bg="danger" className="me-1 mb-3 pb-0 badge-soft-success">
               Verified
             </Badge>
           )}
@@ -40,136 +40,136 @@ const PersonalDetailsTab = (props) => {
       </Row>
       <Row>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Social Flag: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Social Flag: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.user_social_flag == 0 && 'Email') ||
               (userDetails.user_social_flag == 1 && 'Google') ||
               (userDetails.user_social_flag == 2 && 'Facebook')}
-          </span>
+          </div>
         </Col>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Gender: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Gender: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.gender == null && 'N/A') ||
               (userDetails.gender == '' && 'N/A') ||
               userDetails.gender == 'M' && 'Male' ||
               userDetails.gender == 'F' && "Female" ||
               userDetails.gender
             }
-          </span>
+          </div>
         </Col>
         <Col lg={4} className='d-flex align-items-center'>
-          <h5 className="me-2 fw-bold">Date Of Birth: </h5>
-          <span>
+          <h5 className="me-2 f common-title">Date Of Birth: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.date_of_birth == null && 'N/A') ||
               (userDetails.date_of_birth == '' && 'N/A') ||
               moment(userDetails.date_of_birth).format('MMM DD, YYYY')}
-          </span>
+          </div>
         </Col>
       </Row>
       <Row>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="me-2 fw-bold">Country</h5>
-          <span>
+          <h5 className="me-2 f common-title">Country: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.country == null && 'N/A') ||
               (userDetails.country == '' && 'N/A') ||
               userDetails.country}
-          </span>
+          </div>
         </Col>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">State: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">State: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.state == null && 'N/A') ||
               (userDetails.state == '' && 'N/A') ||
               userDetails.state
             }
-          </span>
+          </div>
         </Col>
         <Col lg={4} className='d-flex align-items-center'>
-          <h5 className="fw-bold">City:</h5>
-          <span className="ms-2">
+          <h5 className="common-title">City:</h5>
+          <div className="ms-2 mb-1">
             {(userDetails.city == null && 'N/A') ||
               (userDetails.city == '' && 'N/A') ||
               userDetails.city}
-          </span>
+          </div>
         </Col>
       </Row >
       <Row>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Pincode: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Pincode: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.pincode == null && 'N/A') ||
               (userDetails.pincode == '' && 'N/A') ||
               userDetails.pincode}
-          </span>
+          </div>
         </Col>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Industry: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Industry: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.industry == null && 'N/A') ||
               (userDetails.industry == '' && 'N/A') ||
               userDetails.industry}
-          </span>
+          </div>
         </Col>
         <Col lg={4} className='d-flex align-items-center'>
-          <h5 className="me-2 fw-bold">Occupation: </h5>
-          <span>
+          <h5 className="me-2 f common-title">Occupation: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.occupation == null && 'N/A') ||
               (userDetails.occupation == '' && 'N/A') ||
               userDetails.occupation}
-          </span>
+          </div>
         </Col>
       </Row>
       <Row>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Annual Income: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Annual Income: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.annual_income == null && 'N/A') ||
               (userDetails.annual_income == '' && 'N/A') ||
               userDetails.annual_income}
-          </span>
+          </div>
         </Col>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Android app version: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Android app version: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.user_android_app_version == null && 'N/A') ||
               (userDetails.user_android_app_version == '' && 'N/A') ||
               userDetails.user_android_app_version}
-          </span>
+          </div>
         </Col>
         <Col lg={4} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Ios app version: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Ios app version: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.user_ios_app_version == null && 'N/A') ||
               (userDetails.user_ios_app_version == '' && 'N/A') ||
               userDetails.user_ios_app_version
             }
-          </span>
+          </div>
         </Col>
       </Row>
       <Row>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Referral Code: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Referral Code: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.my_referral_code == null && 'N/A') ||
               (userDetails.my_referral_code == '' && 'N/A') ||
               userDetails.my_referral_code}
-          </span>
+          </div>
         </Col>
         <Col lg={3} className='d-flex align-items-center'>
-          <h5 className="fw-bold">Active User: </h5>
-          <span className="ms-2">
+          <h5 className="common-title">Active User: </h5>
+          <div className="ms-2 mb-1">
             {(userDetails.my_referral_code == '' && 'N/A') ||
               userDetails.is_active ? 'Yes' : 'No'}
-          </span>
+          </div>
         </Col>
         <Col lg={4} className='d-flex align-items-center'>
-          <h5 className="me-2 fw-bold">User Id: </h5>
-          <span>
+          <h5 className="common-title">User Id: </h5>
+          <div className="ms-2 mb-2">
             {(userDetails.user_id == null && 'N/A') ||
               (userDetails.user_id == '' && 'N/A') ||
               userDetails.user_id}
-          </span>
+          </div>
         </Col>
       </Row>
     </>

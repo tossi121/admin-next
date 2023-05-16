@@ -19,14 +19,9 @@ import { getUserDataList, getUserDetails } from '_services/nifty_service_api';
 import CommonPagination from 'components/Pagination/CommonPagination';
 
 function UserDetails(props) {
-  const {userId} = props
-
-  // const { isLoggedIn } = useAuth();
+  const { userId } = props
   const [isLoading, setIsLoading] = useState(true);
   const [userDetails, setUserDetails] = useState([]);
-  // const router = useLocation();
-  // const userId = router.pathname.split('/user-details/');
-  // const id = userId[1];
   const [searchInput, setSearchInput] = useState('');
   const [userList, setUserList] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
@@ -48,17 +43,6 @@ function UserDetails(props) {
   const [activelastLoginData, setActivelastLoginData] = useState([]);
   const [editShow, setEditShow] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
-
-  // const history = useHistory();
-
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     userDataDetails();
-  //   }
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     if (userId) {
@@ -150,18 +134,18 @@ function UserDetails(props) {
           <section className="user-details">
             <Row>
               <Col>
-                <div className="page-title-box">
-                  <h4 className="page-title">
+                <div className="page-title-box d-flex justify-content-between align-items-center">
+                  <h4 className="page-title fs-5 fw-semibold">
                     {(userDetails?.name == null || userDetails.name == '') && 'User Details' || userDetails.name + ' Details'}
                   </h4>
                   <div className="d-flex text-nowrap justify-content-around">
                     <div className='me-3'>
-                      <Button onClick={() => handleEditShow(userDetails.user_id)}>
+                      <Button className='common-button' onClick={() => handleEditShow(userDetails.user_id)}>
                         Edit Details
                       </Button>
                     </div>
-                    <div className='search-box position-relative me-3 mt-1 user-search'>
-                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                    <div className='search-box position-relative text-center my-2 ms-auto pb-2'>
+                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2" />
                       <input
                         type="text"
                         className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -181,7 +165,7 @@ function UserDetails(props) {
                             const userSpace = '  -  ';
                             const userData = userName + userSpace + userEmail + userSpace + userMobile;
                             return (
-                              <a href={`/user-details/${item.user_id}`} className="text-secondary" key={index}>
+                              <a href={`/user-management/user-details/${item.user_id}`} className="text-secondary" key={index}>
                                 <li className="d-flex my-2" title={userData}>
                                   <p key={index} className="ps-2 cursor-pointer mb-0 overflow-hidden text-nowrap">
                                     {userName}
@@ -210,18 +194,18 @@ function UserDetails(props) {
                     <Tabs
                       defaultActiveKey="details"
                       id="uncontrolled-tab-example"
-                      className="mb-0"
+                      className="mb-3"
                       onSelect={() => setSearchInput('')}
                     >
-                      <Tab eventKey="details" className="mb-0" title="Personal Info">
+                      <Tab eventKey="details" className="mb-1 px-3" title="Personal Info">
                         {(isLoading && <TableLoader />) || (
                           <PersonalDetailsTab userDetails={userDetails} />
                         )}
                       </Tab>
-                      <Tab eventKey="preference" title="Preferences">
+                      <Tab eventKey="preference" className='px-3' title="Preferences">
                         <PreferenceTab userDetails={userDetails} />
                       </Tab>
-                      <Tab eventKey="Orders" title="Orders">
+                      <Tab eventKey="Orders" className='px-2' title="Orders">
                         <div className="table-responsive table-user text-nowrap">
                           {(isLoading && <TableLoader />) || (
                             <>
@@ -281,7 +265,7 @@ function UserDetails(props) {
                           </Dropdown.Menu>
                         </Dropdown>
                       </Tab>
-                      <Tab eventKey="alerts" title="Alerts">
+                      <Tab eventKey="alerts" className='px-1' title="Alerts">
                         <div className="table-responsive table-user text-nowrap">
                           {(isLoading && <TableLoader />) || (
                             <>
@@ -300,7 +284,7 @@ function UserDetails(props) {
                           )}
                         </div>
                       </Tab>
-                      <Tab eventKey="watchlist" title="Watchlist">
+                      <Tab eventKey="watchlist" className='px-1' title="Watchlist">
                         <div className="table-responsive table-user text-nowrap">
                           {(isLoading && <TableLoader />) || (
                             <>
@@ -320,12 +304,12 @@ function UserDetails(props) {
                         </div>
                       </Tab>
                       {/*inside tabing */}
-                      <Tab eventKey='screenerfilter' title="Screener Filter">
+                      <Tab eventKey='screenerfilter' className='px-2' title="Screener Filter">
                         <div className="table-responsive table-user text-nowrap">
                           <ScreenerFilter isLoading={isLoading} advancedScreenerFilter={advancedScreenerFilter} AdvancedScreenerData={AdvancedScreenerData} currentPage={currentPage} setCurrentPage={setCurrentPage} setAdvancedScreenerData={setAdvancedScreenerData} liveScreenerFilter={liveScreenerFilter} LiveScreenerData={LiveScreenerData} setLiveScreenerData={setLiveScreenerData} optionScreenerData={optionScreenerData} optionScreenerFilter={optionScreenerFilter} setOptionScreenerData={setOptionScreenerData} />
                         </div>
                       </Tab>
-                      <Tab eventKey="active_login_details" title="Login Status">
+                      <Tab eventKey="active_login_details" className='px-1' title="Login Status">
                         <div className="table-responsive table-user text-nowrap">
                           {(isLoading && <TableLoader />) || (
                             <>

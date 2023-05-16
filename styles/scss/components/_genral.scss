@@ -2,7 +2,46 @@
     border: none !important;
 }
 
-.table-heading{
-    // font-size: 30px !important;
-    font-weight: 600;
+.table-heading {
+    font-size: 0px !important;
+    font-weight: 500;
+}
+
+.common-button {
+    background: var(--base-link-color) !important;
+    color: #fff;
+    border: none;
+}
+
+.page-title {
+    color: rgb(70, 71, 70) !important;
+    font-weight: 600 !important;
+    font-family: sans-serif !important;
+}
+
+.common-title {
+    font-weight: 500 !important;
+    font-size: 17px !important;
+    padding: 2px !important;
+    padding-top: 3px !important;
+    line-height: 20px !important;
+}
+
+.page-title div {
+    margin: 15px !important;
+}
+
+
+.badge-soft-success{
+    color: #43d39e !important;
+    background-color: rgba(67, 211, 158, 0.18) !important;
+    box-shadow: none;
+    font-size: 10px !important;
+}
+
+.badge-soft-danger{
+    color: #ff5c75 !important;
+    background-color: rgba(255, 92, 117, 0.18) !important;
+    box-shadow: none;
+    font-size: 10px !important;
 }

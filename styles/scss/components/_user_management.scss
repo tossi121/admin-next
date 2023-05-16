@@ -1,12 +1,14 @@
 .plan-status {
   .dropdown-toggle {
     background-color: #5369f8 !important;
+
     &:hover {
       color: #fff;
       transition: all 0.4s;
       background-color: #4759d3 !important;
     }
   }
+
   .form-check-label {
     color: #343a40;
     cursor: pointer;
@@ -38,6 +40,7 @@
       height: 30px;
     }
   }
+
   svg:hover {
     transition: all 0.4s;
     color: #5369f8 !important;
@@ -49,17 +52,21 @@
     color: #000 !important;
     font-size: 0.95rem !important;
   }
+
   .nav-tabs .active {
     color: #5369f8 !important;
     border-bottom: 2px solid #5369f8 !important;
   }
+
   .user-search {
     width: 330px !important;
   }
+
   .user-list li p {
     text-overflow: ellipsis;
     width: 173px !important;
   }
+
   .user-list li p:first-child {
     text-overflow: ellipsis;
     width: 150px !important;
@@ -69,12 +76,14 @@
 .search-box {
   top: -5px;
   width: 280px;
+
   .fa-search,
   .fa-times {
     top: 9px;
     right: 6px;
     color: #bdbdbd;
   }
+
   .input-border {
     position: absolute;
     top: 16px;
@@ -83,6 +92,7 @@
     bottom: 0;
     width: 100%;
     transition: 0.2s ease all;
+
     &:after {
       content: '';
       position: absolute;
@@ -103,7 +113,7 @@
     color: rgba(0, 0, 0, 0.555);
 
     &:focus {
-      ~ .input-border {
+      ~.input-border {
         &:after {
           visibility: visible;
           width: 100%;
@@ -113,6 +123,7 @@
       }
     }
   }
+
   ::placeholder {
     color: rgba(0, 0, 0, 0.555);
   }
@@ -120,13 +131,16 @@
 
 .user-details .search-box {
   width: 400px !important;
+
   .user-list {
     scrollbar-color: #5369f8 !important;
     height: max-content;
     z-index: 2;
+
     li p {
       width: 270px;
     }
+
     a:hover {
       color: #5369f8 !important;
       transition: all 0.4s;
@@ -145,6 +159,7 @@
               transition: all 0.4s;
             }
           }
+
           svg:last-child {
             &:hover {
               color: rgb(247, 54, 54);
@@ -157,11 +172,32 @@
   }
 }
 
+.nav-tabs .nav-link,
+.nav-tabs .nav-link.active {
+  border: none;
+  color: rgb(75, 75, 75) !important;
+  letter-spacing: 1px;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--base-link-color) !important;
+  border-bottom: 2px solid var(--base-link-color) !important;
+}
+
+.common-input-feild {
+  border: 1px solid rgb(189, 187, 187);
+}
+
+.common-input-feild:focus {
+  box-shadow: none;
+}
+
 @media (max-width: 991px) {
   .search-box {
     width: 40% !important;
   }
 }
+
 @media (max-width: 319px) {
   .search-box {
     width: 32% !important;
