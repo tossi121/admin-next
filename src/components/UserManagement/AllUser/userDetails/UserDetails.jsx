@@ -140,7 +140,7 @@ function UserDetails(props) {
                   </h4>
                   <div className="d-flex text-nowrap justify-content-around">
                     <div className='me-3'>
-                      <Button className='common-button' onClick={() => handleEditShow(userDetails.user_id)}>
+                      <Button className='web-button' onClick={() => handleEditShow(userDetails.user_id)}>
                         Edit Details
                       </Button>
                     </div>
@@ -225,7 +225,7 @@ function UserDetails(props) {
                         </div>
                         {/* filter for Subscription Status */}
                         <Dropdown className="position-absolute plan-status top-0 end-0 mt-2 me-3">
-                          <Dropdown.Toggle variant=" " id="dropdown-basic" data-bs-auto-close="inside" aria-expanded="false">
+                          <Dropdown.Toggle variant='' id="dropdown-basic" data-bs-auto-close="inside" aria-expanded="false">
                             Select plan
                           </Dropdown.Toggle>
                           <Dropdown.Menu>

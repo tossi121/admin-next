@@ -103,7 +103,7 @@ function UserReview() {
       <Row>
         <Col>
           <div className="page-title-box">
-            <h4 className="page-title">User Reviews</h4>
+            <h4 className="fw-500 fs-18">User Reviews</h4>
           </div>
         </Col>
       </Row>
@@ -115,7 +115,7 @@ function UserReview() {
               <div className="d-flex justify-content-between align-items-center">
                 {selectBox()}
                 <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                  <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                  <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2" />
                   <input
                     type="text"
                     className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -137,7 +137,7 @@ function UserReview() {
                         <tr>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_email')}>
-                              <div>User Email</div>
+                              <div className="fs-15 fw-500 ps-1">User Email</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -146,7 +146,7 @@ function UserReview() {
                           </th>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_android_app_version')}>
-                              <div>App Version</div>
+                              <div className="fs-15 fw-500 ps-1">App Version</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_android_app_version' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_android_app_version' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -155,7 +155,7 @@ function UserReview() {
                           </th>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('rating')}>
-                              <div>Rating</div>
+                              <div className="fs-15 fw-500 ps-1">Rating</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'rating' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'rating' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -164,7 +164,7 @@ function UserReview() {
                           </th>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('rating_desc')}>
-                              <div>Description</div>
+                              <div className="fs-15 fw-500 ps-1">Description</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'rating_desc' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'rating_desc' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -173,7 +173,7 @@ function UserReview() {
                           </th>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('created_at')}>
-                              <div>Date</div>
+                              <div className="fs-15 fw-500 ps-1">Date</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -198,7 +198,7 @@ function UserReview() {
                             <>
                               <tr>
                                 <td className="border border-0 p-0 pt-2 ps-2">
-                                  <p className="fw-bold fs-5 ">No Data Found</p>
+                                  <p>No Data Found</p>
                                 </td>
                               </tr>
                             </>

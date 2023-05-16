@@ -42,9 +42,9 @@ const AdvancedScreenerTab = (props) => {
             {showScreenerModal()}
             <thead>
                 <tr>
-                    <th scope="col">Screener Id</th>
-                    <th scope="col">Screener Name</th>
-                    <th scope="col">Filter</th>
+                    <th scope="col" className='table-heading'>Screener Id</th>
+                    <th scope="col" className='table-heading'>Screener Name</th>
+                    <th scope="col" className='table-heading'>Filter</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,7 +65,7 @@ const AdvancedScreenerTab = (props) => {
                             );
                         })) || <tr>
                             <td className="border border-0 p-0 pt-2 ps-2">
-                                <p className="fw-bold fs-5 ">No Data Found</p>
+                                <p>No Data Found</p>
                             </td>
                         </tr>}
                 </>

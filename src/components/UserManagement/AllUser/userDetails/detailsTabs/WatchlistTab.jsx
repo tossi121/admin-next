@@ -7,11 +7,11 @@ const WatchlistTab = (props) => {
         <table className="table table-responsive subscription-table mb-0">
             <thead>
                 <tr>
-                    <th scope="col">Watchlist Name</th>
-                    <th scope="col">Symbol Name List</th>
-                    <th scope="col">Default</th>
-                    <th scope="col">Platform</th>
-                    <th scope="col">Applied Columns</th>
+                    <th scope="col" className='table-heading'>Watchlist Name</th>
+                    <th scope="col" className='table-heading'>Symbol Name List</th>
+                    <th scope="col" className='table-heading'>Default</th>
+                    <th scope="col" className='table-heading'>Platform</th>
+                    <th scope="col" className='table-heading'>Applied Columns</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,7 +86,7 @@ const WatchlistTab = (props) => {
                             );
                         })) || <tr>
                             <td className="border border-0 p-0 pt-2 ps-2">
-                                <p className="fw-bold fs-5 ">No Data Found</p>
+                                <p>No Data Found</p>
                             </td>
                         </tr>}
                 </>

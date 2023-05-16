@@ -103,7 +103,7 @@ function UserQueries() {
       <Row>
         <Col>
           <div className="page-title-box">
-            <h4 className="page-title">User Queries Recieved</h4>
+            <h4 className="fw-500 fs-18">User Queries Recieved</h4>
           </div>
         </Col>
       </Row>
@@ -115,7 +115,7 @@ function UserQueries() {
               <div className="d-flex justify-content-between align-items-center">
                 {selectBox()}
                 <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                  <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                  <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2" />
                   <input
                     type="text"
                     className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -137,7 +137,7 @@ function UserQueries() {
                         <tr>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_name')}>
-                              <div>Name</div>
+                              <div className='fs-15 fw-500 ps-1'>Name</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -146,7 +146,7 @@ function UserQueries() {
                           </th>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_email')}>
-                              <div>Email Address</div>
+                              <div className='fs-15 fw-500 ps-1'>Email Address</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -155,7 +155,7 @@ function UserQueries() {
                           </th>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_query')}>
-                              <div>Queries</div>
+                              <div className='fs-15 fw-500 ps-1'>Queries</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_query' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_query' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -164,7 +164,7 @@ function UserQueries() {
                           </th>
                           <th scope="col">
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('created_at')}>
-                              <div>Sent On</div>
+                              <div className='fs-15 fw-500 ps-1'>Sent On</div>
                               <div>
                                 <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                 <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -188,7 +188,7 @@ function UserQueries() {
                             <>
                               <tr>
                                 <td className="border border-0 p-0 pt-2 ps-2">
-                                  <p className="fw-bold fs-5 ">No Data Found</p>
+                                  <p>No Data Found</p>
                                 </td>
                               </tr>
                             </>
