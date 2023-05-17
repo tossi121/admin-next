@@ -1,12 +1,12 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-
-const Terms = dynamic(import('components/Terms/Terms'));
+import ReviewList from 'components/Broker/Reviewlist/ReviewList';
+// const ReviewList = dynamic(import('components/Broker/Reviewlist/ReviewList'));
 
 function DefaultPage() {
   return (
     <>
-      <Terms />
+      <ReviewList />
     </>
   );
 }
