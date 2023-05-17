@@ -1,27 +1,20 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleRight, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleRight, faBars } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { navbarData } from './NavBar';
 
 function Sidebar(props) {
   const { toggle, ToggleFun, toggleResponsive } = props;
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuItems, setMenuItems] = useState([...navbarData]);
 
-  // Add your link items here
-  const links = [
-    { text: 'All Users', url: '/user-management' },
-    { text: 'Queries', url: '/user-management/queries' },
-    { text: 'Orders', url: '/user-management/orders' },
-    { text: 'Reviews', url: '/user-management/reviews' },
-    { text: 'Active Prime Users', url: '/user-management/active-prime-user' },
-  ];
-
-  // Function to toggle dropdown visibility
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const toggleSubmenu = (index) => {
+    const updatedMenuItems = [...menuItems];
+    updatedMenuItems[index].isOpen = !updatedMenuItems[index].isOpen;
+    setMenuItems(updatedMenuItems);
   };
 
   return (
@@ -56,41 +49,48 @@ function Sidebar(props) {
           </span>
           <>
             <ul className={`navbar-nav px-3`}>
-              <li className="nav-item position-relative cursor-pointer" onClick={toggleDropdown}>
-                <div className="nav-link fw-500 base-color-2 d-flex align-items-center active">
-                  <FontAwesomeIcon icon={faUser} width={15} className="fs-14 mx-1" />
+              {menuItems?.map((menuItem, index) => (
+                <li
+                  key={index}
+                  className="nav-item position-relative cursor-pointer"
+                  onClick={() => toggleSubmenu(index)}
+                >
+                  <div className="nav-link fw-500 base-color-2">
+                    <div className="d-flex align-items-center">
+                      <FontAwesomeIcon icon={menuItem.icon} width={15} className="fs-14 me-2" />
+                      {toggle && (
+                        <>
+                          <span className="ms-1 text-nowrap">{menuItem.text}</span>
+                          <button className="border-0 ms-auto bg-white active">
+                            {(menuItem.isOpen && (
+                              <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
+                            )) || <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />}
+                          </button>
+                        </>
+                      )}
+                    </div>
+                  </div>
                   {toggle && (
-                    <>
-                      <span className="ms-1 text-nowrap">User Management</span>
-                      <button className="ms-5 border-0 bg-white active">
-                        {(isOpen && (
-                          <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
-                        )) || <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />}
-                      </button>
-                    </>
+                    <div className={`${(menuItem.isOpen && 'sub-menu') || 'h-0'}`}>
+                      {menuItem.isOpen && (
+                        <ul className="list-unstyled w-100">
+                          {menuItem.subMenu?.map((subMenuItem, subIndex) => (
+                            <li
+                              key={subIndex}
+                              className={`w-100 d-flex ${router.pathname === subMenuItem.url ? 'active' : ''}`}
+                            >
+                              <Link href={subMenuItem.url} className="mb-2 ms-5 w-100 base-color-3">
+                                {subMenuItem.text}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   )}
-                </div>
-              </li>
+                </li>
+              ))}
             </ul>
-
-            {toggle && (
-              <div className={`${(isOpen && 'sub-menu') || 'h-0'}`}>
-                {isOpen && (
-                  <ul className="list-unstyled w-100">
-                    {links.map((link, index) => (
-                      <li key={index} onClick={() => setIsOpen(true)} className="w-100 d-flex">
-                        <Link
-                          href={link.url}
-                          className={`mb-2 ms-5 w-100 base-color-3 ${router.pathname === link.url ? 'active' : ''}`}
-                        >
-                          {link.text}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            )}
           </>
         </div>
       </section>

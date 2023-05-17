@@ -30,7 +30,7 @@ function DashboardLayout(props) {
             setResponsiveSidebar={setResponsiveSidebar}
             toggle={isSidebar}
             ToggleFun={SidebarToggle}
-            setisSidebar={setisSidebar}
+            setToggle={setisSidebar}
             responsiveToggle={responsiveToggle}
             toggleResponsive={toggleResponsive}
             setToggleResponsive={setToggleResponsive}
