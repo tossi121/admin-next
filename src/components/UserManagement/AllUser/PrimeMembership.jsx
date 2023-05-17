@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 const PrimeMembership = (props) => {
   const { show, setShow, selectedId, userDetailsData } = props;
-  const initialValues = { plan_duration: '', }
+  const initialValues = { plan_duration: '' };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
 
@@ -61,41 +61,22 @@ const PrimeMembership = (props) => {
         </Modal.Header>
         <Modal.Body className="pb-0">
           <Form onSubmit={handleSubmit}>
+            <Row></Row>
             <Row>
-            </Row>
-            <Row>
-              <Col lg={12} className='d-flex align-items-center m-1'>
-                <Form.Check
-                  type="radio"
-                  name="plan_duration"
-                  id="1-month"
-                  value="1"
-                  onChange={handleChange}
-                />
+              <Col lg={12} className="d-flex align-items-center m-1">
+                <Form.Check type="radio" name="plan_duration" id="1-month" value="1" onChange={handleChange} />
                 <Form.Check.Label className="mx-2" htmlFor="1-month">
                   Prime for 1 Months
                 </Form.Check.Label>
               </Col>
-              <Col lg={12} className='d-flex align-items-center m-1'>
-                <Form.Check
-                  type="radio"
-                  name="plan_duration"
-                  id="3-months"
-                  value="3"
-                  onChange={handleChange}
-                />
+              <Col lg={12} className="d-flex align-items-center m-1">
+                <Form.Check type="radio" name="plan_duration" id="3-months" value="3" onChange={handleChange} />
                 <Form.Check.Label className="mx-2" htmlFor="3-months">
                   Prime for 3 Months
                 </Form.Check.Label>
               </Col>
-              <Col lg={12} className='d-flex align-items-center m-1 mb-2'>
-                <Form.Check
-                  type="radio"
-                  name="plan_duration"
-                  id="year"
-                  value="12"
-                  onChange={handleChange}
-                />
+              <Col lg={12} className="d-flex align-items-center m-1 mb-2">
+                <Form.Check type="radio" name="plan_duration" id="year" value="12" onChange={handleChange} />
                 <Form.Check.Label className="mx-2" htmlFor="year">
                   Prime for 12 Months
                 </Form.Check.Label>
@@ -108,7 +89,7 @@ const PrimeMembership = (props) => {
           <Button variant="light" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="" className='text-white web-button ms-3' onClick={handleSubmit}>
             Submit
           </Button>
         </Modal.Footer>

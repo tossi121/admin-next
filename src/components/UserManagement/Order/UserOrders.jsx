@@ -143,7 +143,7 @@ function UserOrders() {
                     icon={faSearch}
                     width="16"
                     height="16"
-                    className="position-absolute end-0 mt-1 me-2"
+                    className="position-absolute end-0 mt-1 me-2 base-color-3"
                   />
                   <input
                     type="text"
@@ -165,22 +165,19 @@ function UserOrders() {
                       <thead>
                         <tr>
                           <th scope="col">
-                            <div
-                              className="d-flex align-items-center cursor-pointer"
-                              onClick={() => handleSorting('user_name')}
-                            >
-                              <div className="fs-15 fw-500 ps-1">Name</div>
+                            <div onClick={() => handleSorting('user_name')}>
+                              <div>Name</div>
                               <div>
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltUp}
-                                  width={5}
+                                  width={7}
                                   className={`ms-1 ${
                                     sortBy == 'user_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltDown}
-                                  width={5}
+                                  width={7}
                                   className={`${
                                     sortBy == 'user_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -189,22 +186,19 @@ function UserOrders() {
                             </div>
                           </th>
                           <th scope="col">
-                            <div
-                              className="d-flex align-items-center cursor-pointer"
-                              onClick={() => handleSorting('user_email')}
-                            >
-                              <div className="fs-15 fw-500 ps-1">Email Address</div>
+                            <div onClick={() => handleSorting('user_email')}>
+                              <div>Email Address</div>
                               <div>
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltUp}
-                                  width={5}
+                                  width={7}
                                   className={`ms-1 ${
                                     sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltDown}
-                                  width={5}
+                                  width={7}
                                   className={`${
                                     sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -213,22 +207,19 @@ function UserOrders() {
                             </div>
                           </th>
                           <th scope="col">
-                            <div
-                              className="d-flex align-items-center cursor-pointer"
-                              onClick={() => handleSorting('order_date_time')}
-                            >
-                              <div className="fs-15 fw-500 ps-1">Transaction Date</div>
+                            <div onClick={() => handleSorting('order_date_time')}>
+                              <div>Transaction Date</div>
                               <div>
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltUp}
-                                  width={5}
+                                  width={7}
                                   className={`ms-1 ${
                                     sortBy == 'order_date_time' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltDown}
-                                  width={5}
+                                  width={7}
                                   className={`${
                                     sortBy == 'order_date_time' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -237,22 +228,19 @@ function UserOrders() {
                             </div>
                           </th>
                           <th scope="col">
-                            <div
-                              className="d-flex align-items-center cursor-pointer"
-                              onClick={() => handleSorting('order_amount')}
-                            >
-                              <div className="fs-15 fw-500 ps-1">Transaction Amount</div>
+                            <div onClick={() => handleSorting('order_amount')}>
+                              <div>Transaction Amount</div>
                               <div>
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltUp}
-                                  width={5}
+                                  width={7}
                                   className={`ms-1 ${
                                     sortBy == 'order_amount' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltDown}
-                                  width={5}
+                                  width={7}
                                   className={`${
                                     sortBy == 'order_amount' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -260,26 +248,21 @@ function UserOrders() {
                               </div>
                             </div>
                           </th>
-                          <th scope="col" className="fs-15 fw-500 ps-1">
-                            Transaction Status
-                          </th>
+                          <th scope="col">Transaction Status</th>
                           <th scope="col">
-                            <div
-                              className="d-flex align-items-center cursor-pointer"
-                              onClick={() => handleSorting('platform_type')}
-                            >
-                              <div className="fs-15 fw-500 ps-1">Platform</div>
+                            <div onClick={() => handleSorting('platform_type')}>
+                              <div>Platform</div>
                               <div>
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltUp}
-                                  width={5}
+                                  width={7}
                                   className={`ms-1 ${
                                     sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
                                   icon={faLongArrowAltDown}
-                                  width={5}
+                                  width={7}
                                   className={`${
                                     sortBy == 'platform_type' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}

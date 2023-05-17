@@ -154,7 +154,7 @@ const EditUserDetails = (props) => {
           <Row>
             <Col lg={6}>
               <Form.Group className="mb-1  input-label">
-                <Form.Label className="common-form-labal" htmlFor="username">
+                <Form.Label className="common-form-label" htmlFor="username">
                   Name
                 </Form.Label>
                 <Form.Control
@@ -170,7 +170,7 @@ const EditUserDetails = (props) => {
             </Col>
             <Col lg={6}>
               <Form.Group className="mb-1 input-label">
-                <Form.Label className="common-form-labal" htmlFor="useremail">
+                <Form.Label className="common-form-label" htmlFor="useremail">
                   Email
                 </Form.Label>
                 <Form.Control
@@ -187,7 +187,7 @@ const EditUserDetails = (props) => {
             </Col>
             <Col lg={6}>
               <Form.Group className="mb-2 input-label mt-3">
-                <Form.Label className="common-form-labal" htmlFor="mobileno">
+                <Form.Label className="common-form-label" htmlFor="mobileno">
                   Mobile No
                 </Form.Label>
                 <Form.Control
@@ -237,7 +237,7 @@ const EditUserDetails = (props) => {
             <Col>
               <div className="mb-3 mt-2 position-relative date-picker">
                 <Form.Group className="input-label mb-2">
-                  <Form.Label className="common-form-labal" htmlFor="mobileno">
+                  <Form.Label className="common-form-label" htmlFor="mobileno">
                     Date Of Birth
                   </Form.Label>
                   <Form.Control
@@ -253,7 +253,7 @@ const EditUserDetails = (props) => {
             </Col>
             <Col lg={6}>
               <Form.Group className="mb-3 mt-2 input-label">
-                <Form.Label className="common-form-labal" htmlFor="country">
+                <Form.Label className="common-form-label" htmlFor="country">
                   Country
                 </Form.Label>
                 <Form.Control
@@ -268,11 +268,11 @@ const EditUserDetails = (props) => {
               </Form.Group>
             </Col>
             <Col lg={6}>
-              <Form.Label className="common-form-labal" htmlFor="country">
+              <Form.Label className="common-form-label" htmlFor="country">
                 Select State
               </Form.Label>
               <select
-                className="w-100 bg-white p-2 border rounded-2"
+                className="w-100 bg-white p-2 rounded-2 common-input-feild"
                 name="state"
                 id="state"
                 value={formValues.state}
@@ -322,7 +322,7 @@ const EditUserDetails = (props) => {
             </Col>
             <Col lg={6}>
               <Form.Group className="mb-3 input-label ps-1">
-                <Form.Label className="common-form-labal" htmlFor="city">
+                <Form.Label className="common-form-label" htmlFor="city">
                   City
                 </Form.Label>
                 <Form.Control
@@ -338,7 +338,7 @@ const EditUserDetails = (props) => {
             </Col>
             <Col lg={6}>
               <Form.Group className="mb-4 input-label">
-                <Form.Label className="common-form-labal" htmlFor="pincode">
+                <Form.Label className="common-form-label" htmlFor="pincode">
                   Pincode
                 </Form.Label>
                 <Form.Control
@@ -353,11 +353,11 @@ const EditUserDetails = (props) => {
               </Form.Group>
             </Col>
             <Col lg={6}>
-              <Form.Label className="common-form-labal" htmlFor="country">
+              <Form.Label className="common-form-label" htmlFor="country">
                 Select Industry
               </Form.Label>
               <select
-                className="w-100 bg-white p-2 border rounded-2"
+                className="w-100 bg-white p-2 rounded-2 common-input-feild"
                 name="industry"
                 id="industry"
                 value={formValues.industry}
@@ -377,11 +377,11 @@ const EditUserDetails = (props) => {
               </select>
             </Col>
             <Col lg={6}>
-              <Form.Label className="common-form-labal" htmlFor="country">
+              <Form.Label className="common-form-label" htmlFor="country">
                 Select Occupation
               </Form.Label>
               <select
-                className="w-100 bg-white p-2 mb-3 border rounded-2"
+                className="w-100 bg-white p-2 mb-3 rounded-2"
                 name="occupation"
                 id="occupation"
                 value={formValues.occupation}
@@ -398,11 +398,11 @@ const EditUserDetails = (props) => {
               </select>
             </Col>
             <Col lg={6}>
-              <Form.Label className="common-form-labal" htmlFor="country">
+              <Form.Label className="common-form-label" htmlFor="country">
                 Select Annual Income
               </Form.Label>
               <select
-                className="w-100 bg-white p-2 mb-3 border rounded-2"
+                className="w-100 bg-white p-2 mb-3 rounded-2"
                 name="annualincome"
                 id="annualincome"
                 onChange={handleChange}
@@ -417,7 +417,7 @@ const EditUserDetails = (props) => {
             </Col>
             <Col lg={6}>
               <Form.Group className="my-2 input-label">
-                <Form.Label className="common-form-labal" htmlFor="android_app_version">
+                <Form.Label className="common-form-label" htmlFor="android_app_version">
                   Android app version
                 </Form.Label>
                 <Form.Control
@@ -434,7 +434,7 @@ const EditUserDetails = (props) => {
             </Col>
             <Col lg={6}>
               <Form.Group className="my-2 input-label">
-                <Form.Label className="common-form-labal ps-1" htmlFor="ios_app_version">
+                <Form.Label className="common-form-label ps-1" htmlFor="ios_app_version">
                   Ios app version
                 </Form.Label>
                 <Form.Control

@@ -1,9 +1,4 @@
 .plan-status {
-  .form-check-label {
-    color: #343a40;
-    cursor: pointer;
-  }
-
   .dropdown-item:hover,
   .dropdown-item:focus {
     background: transparent !important;
@@ -30,24 +25,9 @@
       height: 30px;
     }
   }
-
-  svg:hover {
-    transition: all 0.4s;
-    color: #5369f8 !important;
-  }
 }
 
 .user-details {
-  .nav-link {
-    color: #000 !important;
-    font-size: 0.95rem !important;
-  }
-
-  .nav-tabs .active {
-    color: #5369f8 !important;
-    border-bottom: 2px solid #5369f8 !important;
-  }
-
   .user-search {
     width: 330px !important;
   }
@@ -123,17 +103,12 @@
   width: 400px !important;
 
   .user-list {
-    scrollbar-color: #5369f8 !important;
+    scrollbar-color: var(--base-link-color) !important;
     height: max-content;
     z-index: 2;
 
     li p {
       width: 270px;
-    }
-
-    a:hover {
-      color: #5369f8 !important;
-      transition: all 0.4s;
     }
   }
 }
@@ -172,14 +147,6 @@
 .nav-tabs .nav-link.active {
   color: var(--base-link-color) !important;
   border-bottom: 2px solid var(--base-link-color) !important;
-}
-
-.common-input-feild {
-  border: 1px solid rgb(189, 187, 187);
-}
-
-.common-input-feild:focus {
-  box-shadow: none;
 }
 
 @media (max-width: 991px) {

@@ -45,7 +45,7 @@ function UserReview() {
       pageSize: pageSize,
       search_keyword: searchInput,
       order_by: sortBy,
-      order_dir: sortType
+      order_dir: sortType,
     };
     setIsLoading(true);
     const response = await getUserReviewData(params);
@@ -87,14 +87,14 @@ function UserReview() {
   }
 
   function handleSorting(params) {
-    setsortBy(params)
-    setSortToggle(prevstate => !prevstate)
+    setsortBy(params);
+    setSortToggle((prevstate) => !prevstate);
     if (sortToggle) {
-      setsortType('desc')
-      setSortStyle('text-danger')
+      setsortType('desc');
+      setSortStyle('text-danger');
     } else {
-      setsortType('asc')
-      setSortStyle('text-success')
+      setsortType('asc');
+      setSortStyle('text-success');
     }
   }
 
@@ -115,7 +115,12 @@ function UserReview() {
               <div className="d-flex justify-content-between align-items-center">
                 {selectBox()}
                 <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                  <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2" />
+                  <FontAwesomeIcon
+                    icon={faSearch}
+                    width="16"
+                    height="16"
+                    className="position-absolute end-0 mt-1 me-2 base-color-3"
+                  />
                   <input
                     type="text"
                     className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -136,47 +141,115 @@ function UserReview() {
                       <thead>
                         <tr>
                           <th scope="col">
-                            <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_email')}>
-                              <div className="fs-15 fw-500 ps-1">User Email</div>
+                            <div onClick={() => handleSorting('user_email')}>
+                              <div>User Email</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltUp}
+                                  width={7}
+                                  className={`ms-1 ${
+                                    sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                  }`}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltDown}
+                                  width={7}
+                                  className={`${
+                                    sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                  }`}
+                                />
                               </div>
                             </div>
                           </th>
                           <th scope="col">
-                            <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_android_app_version')}>
-                              <div className="fs-15 fw-500 ps-1">App Version</div>
+                            <div onClick={() => handleSorting('user_android_app_version')}>
+                              <div>App Version</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_android_app_version' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_android_app_version' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltUp}
+                                  width={7}
+                                  className={`ms-1 ${
+                                    sortBy == 'user_android_app_version'
+                                      ? sortStyle == 'text-danger'
+                                        ? sortStyle
+                                        : ''
+                                      : ''
+                                  }`}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltDown}
+                                  width={7}
+                                  className={`${
+                                    sortBy == 'user_android_app_version'
+                                      ? sortStyle == 'text-success'
+                                        ? sortStyle
+                                        : ''
+                                      : ''
+                                  }`}
+                                />
                               </div>
                             </div>
                           </th>
                           <th scope="col">
-                            <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('rating')}>
-                              <div className="fs-15 fw-500 ps-1">Rating</div>
+                            <div onClick={() => handleSorting('rating')}>
+                              <div>Rating</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'rating' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'rating' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltUp}
+                                  width={7}
+                                  className={`ms-1 ${
+                                    sortBy == 'rating' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                  }`}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltDown}
+                                  width={7}
+                                  className={`${
+                                    sortBy == 'rating' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                  }`}
+                                />
                               </div>
                             </div>
                           </th>
                           <th scope="col">
-                            <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('rating_desc')}>
-                              <div className="fs-15 fw-500 ps-1">Description</div>
+                            <div onClick={() => handleSorting('rating_desc')}>
+                              <div>Description</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'rating_desc' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'rating_desc' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltUp}
+                                  width={7}
+                                  className={`ms-1 ${
+                                    sortBy == 'rating_desc' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                  }`}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltDown}
+                                  width={7}
+                                  className={`${
+                                    sortBy == 'rating_desc' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                  }`}
+                                />
                               </div>
                             </div>
                           </th>
                           <th scope="col">
-                            <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('created_at')}>
-                              <div className="fs-15 fw-500 ps-1">Date</div>
+                            <div onClick={() => handleSorting('created_at')}>
+                              <div>Date</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltUp}
+                                  width={7}
+                                  className={`ms-1 ${
+                                    sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                  }`}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faLongArrowAltDown}
+                                  width={7}
+                                  className={`${
+                                    sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                  }`}
+                                />
                               </div>
                             </div>
                           </th>
@@ -188,21 +261,29 @@ function UserReview() {
                             return (
                               <tr key={index}>
                                 <td>{item.user_email == null || item.user_email === '' ? 'N/A' : item.user_email}</td>
-                                <td>{item.user_android_app_version == null || item.user_android_app_version === '' ? 'N/A' : item.user_android_app_version}</td>
+                                <td>
+                                  {item.user_android_app_version == null || item.user_android_app_version === ''
+                                    ? 'N/A'
+                                    : item.user_android_app_version}
+                                </td>
                                 <td>{item.rating}</td>
-                                <td>{item.rating_desc == null || item.rating_desc === " |\n" || item.rating_desc === "" ? 'N/A' : item.rating_desc}</td>
+                                <td>
+                                  {item.rating_desc == null || item.rating_desc === ' |\n' || item.rating_desc === ''
+                                    ? 'N/A'
+                                    : item.rating_desc}
+                                </td>
                                 <td>{moment(item.created_at).format('MMM DD, YYYY, h:mm A')}</td>
                               </tr>
                             );
                           })) || (
-                            <>
-                              <tr>
-                                <td className="border border-0 p-0 pt-2 ps-2">
-                                  <p>No Data Found</p>
-                                </td>
-                              </tr>
-                            </>
-                          )}
+                          <>
+                            <tr>
+                              <td className="border border-0 p-0 pt-2 ps-2">
+                                <p>No Data Found</p>
+                              </td>
+                            </tr>
+                          </>
+                        )}
                       </tbody>
                     </Table>
                   </>
