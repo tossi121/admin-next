@@ -5,8 +5,6 @@ import { Button, Card, Col, Modal, Row, Table } from 'react-bootstrap';
 import TableLoader from '_utils/Loader/TableLoader';
 import { CSVLink } from 'react-csv';
 import EditStockModal from './EditStockModal';
-// import { useAuth } from '../../../../_context/authContext';
-// import { useHistory } from 'react-router';
 import CreateStockModal from './CreateStockModal';
 import { toast } from 'react-toastify';
 import { deleteStockData, getStockDataList } from '_services/nifty_service_api';
@@ -26,18 +24,10 @@ function StockAnalysis() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState('');
   const lengthMenu = [10, 20, 50, 100];
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const [sortBy, setsortBy] = useState('symbol_name');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -156,9 +146,7 @@ function StockAnalysis() {
       <section className="stock-analysis">
         <Row>
           <Col>
-            <div className="page-title-box">
-              <h4 className="page-title">Stock Analysis</h4>
-            </div>
+            <h5 className="fw-500 mb-2">Stock Analysis</h5>
           </Col>
         </Row>
         <Row>
@@ -168,21 +156,29 @@ function StockAnalysis() {
                 <>
                   <div className="d-flex justify-content-between align-items-center">
                     {selectBox()}
-                    <CSVLink
-                      data={stockList}
-                      filename="NiftyAdminStocks"
-                      className={`btn-primary btn ${stockList?.length === 0 && 'disabled'}`}
-                    >
-                      Download CSV
-                    </CSVLink>
                     <Button
-                      variant={`primary mx-4 ${stockList?.length === 0 && 'disabled'}`}
+                      variant={"primary"}
                       onClick={() => setAddModal(true)}
+                      className={`web-button ${stockList?.length === 0 && 'disabled'}`}
+                    >
+                      <CSVLink
+                        data={stockList}
+                        filename="NiftyAdminStocks"
+                        className={`csv-hover text-white ${stockList?.length === 0 && 'disabled'}`}
+                      >
+                        Download CSV
+                      </CSVLink>
+
+                    </Button>
+                    <Button
+                      variant={"primary"}
+                      onClick={() => setAddModal(true)}
+                      className={`web-button mx-4 ${stockList?.length === 0 && 'disabled'}`}
                     >
                       Add New Stock
                     </Button>
                     <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2" />
                       <input
                         type="text"
                         className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -197,15 +193,15 @@ function StockAnalysis() {
                     </div>
                   </div>
 
-                  <div className="table-responsive table-user stock-analysis-table text-nowrap">
+                  <div className="table-responsive table-user text-nowrap user-manage">
                     {(isLoading && <TableLoader />) || (
                       <>
                         <Table className="table mb-0">
                           <thead>
                             <tr>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('symbol_name')}>
-                                  <div>Symbol</div>
+                                <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('symbol_name')}>
+                                  <div className={'fw-500'}>Symbol</div>
                                   <div>
                                     <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                     <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -213,8 +209,8 @@ function StockAnalysis() {
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('company_name')}>
-                                  <div>Company Name</div>
+                                <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('company_name')}>
+                                  <div className={'fw-500'}>Company Name</div>
                                   <div>
                                     <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                     <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -222,8 +218,8 @@ function StockAnalysis() {
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('industry')}>
-                                  <div>Industry</div>
+                                <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('industry')}>
+                                  <div className={'fw-500'}>Industry</div>
                                   <div>
                                     <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'industry' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                     <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'industry' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -231,8 +227,8 @@ function StockAnalysis() {
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('series')}>
-                                  <div>Series</div>
+                                <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('series')}>
+                                  <div className={'fw-500'}>Series</div>
                                   <div>
                                     <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'series' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                     <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'series' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -240,8 +236,8 @@ function StockAnalysis() {
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('isin_code')}>
-                                  <div>ISIN Code</div>
+                                <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('isin_code')}>
+                                  <div className={'fw-500'}>ISIN Code</div>
                                   <div>
                                     <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'isin_code' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                     <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'isin_code' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
@@ -249,15 +245,19 @@ function StockAnalysis() {
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('bse_code')}>
-                                  <div>BSE Code</div>
+                                <div className='d-flex align-items-center cursor-pointer base-color-1 fw-semibold fs-15 ps-1' onClick={() => handleSorting('bse_code')}>
+                                  <div className={'fw-500'}>BSE Code</div>
                                   <div>
                                     <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'bse_code' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
                                     <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'bse_code' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
-                              <th scope="col">Action</th>
+                              <th scope="col">
+                                <div className='fw-500'>
+                                  Action
+                                </div>
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
