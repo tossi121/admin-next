@@ -127,11 +127,18 @@ const EditUserDetails = (props) => {
         return errors;
     };
 
+    // const handleChange = (name, value) => {
+    //     setFormValues((prevValues) => ({
+    //         ...prevValues, [name]: value,
+    //     }));
+    // };
     const handleChange = (name, value) => {
-        setFormValues((prevValues) => ({
-            ...prevValues, [name]: value,
+        setFormValues((prevFormValues) => ({
+            ...prevFormValues,
+            [name]: value,
         }));
     };
+
     return (
         <Card className="mt-3">
             <Card.Body>
@@ -213,7 +220,7 @@ const EditUserDetails = (props) => {
                                             id="male"
                                             value="M"
                                             checked={formValues.gender == 'M'}
-                                            onChange={handleChange}
+                                            onChange={() => handleChange('gender', 'M')}
                                         />
                                         <Form.Check.Label className="me-2 ms-1" htmlFor="male">
                                             Male
@@ -224,7 +231,7 @@ const EditUserDetails = (props) => {
                                             id="female"
                                             value="F"
                                             checked={formValues.gender == 'F'}
-                                            onChange={handleChange}
+                                            onChange={() => handleChange('gender', 'F')}
                                         />
                                         <Form.Check.Label className="ms-1" htmlFor="female">
                                             Female
@@ -476,7 +483,7 @@ const EditUserDetails = (props) => {
                                             id="verify"
                                             value="1"
                                             checked={formValues.email_verify == 1}
-                                            onChange={handleChange}
+                                            onChange={() => handleChange('email_verify', 1)}
                                         />
                                         <Form.Check.Label className="me-2 ms-1" htmlFor="verify">
                                             Yes
@@ -487,7 +494,7 @@ const EditUserDetails = (props) => {
                                             id="noverify"
                                             value="0"
                                             checked={formValues.email_verify == 0}
-                                            onChange={handleChange}
+                                            onChange={() => handleChange('email_verify', 0)}
                                         />
                                         <Form.Check.Label className="ms-1" htmlFor="noverify">
                                             No
@@ -509,7 +516,7 @@ const EditUserDetails = (props) => {
                                             id="dark_mode"
                                             value="1"
                                             checked={formValues.theme_mode == 1}
-                                            onChange={handleChange}
+                                            onChange={() => handleChange('theme_mode', 1)}
                                         />
                                         <Form.Check.Label className="me-2 ms-1" htmlFor="dark_mode">
                                             Dark
@@ -520,7 +527,7 @@ const EditUserDetails = (props) => {
                                             id="light_mode"
                                             value="0"
                                             checked={formValues.theme_mode == 0}
-                                            onChange={handleChange}
+                                            onChange={() => handleChange('theme_mode', 0)}
                                         />
                                         <Form.Check.Label className="ms-1" htmlFor="light_mode">
                                             Light
@@ -542,7 +549,7 @@ const EditUserDetails = (props) => {
                                             id="active"
                                             value="true"
                                             checked={formValues.user_status === "true"}
-                                            onChange={handleChange}
+                                            onChange={() => handleChange('user_status', 'true')}
                                         />
                                         <Form.Check.Label className="me-2 ms-1" htmlFor="active">
                                             Active
@@ -553,7 +560,7 @@ const EditUserDetails = (props) => {
                                             id="inactive"
                                             value="false"
                                             checked={formValues.user_status === "false"}
-                                            onChange={handleChange}
+                                            onChange={() => handleChange('user_status', 'false')}
                                         />
                                         <Form.Check.Label className="ms-1" htmlFor="inactive">
                                             Inactive
