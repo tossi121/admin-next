@@ -5,7 +5,6 @@ import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import moment from 'moment';
 import { getUserDetails, updateUserDetails } from '_services/nifty_service_api';
-import Select from 'react-select';
 
 const EditUserDetails = (props) => {
   const { setShow, selectedId, userDetailsData } = props;

@@ -26,9 +26,8 @@ function Sidebar(props) {
   return (
     <>
       <section
-        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${
-          toggleResponsive ? 'hide-sidebar' : 'full-width'
-        }`}
+        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${toggleResponsive ? 'hide-sidebar' : 'full-width'
+          }`}
       >
         {(toggle && (
           <div className="position-absolute logo-icon">
@@ -37,14 +36,14 @@ function Sidebar(props) {
             </Link>
           </div>
         )) || (
-          <>
-            <div className="position-absolute logo-icon-sm">
-              <Link href={'/'}>
-                <Image src="/logo-icon.png" alt="logo" className="ms-3" width={30} height={30} />
-              </Link>
-            </div>
-          </>
-        )}
+            <>
+              <div className="position-absolute logo-icon-sm">
+                <Link href={'/'}>
+                  <Image src="/logo-icon.png" alt="logo" className="ms-3" width={30} height={30} />
+                </Link>
+              </div>
+            </>
+          )}
 
         <div className="menu-wrapper position-relative vh-100">
           <span

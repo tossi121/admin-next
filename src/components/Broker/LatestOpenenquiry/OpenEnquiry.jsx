@@ -1,4 +1,4 @@
-import { faCalendarAlt, faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Form, Row, Table } from 'react-bootstrap';
@@ -198,8 +198,8 @@ const OpenEnquiry = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('id')}>
                                 <div>Id</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -207,8 +207,8 @@ const OpenEnquiry = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('source_from')}>
                                 <div>Source</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'source_from' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'source_from' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'source_from' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'source_from' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -216,8 +216,8 @@ const OpenEnquiry = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('broker_name')}>
                                 <div>Broker Name</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'broker_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'broker_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'broker_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'broker_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -225,8 +225,8 @@ const OpenEnquiry = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_name')}>
                                 <div>User</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'user_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'user_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -234,8 +234,8 @@ const OpenEnquiry = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_mobile')}>
                                 <div>User Mobile</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_mobile' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_mobile' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'user_mobile' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'user_mobile' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -243,8 +243,8 @@ const OpenEnquiry = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('user_email')}>
                                 <div>User Email</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -252,8 +252,8 @@ const OpenEnquiry = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('created_at')}>
                                 <div>Created At</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>

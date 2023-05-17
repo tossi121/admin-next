@@ -3,7 +3,7 @@ import { Badge, Button, Card, Col, Row, Table } from 'react-bootstrap';
 import moment from 'moment';
 import TableLoader from '_utils/Loader/TableLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLongArrowAltDown, faLongArrowAltUp, faPen, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDownLong, faArrowUpLong, faPen, faSearch } from '@fortawesome/free-solid-svg-icons';
 import PrimeMembership from './PrimeMembership';
 import CommonPagination from 'components/Pagination/CommonPagination';
 import { getUserDataList } from '_services/nifty_service_api';
@@ -203,18 +203,16 @@ function UserManagement() {
                                 <div>Name</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltUp}
-                                    width={7}
-                                    className={`ms-1 ${
-                                      sortBy == 'name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    width={8}
+                                    icon={faArrowUpLong}
+                                    className={`ms-1 ${sortBy == 'name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltDown}
-                                    width={7}
-                                    className={`${
-                                      sortBy == 'name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    width={8}
+                                    icon={faArrowDownLong}
+                                    className={`${sortBy == 'name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
@@ -224,18 +222,16 @@ function UserManagement() {
                                 <div>Email Address</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltUp}
-                                    width={7}
-                                    className={`ms-1 ${
-                                      sortBy == 'email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong}
+                                    width={8}
+                                    className={`ms-1 ${sortBy == 'email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltDown}
-                                    width={7}
-                                    className={`${
-                                      sortBy == 'email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong}
+                                    width={8}
+                                    className={`${sortBy == 'email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
@@ -245,18 +241,16 @@ function UserManagement() {
                                 <div>Mobile No.</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltUp}
-                                    width={7}
-                                    className={`ms-1 ${
-                                      sortBy == 'phone_no' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong}
+                                    width={8}
+                                    className={`ms-1 ${sortBy == 'phone_no' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltDown}
-                                    width={7}
-                                    className={`${
-                                      sortBy == 'phone_no' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong}
+                                    width={8}
+                                    className={`${sortBy == 'phone_no' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
@@ -266,18 +260,16 @@ function UserManagement() {
                                 <div>Sign Up Date</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltUp}
-                                    width={7}
-                                    className={`ms-1 ${
-                                      sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong}
+                                    width={8}
+                                    className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltDown}
-                                    width={7}
-                                    className={`${
-                                      sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong}
+                                    width={8}
+                                    className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
@@ -292,18 +284,16 @@ function UserManagement() {
                                 <div>Platform</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltUp}
-                                    width={7}
-                                    className={`ms-1 ${
-                                      sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong}
+                                    width={8}
+                                    className={`ms-1 ${sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltDown}
-                                    width={7}
-                                    className={`${
-                                      sortBy == 'platform_type' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong}
+                                    width={8}
+                                    className={`${sortBy == 'platform_type' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
@@ -313,18 +303,16 @@ function UserManagement() {
                                 <div>Active Plan</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltUp}
-                                    width={7}
-                                    className={`ms-1 ${
-                                      sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong}
+                                    width={8}
+                                    className={`ms-1 ${sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faLongArrowAltDown}
-                                    width={7}
-                                    className={`${
-                                      sortBy == 'plan_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong}
+                                    width={8}
+                                    className={`${sortBy == 'plan_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
@@ -377,14 +365,14 @@ function UserManagement() {
                                 </tr>
                               );
                             })) || (
-                            <>
-                              <tr>
-                                <td className="border border-0 p-0 pt-2 ps-2">
-                                  <p>No Data Found</p>
-                                </td>
-                              </tr>
-                            </>
-                          )}
+                              <>
+                                <tr>
+                                  <td className="border border-0 p-0 pt-2 ps-2">
+                                    <p>No Data Found</p>
+                                  </td>
+                                </tr>
+                              </>
+                            )}
                         </tbody>
                       </Table>
                     </>

@@ -23,12 +23,12 @@ const PersonalDetailsTab = (props) => {
           <h5 className="common-title pt-1 text-nowrap">Email Address:</h5>
           <div className="mx-2 mb-2">{userDetails?.email}</div>
           {userDetails.is_email_verify == false && (
-            <Badge pill bg="success" className="me-1 badge-soft-danger">
+            <Badge pill bg="success" className="me-1 mb-3 pb-1 badge-soft-danger">
               Not Verified
             </Badge>
           )}
           {userDetails.is_email_verify == true && (
-            <Badge pill bg="danger" className="me-1 badge-soft-success">
+            <Badge pill bg="danger" className="me-1 mb-3 pb-1 badge-soft-success">
               Verified
             </Badge>
           )}

@@ -4,7 +4,7 @@ import { Card, Col, Row, Table } from 'react-bootstrap';
 import moment from 'moment';
 import TableLoader from '_utils/Loader/TableLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 // import { useHistory } from 'react-router-dom';
 // import { useAuth } from '../../../../_context/authContext';
 import CommonPagination from '../../Pagination/CommonPagination';
@@ -145,15 +145,15 @@ function UserReview() {
                               <div>User Email</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -166,8 +166,8 @@ function UserReview() {
                               <div>App Version</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'user_android_app_version'
                                       ? sortStyle == 'text-danger'
@@ -177,8 +177,8 @@ function UserReview() {
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'user_android_app_version'
                                       ? sortStyle == 'text-success'
@@ -195,15 +195,15 @@ function UserReview() {
                               <div>Rating</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'rating' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'rating' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -216,15 +216,15 @@ function UserReview() {
                               <div>Description</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'rating_desc' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'rating_desc' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -237,15 +237,15 @@ function UserReview() {
                               <div>Date</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}

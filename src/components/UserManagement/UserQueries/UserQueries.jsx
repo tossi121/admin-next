@@ -4,7 +4,7 @@ import { Card, Col, Row, Table } from 'react-bootstrap';
 import moment from 'moment';
 import TableLoader from '_utils/Loader/TableLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 // import { useHistory } from 'react-router-dom';
 // import { useAuth } from '../../../../_context/authContext';
 import CommonPagination from '../../Pagination/CommonPagination';
@@ -145,15 +145,15 @@ function UserQueries() {
                               <div>Name</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'user_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'user_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -166,15 +166,15 @@ function UserQueries() {
                               <div>Email Address</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -187,15 +187,15 @@ function UserQueries() {
                               <div>Queries</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'user_query' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'user_query' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -208,15 +208,15 @@ function UserQueries() {
                               <div>Sent On</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}

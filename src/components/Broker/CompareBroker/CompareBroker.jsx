@@ -1,4 +1,4 @@
-import { faEdit, faLongArrowAltDown, faLongArrowAltUp, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faArrowDownLong, faArrowUpLong, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Modal, Row, Table } from 'react-bootstrap';
@@ -202,8 +202,8 @@ const CompareBroker = () => {
                                       <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('broker_id')}>
                                         <div>Id</div>
                                         <div>
-                                          <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'broker_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                          <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'broker_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'broker_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'broker_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                         </div>
                                       </div>
                                     </th>
@@ -211,8 +211,8 @@ const CompareBroker = () => {
                                       <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('overview_broker_name')}>
                                         <div>Broker</div>
                                         <div>
-                                          <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'overview_broker_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                          <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'overview_broker_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'overview_broker_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'overview_broker_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                         </div>
                                       </div>
                                     </th>
@@ -220,8 +220,8 @@ const CompareBroker = () => {
                                       <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('overview_year_of_incorporation')}>
                                         <div>Year</div>
                                         <div>
-                                          <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'overview_year_of_incorporation' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                          <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'overview_year_of_incorporation' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'overview_year_of_incorporation' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'overview_year_of_incorporation' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                         </div>
                                       </div>
                                     </th>
@@ -229,8 +229,8 @@ const CompareBroker = () => {
                                       <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('overview_website')}>
                                         <div>Website</div>
                                         <div>
-                                          <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'overview_website' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                          <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'overview_website' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'overview_website' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'overview_website' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                         </div>
                                       </div>
                                     </th>
@@ -238,8 +238,8 @@ const CompareBroker = () => {
                                       <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('overview_exchanges_enabled')}>
                                         <div>Exchanges Enabled</div>
                                         <div>
-                                          <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'overview_exchanges_enabled' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                          <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'overview_exchanges_enabled' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'overview_exchanges_enabled' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'overview_exchanges_enabled' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                         </div>
                                       </div>
                                     </th>
@@ -247,8 +247,8 @@ const CompareBroker = () => {
                                       <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('overview_demat_nsdl_cdsl')}>
                                         <div>Demat NSDL CDSL</div>
                                         <div>
-                                          <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'overview_demat_nsdl_cdsl' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                          <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'overview_demat_nsdl_cdsl' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'overview_demat_nsdl_cdsl' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                          <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'overview_demat_nsdl_cdsl' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                         </div>
                                       </div>
                                     </th>
