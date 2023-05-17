@@ -19,7 +19,7 @@ import { getUserDataList, getUserDetails } from '_services/nifty_service_api';
 import CommonPagination from 'components/Pagination/CommonPagination';
 
 function UserDetails(props) {
-  const { userId } = props
+  const { userId } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [userDetails, setUserDetails] = useState([]);
   const [searchInput, setSearchInput] = useState('');
@@ -122,220 +122,254 @@ function UserDetails(props) {
   }, [filteredData]);
 
   function handleEditShow(id) {
-    setEditShow(true)
-    setSelectedId(id)
+    setEditShow(true);
+    setSelectedId(id);
   }
 
   return (
     <>
-      {editShow && <EditUserDetails show={editShow} userDetailsData={userDataDetails} setShow={setEditShow} selectedId={selectedId} />}
-      {
-        !editShow && (
-          <section className="user-details">
-            <Row>
-              <Col>
-                <div className="page-title-box d-flex justify-content-between align-items-center">
-                  <h4 className="page-title fs-5 fw-semibold">
-                    {(userDetails?.name == null || userDetails.name == '') && 'User Details' || userDetails.name + ' Details'}
-                  </h4>
-                  <div className="d-flex text-nowrap justify-content-around">
-                    <div className='me-3'>
-                      <Button className='web-button' onClick={() => handleEditShow(userDetails.user_id)}>
-                        Edit Details
-                      </Button>
-                    </div>
-                    <div className='search-box position-relative text-center my-2 ms-auto pb-2'>
-                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2" />
-                      <input
-                        type="text"
-                        className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
-                        placeholder="Search by Name, Email or Mobile No"
-                        value={searchInput}
-                        onChange={(e) => {
-                          setSearchInput(e.target.value);
-                          setCurrentPage(1);
-                        }} />
-                      <span className="input-border"></span>
-                      <div className="list-unstyled bg-white position-absolute user-list overflow-auto shadow w-100">
-                        {(userList?.length > 0 &&
-                          userList.map((item, index) => {
-                            const userName = (item.name == null && 'N/A') || (item.name == '' && 'N/A') || item.name;
-                            const userEmail = (item.email == null && 'N/A') || (item.email == '' && 'N/A') || item.email;
-                            const userMobile = (item.phone_no == null && 'N/A') || (item.phone_no == '' && 'N/A') || item.phone_no;
-                            const userSpace = '  -  ';
-                            const userData = userName + userSpace + userEmail + userSpace + userMobile;
-                            return (
-                              <a href={`/user-management/user-details/${item.user_id}`} className="text-secondary" key={index}>
-                                <li className="d-flex my-2" title={userData}>
-                                  <p key={index} className="ps-2 cursor-pointer mb-0 overflow-hidden text-nowrap">
-                                    {userName}
-                                  </p>
-                                  <p key={index} className="px-2 cursor-pointer mb-0 overflow-hidden text-nowrap">
-                                    {userEmail}
-                                  </p>
-                                  <p key={index} className="px-2 cursor-pointer mb-0 overflow-hidden text-nowrap">
-                                    {userMobile}
-                                  </p>
-                                </li>
-                              </a>
-                            );
-                          })) ||
-                          (userList?.length === 0 && <li className="px-2 py-1">No Data found</li>)}
-                      </div>
+      {editShow && (
+        <EditUserDetails
+          show={editShow}
+          userDetailsData={userDataDetails}
+          setShow={setEditShow}
+          selectedId={selectedId}
+        />
+      )}
+      {!editShow && (
+        <section className="user-details">
+          <Row>
+            <Col>
+              <div className="page-title-box d-flex justify-content-between align-items-center">
+                <h4 className="page-title fs-5 fw-semibold">
+                  {((userDetails?.name == null || userDetails.name == '') && 'User Details') ||
+                    userDetails.name + ' Details'}
+                </h4>
+                <div className="d-flex text-nowrap justify-content-around">
+                  <div className="me-3">
+                    <Button className="web-button" onClick={() => handleEditShow(userDetails.user_id)}>
+                      Edit Details
+                    </Button>
+                  </div>
+                  <div className="search-box position-relative text-center my-2 ms-auto pb-2">
+                    <FontAwesomeIcon
+                      icon={faSearch}
+                      width="16"
+                      height="16"
+                      className="position-absolute end-0 mt-1 me-2"
+                    />
+                    <input
+                      type="text"
+                      className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
+                      placeholder="Search by Name, Email or Mobile No"
+                      value={searchInput}
+                      onChange={(e) => {
+                        setSearchInput(e.target.value);
+                        setCurrentPage(1);
+                      }}
+                    />
+                    <span className="input-border"></span>
+                    <div className="list-unstyled bg-white position-absolute user-list overflow-auto shadow w-100">
+                      {(userList?.length > 0 &&
+                        userList.map((item, index) => {
+                          const userName = (item.name == null && 'N/A') || (item.name == '' && 'N/A') || item.name;
+                          const userEmail = (item.email == null && 'N/A') || (item.email == '' && 'N/A') || item.email;
+                          const userMobile =
+                            (item.phone_no == null && 'N/A') || (item.phone_no == '' && 'N/A') || item.phone_no;
+                          const userSpace = '  -  ';
+                          const userData = userName + userSpace + userEmail + userSpace + userMobile;
+                          return (
+                            <a
+                              href={`/user-management/user-details/${item.user_id}`}
+                              className="text-secondary"
+                              key={index}
+                            >
+                              <li className="d-flex my-2" title={userData}>
+                                <p key={index} className="ps-2 cursor-pointer mb-0 overflow-hidden text-nowrap">
+                                  {userName}
+                                </p>
+                                <p key={index} className="px-2 cursor-pointer mb-0 overflow-hidden text-nowrap">
+                                  {userEmail}
+                                </p>
+                                <p key={index} className="px-2 cursor-pointer mb-0 overflow-hidden text-nowrap">
+                                  {userMobile}
+                                </p>
+                              </li>
+                            </a>
+                          );
+                        })) ||
+                        (userList?.length === 0 && <li className="px-2 py-1">No Data found</li>)}
                     </div>
                   </div>
                 </div>
-              </Col>
-            </Row >
-            <Row>
-              <Col>
-                <Card>
-                  <Card.Body>
-                    <Tabs
-                      defaultActiveKey="details"
-                      id="uncontrolled-tab-example"
-                      className="mb-3"
-                      onSelect={() => setSearchInput('')}
-                    >
-                      <Tab eventKey="details" className="mb-1 px-3" title="Personal Info">
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Card>
+                <Card.Body>
+                  <Tabs
+                    defaultActiveKey="details"
+                    id="uncontrolled-tab-example"
+                    className="mb-3"
+                    onSelect={() => setSearchInput('')}
+                  >
+                    <Tab eventKey="details" className="mb-1 px-3" title="Personal Info">
+                      {(isLoading && <TableLoader />) || <PersonalDetailsTab userDetails={userDetails} />}
+                    </Tab>
+                    <Tab eventKey="preference" className="px-3" title="Preferences">
+                      <PreferenceTab userDetails={userDetails} />
+                    </Tab>
+                    <Tab eventKey="Orders" className="px-2" title="Orders">
+                      <div className="table-responsive table-user text-nowrap">
                         {(isLoading && <TableLoader />) || (
-                          <PersonalDetailsTab userDetails={userDetails} />
+                          <>
+                            <TransactionsTab currentData={currentData} />
+                            {filteredData.length > 0 && (
+                              <CommonPagination
+                                data={filteredData}
+                                totalCount={filteredData.length}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                setCurrentData={setCurrentData}
+                                pageSize={10}
+                              />
+                            )}
+                          </>
                         )}
-                      </Tab>
-                      <Tab eventKey="preference" className='px-3' title="Preferences">
-                        <PreferenceTab userDetails={userDetails} />
-                      </Tab>
-                      <Tab eventKey="Orders" className='px-2' title="Orders">
-                        <div className="table-responsive table-user text-nowrap">
-                          {(isLoading && <TableLoader />) || (
-                            <>
-                              <TransactionsTab currentData={currentData} />
-                              {filteredData.length > 0 && (
-                                <CommonPagination
-                                  data={filteredData}
-                                  totalCount={filteredData.length}
-                                  currentPage={currentPage}
-                                  setCurrentPage={setCurrentPage}
-                                  setCurrentData={setCurrentData}
-                                  pageSize={10}
-                                />
-                              )}
-                            </>
-                          )}
-                        </div>
-                        {/* filter for Subscription Status */}
-                        <Dropdown className="position-absolute plan-status top-0 end-0 mt-2 me-3">
-                          <Dropdown.Toggle variant='' id="dropdown-basic" data-bs-auto-close="inside" aria-expanded="false">
-                            Select plan
-                          </Dropdown.Toggle>
-                          <Dropdown.Menu>
-                            <div className="m-2">
-                              <Form.Check
-                                type="checkbox"
-                                className="my-2"
-                                id="default-checkbox1"
-                                name="checkbox1"
-                                value={'A'}
-                                checked={checkedStatus.includes('A')}
-                                onChange={handleCheckbox}
-                                label="Active"
-                              />
-                              <Form.Check
-                                type="checkbox"
-                                className="my-2"
-                                name="checkbox2"
-                                value={'U'}
-                                checked={checkedStatus.includes('U')}
-                                onChange={handleCheckbox}
-                                id="default-checkbox2"
-                                label="Upcoming"
-                              />
+                      </div>
+                      {/* filter for Subscription Status */}
+                      <Dropdown className="position-absolute plan-status top-0 end-0 mt-2 me-3">
+                        <Dropdown.Toggle
+                          variant=""
+                          className="web-button text-white"
+                          id="dropdown-basic"
+                          data-bs-auto-close="inside"
+                          aria-expanded="false"
+                        >
+                          Select plan
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <div className="m-2">
+                            <Form.Check
+                              type="checkbox"
+                              className="my-2"
+                              id="default-checkbox1"
+                              name="checkbox1"
+                              value={'A'}
+                              checked={checkedStatus.includes('A')}
+                              onChange={handleCheckbox}
+                              label="Active"
+                            />
+                            <Form.Check
+                              type="checkbox"
+                              className="my-2"
+                              name="checkbox2"
+                              value={'U'}
+                              checked={checkedStatus.includes('U')}
+                              onChange={handleCheckbox}
+                              id="default-checkbox2"
+                              label="Upcoming"
+                            />
 
-                              <Form.Check
-                                type="checkbox"
-                                className="my-2"
-                                id="default-checkbox3"
-                                name="checkbox3"
-                                value={'P'}
-                                checked={checkedStatus.includes('P')}
-                                onChange={handleCheckbox}
-                                label="Expired"
+                            <Form.Check
+                              type="checkbox"
+                              className="my-2"
+                              id="default-checkbox3"
+                              name="checkbox3"
+                              value={'P'}
+                              checked={checkedStatus.includes('P')}
+                              onChange={handleCheckbox}
+                              label="Expired"
+                            />
+                          </div>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </Tab>
+                    <Tab eventKey="alerts" className="px-1" title="Alerts">
+                      <div className="table-responsive table-user text-nowrap">
+                        {(isLoading && <TableLoader />) || (
+                          <>
+                            <AlertsTab currentalertData={currentalertData} />
+                            {alertDetails.length > 0 && (
+                              <CommonPagination
+                                data={alertDetails}
+                                totalCount={alertDetails.length}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                setCurrentData={setCurrentAlertData}
+                                pageSize={10}
                               />
-                            </div>
-                          </Dropdown.Menu>
-                        </Dropdown>
-                      </Tab>
-                      <Tab eventKey="alerts" className='px-1' title="Alerts">
-                        <div className="table-responsive table-user text-nowrap">
-                          {(isLoading && <TableLoader />) || (
-                            <>
-                              <AlertsTab currentalertData={currentalertData} />
-                              {alertDetails.length > 0 && (
-                                <CommonPagination
-                                  data={alertDetails}
-                                  totalCount={alertDetails.length}
-                                  currentPage={currentPage}
-                                  setCurrentPage={setCurrentPage}
-                                  setCurrentData={setCurrentAlertData}
-                                  pageSize={10}
-                                />
-                              )}
-                            </>
-                          )}
-                        </div>
-                      </Tab>
-                      <Tab eventKey="watchlist" className='px-1' title="Watchlist">
-                        <div className="table-responsive table-user text-nowrap">
-                          {(isLoading && <TableLoader />) || (
-                            <>
-                              <WatchlistTab currentWatchlistData={currentWatchlistData} />
-                              {watchlistDetails.length > 0 && (
-                                <CommonPagination
-                                  data={watchlistDetails}
-                                  totalCount={watchlistDetails.length}
-                                  currentPage={currentPage}
-                                  setCurrentPage={setCurrentPage}
-                                  setCurrentData={setCurrentWatchlistData}
-                                  pageSize={10}
-                                />
-                              )}
-                            </>
-                          )}
-                        </div>
-                      </Tab>
-                      {/*inside tabing */}
-                      <Tab eventKey='screenerfilter' className='px-2' title="Screener Filter">
-                        <div className="table-responsive table-user text-nowrap">
-                          <ScreenerFilter isLoading={isLoading} advancedScreenerFilter={advancedScreenerFilter} AdvancedScreenerData={AdvancedScreenerData} currentPage={currentPage} setCurrentPage={setCurrentPage} setAdvancedScreenerData={setAdvancedScreenerData} liveScreenerFilter={liveScreenerFilter} LiveScreenerData={LiveScreenerData} setLiveScreenerData={setLiveScreenerData} optionScreenerData={optionScreenerData} optionScreenerFilter={optionScreenerFilter} setOptionScreenerData={setOptionScreenerData} />
-                        </div>
-                      </Tab>
-                      <Tab eventKey="active_login_details" className='px-1' title="Login Status">
-                        <div className="table-responsive table-user text-nowrap">
-                          {(isLoading && <TableLoader />) || (
-                            <>
-                              <LastLoginTab lastLoginData={lastLoginData} />
-                              {activelastLoginData.length > 0 && (
-                                <CommonPagination
-                                  data={activelastLoginData}
-                                  totalCount={activelastLoginData.length}
-                                  currentPage={currentPage}
-                                  setCurrentPage={setCurrentPage}
-                                  setCurrentData={setLastLoginData}
-                                  pageSize={10}
-                                />
-                              )}
-                            </>
-                          )}
-                        </div>
-                      </Tab>
-                    </Tabs>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </section >
-        )
-      }
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </Tab>
+                    <Tab eventKey="watchlist" className="px-1" title="Watchlist">
+                      <div className="table-responsive table-user text-nowrap">
+                        {(isLoading && <TableLoader />) || (
+                          <>
+                            <WatchlistTab currentWatchlistData={currentWatchlistData} />
+                            {watchlistDetails.length > 0 && (
+                              <CommonPagination
+                                data={watchlistDetails}
+                                totalCount={watchlistDetails.length}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                setCurrentData={setCurrentWatchlistData}
+                                pageSize={10}
+                              />
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </Tab>
+                    {/*inside tabing */}
+                    <Tab eventKey="screenerfilter" className="px-2" title="Screener Filter">
+                      <div className="table-responsive table-user text-nowrap">
+                        <ScreenerFilter
+                          isLoading={isLoading}
+                          advancedScreenerFilter={advancedScreenerFilter}
+                          AdvancedScreenerData={AdvancedScreenerData}
+                          currentPage={currentPage}
+                          setCurrentPage={setCurrentPage}
+                          setAdvancedScreenerData={setAdvancedScreenerData}
+                          liveScreenerFilter={liveScreenerFilter}
+                          LiveScreenerData={LiveScreenerData}
+                          setLiveScreenerData={setLiveScreenerData}
+                          optionScreenerData={optionScreenerData}
+                          optionScreenerFilter={optionScreenerFilter}
+                          setOptionScreenerData={setOptionScreenerData}
+                        />
+                      </div>
+                    </Tab>
+                    <Tab eventKey="active_login_details" className="px-1" title="Login Status">
+                      <div className="table-responsive table-user text-nowrap">
+                        {(isLoading && <TableLoader />) || (
+                          <>
+                            <LastLoginTab lastLoginData={lastLoginData} />
+                            {activelastLoginData.length > 0 && (
+                              <CommonPagination
+                                data={activelastLoginData}
+                                totalCount={activelastLoginData.length}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                setCurrentData={setLastLoginData}
+                                pageSize={10}
+                              />
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </Tab>
+                  </Tabs>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </section>
+      )}
     </>
   );
 }

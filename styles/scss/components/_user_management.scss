@@ -1,14 +1,4 @@
 .plan-status {
-  .dropdown-toggle {
-    background-color: #5369f8 !important;
-
-    &:hover {
-      color: #fff;
-      transition: all 0.4s;
-      background-color: #4759d3 !important;
-    }
-  }
-
   .form-check-label {
     color: #343a40;
     cursor: pointer;
@@ -113,7 +103,7 @@
     color: rgba(0, 0, 0, 0.555);
 
     &:focus {
-      ~.input-border {
+      ~ .input-border {
         &:after {
           visibility: visible;
           width: 100%;

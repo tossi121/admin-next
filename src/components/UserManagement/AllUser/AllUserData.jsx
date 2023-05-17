@@ -162,7 +162,7 @@ function UserManagement() {
       <section>
         <Row>
           <Col>
-            <h5 className="fw-500 mb-2">All Users</h5>
+            <h5 className="fw-500 mb-3">All Users</h5>
           </Col>
         </Row>
 

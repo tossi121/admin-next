@@ -24,12 +24,6 @@ function Sidebar(props) {
     setIsOpen(!isOpen);
   };
 
-  // useEffect(() => {
-  //   if (linksView) {
-  //     setIsOpen(!open);
-  //   }
-  // }, [isOpen]);
-
   return (
     <>
       <section
@@ -65,33 +59,38 @@ function Sidebar(props) {
               <li className="nav-item position-relative cursor-pointer" onClick={toggleDropdown}>
                 <div className="nav-link fw-500 base-color-2 d-flex align-items-center active">
                   <FontAwesomeIcon icon={faUser} width={15} className="fs-14 mx-1" />
-                  <span className="ms-1 text-nowrap">User Management</span>
-
-                  <button className="ms-5 border-0 bg-white active">
-                    {(isOpen && <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />) || (
-                      <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />
-                    )}
-                  </button>
+                  {toggle && (
+                    <>
+                      <span className="ms-1 text-nowrap">User Management</span>
+                      <button className="ms-5 border-0 bg-white active">
+                        {(isOpen && (
+                          <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
+                        )) || <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />}
+                      </button>
+                    </>
+                  )}
                 </div>
               </li>
             </ul>
-            {console.log(isOpen)}
-            <div className={`${(isOpen && 'sub-menu') || 'h-0'}`}>
-              {isOpen && (
-                <ul className="list-unstyled w-100">
-                  {links.map((link, index) => (
-                    <li key={index} onClick={() => setIsOpen(true)} className="w-100 d-flex">
-                      <Link
-                        href={link.url}
-                        className={`mb-2 ms-5 w-100 base-color-3 ${router.pathname === link.url ? 'active' : ''}`}
-                      >
-                        {link.text}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+
+            {toggle && (
+              <div className={`${(isOpen && 'sub-menu') || 'h-0'}`}>
+                {isOpen && (
+                  <ul className="list-unstyled w-100">
+                    {links.map((link, index) => (
+                      <li key={index} onClick={() => setIsOpen(true)} className="w-100 d-flex">
+                        <Link
+                          href={link.url}
+                          className={`mb-2 ms-5 w-100 base-color-3 ${router.pathname === link.url ? 'active' : ''}`}
+                        >
+                          {link.text}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
           </>
         </div>
       </section>

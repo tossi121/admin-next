@@ -94,7 +94,7 @@ function ActiveUsers() {
       <Row>
         <Col>
           <div className="page-title-box">
-            <h4 className="fw-500 fs-18">Active Prime Users</h4>
+            <h5 className="fw-500 mb-3">Active Prime Users</h5>
           </div>
         </Col>
       </Row>

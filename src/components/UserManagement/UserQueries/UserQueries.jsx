@@ -103,7 +103,7 @@ function UserQueries() {
       <Row>
         <Col>
           <div className="page-title-box">
-            <h4 className="fw-500 fs-18">User Queries Recieved</h4>
+            <h5 className="fw-500 mb-3">User Queries Recieved</h5>
           </div>
         </Col>
       </Row>
