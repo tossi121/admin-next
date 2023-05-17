@@ -1,4 +1,4 @@
-import { faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Form, Row, Table } from 'react-bootstrap';
@@ -157,8 +157,8 @@ const ReviewList = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('review_rating')}>
                                 <div>Rating</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'review_rating' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'review_rating' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'review_rating' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'review_rating' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -166,8 +166,8 @@ const ReviewList = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('review_desc')}>
                                 <div>Description</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'review_desc' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'review_desc' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'review_desc' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'review_desc' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -175,8 +175,8 @@ const ReviewList = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('username')}>
                                 <div>User Name</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'username' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'username' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'username' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'username' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -184,8 +184,8 @@ const ReviewList = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('broker')}>
                                 <div>Broker</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'broker' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'broker' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'broker' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'broker' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>

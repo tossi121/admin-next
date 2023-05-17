@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Modal, Row, Table } from 'react-bootstrap';
 import TableLoader from '_utils/Loader/TableLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faLongArrowAltDown, faLongArrowAltUp, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faArrowDownLong, faArrowUpLong, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 // import { useHistory } from 'react-router-dom';
 // import { useAuth } from '../../../_context/authContext';
 import CommonPagination from '../Pagination/CommonPagination';
@@ -200,8 +200,8 @@ function ManagePlans() {
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('plan_name')}>
                               <div>Plan Name</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'plan_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'plan_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                               </div>
                             </div>
                           </th>
@@ -209,8 +209,8 @@ function ManagePlans() {
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('plan_short_message')}>
                               <div>Short Message</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_short_message' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'plan_short_message' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'plan_short_message' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'plan_short_message' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                               </div>
                             </div>
                           </th>
@@ -218,8 +218,8 @@ function ManagePlans() {
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('plan_duration')}>
                               <div>Duration</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_duration' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'plan_duration' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'plan_duration' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'plan_duration' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                               </div>
                             </div>
                           </th>
@@ -227,8 +227,8 @@ function ManagePlans() {
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('plan_old_price')}>
                               <div>Plan Old Price</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_old_price' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'plan_old_price' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'plan_old_price' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'plan_old_price' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                               </div>
                             </div>
                           </th>
@@ -236,8 +236,8 @@ function ManagePlans() {
                             <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('plan_pricing')}>
                               <div>Plan price</div>
                               <div>
-                                <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'plan_pricing' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'plan_pricing' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'plan_pricing' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'plan_pricing' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                               </div>
                             </div>
                           </th>

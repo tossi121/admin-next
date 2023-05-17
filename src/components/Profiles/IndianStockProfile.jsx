@@ -1,4 +1,4 @@
-import { faEdit, faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row, Table } from 'react-bootstrap';
@@ -146,8 +146,8 @@ const IndianStockProfile = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('symbol')}>
                                 <div>Symbol</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'symbol' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'symbol' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'symbol' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'symbol' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
@@ -155,8 +155,8 @@ const IndianStockProfile = () => {
                               <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('company_name')}>
                                 <div>Company Name</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>

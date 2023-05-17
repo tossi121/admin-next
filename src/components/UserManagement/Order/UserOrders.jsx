@@ -4,7 +4,7 @@ import { Badge, Card, Col, Row, Table } from 'react-bootstrap';
 import moment from 'moment';
 import TableLoader from '_utils/Loader/TableLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 // import { useHistory } from 'react-router-dom';
 // import { useAuth } from '../../../../_context/authContext';
 import CommonPagination from '../../Pagination/CommonPagination';
@@ -169,15 +169,15 @@ function UserOrders() {
                               <div>Name</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'user_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'user_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -190,15 +190,15 @@ function UserOrders() {
                               <div>Email Address</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'user_email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'user_email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -211,15 +211,15 @@ function UserOrders() {
                               <div>Transaction Date</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'order_date_time' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'order_date_time' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -232,15 +232,15 @@ function UserOrders() {
                               <div>Transaction Amount</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'order_amount' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'order_amount' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}
@@ -254,15 +254,15 @@ function UserOrders() {
                               <div>Platform</div>
                               <div>
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltUp}
-                                  width={7}
+                                  icon={faArrowUpLong}
+                                  width={8}
                                   className={`ms-1 ${
                                     sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
                                   }`}
                                 />
                                 <FontAwesomeIcon
-                                  icon={faLongArrowAltDown}
-                                  width={7}
+                                  icon={faArrowDownLong}
+                                  width={8}
                                   className={`${
                                     sortBy == 'platform_type' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
                                   }`}

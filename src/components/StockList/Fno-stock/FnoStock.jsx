@@ -1,12 +1,9 @@
-import { faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, Col, Row, Table } from 'react-bootstrap';
 import { CSVLink } from 'react-csv';
 import { useEffect, useState } from 'react';
 import CommonPagination from '../../Pagination/CommonPagination';
-// import { useAuth } from '../../../../_context/authContext';
-// import { useHistory } from 'react-router-dom';
-// import { getFnoList } from '../../../../_services/nifty_service_api';
 import TableLoader from '_utils/Loader/TableLoader';
 import { getFnoList } from '_services/nifty_service_api';
 
@@ -20,18 +17,10 @@ function FnoStock() {
   const [currentPage, setCurrentPage] = useState(1);
   const [monthList, setMonthList] = useState([]);
   const lengthMenu = [10, 20, 50, 100];
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const [sortBy, setsortBy] = useState('underlying');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -108,9 +97,7 @@ function FnoStock() {
       <section className="stock-analysis">
         <Row>
           <Col>
-            <div className="page-title-box">
-              <h4 className="page-title">F&amp;O Stocks</h4>
-            </div>
+            <h5 className="fw-500 mb-3">F&amp;O Stocks</h5>
           </Col>
         </Row>
         <Row>
@@ -118,17 +105,17 @@ function FnoStock() {
             <Card>
               <Card.Body>
                 <>
-                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex justify-content-between align-items-center mb-2">
                     {selectBox()}
                     <CSVLink
                       data={fnolist}
                       filename="NiftyAdminStocks"
-                      className={`btn-primary btn ${fnolist.length === 0 && 'disabled'}`}
+                      className={`csb-button web-button text-light ${fnolist.length === 0 && 'disabled'}`}
                     >
                       Download CSV
                     </CSVLink>
                     <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
                       <input
                         type="text"
                         className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -148,29 +135,29 @@ function FnoStock() {
                         <thead>
                           <tr>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('underlying')}>
+                              <div onClick={() => handleSorting('underlying')}>
                                 <div>Underlying</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'underlying' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'underlying' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'underlying' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'underlying' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('symbol_name')}>
+                              <div onClick={() => handleSorting('symbol_name')}>
                                 <div>Symbol</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('lot_size')}>
+                              <div onClick={() => handleSorting('lot_size')}>
                                 <div>Lot Size</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'lot_size' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'lot_size' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'lot_size' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'lot_size' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>

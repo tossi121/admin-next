@@ -1,4 +1,4 @@
-import { faEdit, faLongArrowAltDown, faLongArrowAltUp, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faArrowDownLong, faArrowUpLong, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { Badge, Button, Card, Col, Modal, Row, Table } from 'react-bootstrap';
@@ -205,8 +205,8 @@ const ScreenerGroup = () => {
                                 <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('screener_group_id')}>
                                   <div>Id</div>
                                   <div className='d-flex justify-content-center align-content-center'>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'screener_group_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={` ${sortBy == 'screener_group_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'screener_group_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={` ${sortBy == 'screener_group_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -214,8 +214,8 @@ const ScreenerGroup = () => {
                                 <div className='d-flex align-items-center cursor-pointer text-nowrap' onClick={() => handleSorting('screener_group_name')}>
                                   <div>Group Name</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'screener_group_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'screener_group_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'screener_group_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'screener_group_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -223,8 +223,8 @@ const ScreenerGroup = () => {
                                 <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('symbol_name')}>
                                   <div>Symbols</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>

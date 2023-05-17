@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CommonPagination from '../../Pagination/CommonPagination';
 import { Badge, Button, Card, Col, Modal, Row, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faLongArrowAltDown, faLongArrowAltUp, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faArrowDownLong, faArrowUpLong, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import EditPromoCode from './EditPromoCode';
 import AddPromoCode from './AddPromoCode';
 // import { useAuth } from '../../../../_context/authContext';
@@ -200,8 +200,8 @@ const GeneralPromoCode = () => {
                                 <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('promo_general_id')}>
                                   <div>Id</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'promo_general_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'promo_general_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'promo_general_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'promo_general_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -209,8 +209,8 @@ const GeneralPromoCode = () => {
                                 <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('promocode_name')}>
                                   <div>Promo</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'promocode_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'promocode_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'promocode_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'promocode_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -218,8 +218,8 @@ const GeneralPromoCode = () => {
                                 <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('discount_for')}>
                                   <div>Discount For</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'discount_for' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'discount_for' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'discount_for' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'discount_for' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -227,8 +227,8 @@ const GeneralPromoCode = () => {
                                 <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('promocode_per')}>
                                   <div>Discount Value</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'promocode_per' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'promocode_per' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'promocode_per' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'promocode_per' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -236,8 +236,8 @@ const GeneralPromoCode = () => {
                                 <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('start_date')}>
                                   <div>Start Date</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'start_date' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'start_date' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'start_date' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'start_date' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -245,8 +245,8 @@ const GeneralPromoCode = () => {
                                 <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('end_date')}>
                                   <div>End Date</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'end_date' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'end_date' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'end_date' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'end_date' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>

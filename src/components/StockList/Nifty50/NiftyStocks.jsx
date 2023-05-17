@@ -1,10 +1,8 @@
-import { faLongArrowAltDown, faLongArrowAltUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { Card, Col, Row, Table } from 'react-bootstrap';
 import { CSVLink } from 'react-csv';
-// import { useAuth } from '../../../../_context/authContext';
-// import { useHistory } from 'react-router-dom';
 import CommonPagination from '../../Pagination/CommonPagination';
 import TableLoader from '_utils/Loader/TableLoader';
 import { getNifty50List } from '_services/nifty_service_api';
@@ -18,18 +16,10 @@ function NiftyStocks() {
   const [currentPage, setCurrentPage] = useState(1);
   const [niftyDataList, setNiftyDataList] = useState([]);
   const lengthMenu = [10, 20, 50, 100];
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const [sortBy, setsortBy] = useState('symbol_name');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -103,9 +93,7 @@ function NiftyStocks() {
         <section className="stock-analysis">
           <Row>
             <Col>
-              <div className="page-title-box">
-                <h4 className="page-title">Nifty 50 Stocks</h4>
-              </div>
+              <h5 className="fw-500 mb-3">Nifty 50 Stocks</h5>
             </Col>
           </Row>
           <Row>
@@ -113,18 +101,18 @@ function NiftyStocks() {
               <Card>
                 <Card.Body>
                   <>
-                    <div className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
                       {selectBox()}
                       <CSVLink
                         data={niftyDataList}
                         filename="NiftyAdminStocks"
-                        className={`btn-primary btn ${niftyDataList.length === 0 && 'disabled'}`}
+                        className={`csb-button web-button text-light ${niftyDataList.length === 0 && 'disabled'}`}
                       >
                         Download CSV
                       </CSVLink>
 
                       <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                        <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                        <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
                         <input
                           type="text"
                           className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -145,38 +133,38 @@ function NiftyStocks() {
                           <thead>
                             <tr>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('symbol_name')}>
+                                <div onClick={() => handleSorting('symbol_name')}>
                                   <div>Symbol</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('equity_capital_in_rs')}>
+                                <div onClick={() => handleSorting('equity_capital_in_rs')}>
                                   <div>Equity Capital(Rs.)</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'equity_capital_in_rs' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'equity_capital_in_rs' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'equity_capital_in_rs' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'equity_capital_in_rs' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('market_cap_in_rs')}>
+                                <div onClick={() => handleSorting('market_cap_in_rs')}>
                                   <div>Free Float Martket Capital(Rs.)</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'market_cap_in_rs' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'market_cap_in_rs' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'market_cap_in_rs' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'market_cap_in_rs' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('weight')}>
+                                <div onClick={() => handleSorting('weight')}>
                                   <div>Weight</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'weight' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'weight' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'weight' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'weight' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>

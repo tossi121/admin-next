@@ -1,12 +1,10 @@
-import { faEdit, faLongArrowAltDown, faLongArrowAltUp, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faArrowDownLong, faArrowUpLong, faSearch, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Modal, Row, Table } from 'react-bootstrap';
 import TableLoader from '_utils/Loader/TableLoader';
 import { CSVLink } from 'react-csv';
 import EditStockModal from './EditStockModal';
-// import { useAuth } from '../../../../_context/authContext';
-// import { useHistory } from 'react-router';
 import CreateStockModal from './CreateStockModal';
 import { toast } from 'react-toastify';
 import { deleteStockData, getStockDataList } from '_services/nifty_service_api';
@@ -25,24 +23,16 @@ function StockAnalysis() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState('');
-  const lengthMenu = [10, 20, 50, 100];
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
+  const lengthMenu = [10, 20, 70, 100];
   const [sortBy, setsortBy] = useState('symbol_name');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
 
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
-
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       stockListData();
-    }, 500);
+    }, 700);
     return () => clearTimeout(debounceTimer);
   }, [currentPage, pageSize, searchInput, sortBy, sortType, sortStyle]);
 
@@ -156,9 +146,7 @@ function StockAnalysis() {
       <section className="stock-analysis">
         <Row>
           <Col>
-            <div className="page-title-box">
-              <h4 className="page-title">Stock Analysis</h4>
-            </div>
+            <h5 className="fw-500 mb-3">Stock Analysis</h5>
           </Col>
         </Row>
         <Row>
@@ -166,23 +154,24 @@ function StockAnalysis() {
             <Card>
               <Card.Body>
                 <>
-                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex justify-content-between align-items-center mb-2">
                     {selectBox()}
                     <CSVLink
                       data={stockList}
                       filename="NiftyAdminStocks"
-                      className={`btn-primary btn ${stockList?.length === 0 && 'disabled'}`}
+                      className={`csb-button web-button text-light ${stockList?.length === 0 && 'disabled'}`}
                     >
                       Download CSV
                     </CSVLink>
                     <Button
-                      variant={`primary mx-4 ${stockList?.length === 0 && 'disabled'}`}
+                      variant="primary"
                       onClick={() => setAddModal(true)}
+                      className={`web-button mx-4 ${stockList?.length === 0 && 'disabled'}`}
                     >
                       Add New Stock
                     </Button>
                     <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
                       <input
                         type="text"
                         className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -204,56 +193,56 @@ function StockAnalysis() {
                           <thead>
                             <tr>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('symbol_name')}>
+                                <div onClick={() => handleSorting('symbol_name')}>
                                   <div>Symbol</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('company_name')}>
+                                <div onClick={() => handleSorting('company_name')}>
                                   <div>Company Name</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('industry')}>
+                                <div onClick={() => handleSorting('industry')}>
                                   <div>Industry</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'industry' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'industry' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'industry' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'industry' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('series')}>
+                                <div onClick={() => handleSorting('series')}>
                                   <div>Series</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'series' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'series' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'series' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'series' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('isin_code')}>
+                                <div onClick={() => handleSorting('isin_code')}>
                                   <div>ISIN Code</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'isin_code' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'isin_code' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'isin_code' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'isin_code' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('bse_code')}>
+                                <div onClick={() => handleSorting('bse_code')}>
                                   <div>BSE Code</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faLongArrowAltUp} width={5} className={`ms-1 ${sortBy == 'bse_code' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faLongArrowAltDown} width={5} className={`${sortBy == 'bse_code' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'bse_code' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'bse_code' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -275,12 +264,12 @@ function StockAnalysis() {
                                       <FontAwesomeIcon
                                         icon={faEdit}
                                         width={16}
-                                        className="cursor-pointer"
+                                        className="cursor-pointer base-color-3"
                                         title="Edit"
                                         onClick={() => handleEdit(item.id)}
                                       />
                                       <FontAwesomeIcon
-                                        className="ms-2 cursor-pointer"
+                                        className="ms-2 cursor-pointer base-color-3"
                                         icon={faTrash}
                                         width={16}
                                         title="Delete"

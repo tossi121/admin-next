@@ -1,4 +1,4 @@
-import { getStockDetail } from '_services/nifty_service_api';
+import { createStockData, getStockDetail } from '_services/nifty_service_api';
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 import { toast } from 'react-toastify';
@@ -136,125 +136,128 @@ function EditStockModal(props) {
   return (
     <>
       <Modal show={show} onHide={handleClose} size={'lg'} centered>
-        <Modal.Header onHide={handleClose} closeButton className="border-bottom">
-          <Modal.Title as="h4">Edit Stock</Modal.Title>
+        <Modal.Header onHide={handleClose} closeButton>
+          <Modal.Title as="h5">Edit Stock</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="pb-0">
+        <Modal.Body className="pb-0 py-1">
           <>
-            <Form className="input-login my-2" onSubmit={handleEditStock}>
+            <Form className="input-login" onSubmit={handleEditStock}>
               <Row>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="company">
+                      Company Name
+                    </Form.Label>
                     <Form.Control
                       name="company"
                       id="company"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.company}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="company">
-                      Company Name
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.company}</p>
                   </Form.Group>
                 </Col>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="industry">
+                      Industry
+                    </Form.Label>
                     <Form.Control
                       name="industry"
                       id="industry"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.industry}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="industry">
-                      Industry
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.industry}</p>
                   </Form.Group>
                 </Col>
               </Row>
               <Row>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="symbol">
+                      Symbol
+                    </Form.Label>
                     <Form.Control
                       name="symbol"
                       id="symbol"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.symbol}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="symbol">
-                      Symbol
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.symbol}</p>
                   </Form.Group>
                 </Col>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="instrument">
+                      Instrument Name
+                    </Form.Label>
                     <Form.Control
                       name="instrument"
                       id="instrument"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.instrument}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="instrument">
-                      Instrument Name
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.instrument}</p>
                   </Form.Group>
                 </Col>
               </Row>
               <Row>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="series">
+                      Series
+                    </Form.Label>
                     <Form.Control
                       name="series"
                       id="series"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.series}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="series">
-                      Series
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.series}</p>
                   </Form.Group>
                 </Col>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="isin">
+                      ISIN Code
+                    </Form.Label>
                     <Form.Control
                       name="isin"
                       id="isin"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.isin}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="isin">
-                      ISIN Code
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.isin}</p>
                   </Form.Group>
                 </Col>
               </Row>
               <Row>
                 <Col lg={6}>
-                  <Form.Label className="fin-select d-block border-bottom mb-0" htmlFor="fin">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="fin">
+                      Fin Industry
+                    </Form.Label>
                     <select
-                      className="fin-field w-100 bg-white"
+                      className="w-100 bg-white p-2 rounded-2 common-input-feild"
                       required
                       name="fin"
                       id="fin"
@@ -265,111 +268,112 @@ function EditStockModal(props) {
                       <option value="Yes">&#160;&#160;Yes</option>
                       <option value="NO">&#160;&#160;NO</option>
                     </select>
-                    <span className="fin-label">Fin Industry</span>
-                  </Form.Label>
-                  <p className="text-danger fs-14 error-message position-absolute mb-0">{formErrors.fin}</p>
+                    <p className="text-danger fs-14 error-message position-absolute mb-0">{formErrors.fin}</p>
+                  </Form.Group>
                 </Col>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="et">
+                      ET Code
+                    </Form.Label>
                     <Form.Control
                       name="et"
                       id="et"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.et}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="et">
-                      ET Code
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.et}</p>
                   </Form.Group>
                 </Col>
               </Row>
               <Row>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="sector">
+                      Sector
+                    </Form.Label>
                     <Form.Control
                       name="sector"
                       id="sector"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.sector}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="sector">
-                      Sector
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.sector}</p>
                   </Form.Group>
                 </Col>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                    <Form.Label className="common-form-label" htmlFor="bse">
+                      BSE Code
+                    </Form.Label>
                     <Form.Control
                       name="bse"
                       id="bse"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.bse}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="bse">
-                      BSE Code
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.bse}</p>
                   </Form.Group>
                 </Col>
               </Row>
               {/* <Row>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                  <Form.Label className="common-form-label" htmlFor="group">
+                    Group (A or B)
+                  </Form.Label>
                     <Form.Control
                       name="group"
                       id="group"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.group}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="group">
-                      Group (A or B)
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.group}</p>
                   </Form.Group>
                 </Col>
                 <Col lg={6}>
-                  <Form.Group className="mb-4 border-bottom input-label">
+                  <Form.Group className="my-2">
+                  <Form.Label className="common-form-label" htmlFor="face">
+                    Face Value
+                  </Form.Label>
                     <Form.Control
                       name="face"
                       id="face"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
+                      className="common-input-feild"
                       placeholder=" "
                       value={formValues?.face}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="face">
-                      Face Value
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.face}</p>
                   </Form.Group>
                 </Col>
               </Row> */}
+              <Row>
+                <Col className='my-3'>
+                  <Button variant="light" className='me-3' onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button variant="primary" className='web-button' type='submit' onClick={handleEditStock}>
+                    Save Changes
+                  </Button>
+                </Col>
+              </Row>
             </Form>
           </>
         </Modal.Body>
-        <Modal.Footer className="border-top">
-          <Button variant="light" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleEditStock}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );
