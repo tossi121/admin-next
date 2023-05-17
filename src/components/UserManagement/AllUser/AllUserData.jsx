@@ -110,7 +110,7 @@ function UserManagement() {
     );
   }
 
-  function UserselectBox() {
+  function userSelectBox() {
     return (
       <>
         <div className="form-group input-box me-3 mb-2 fs-14 mt-md-0 text-nowrap">
@@ -171,7 +171,7 @@ function UserManagement() {
               <Card.Body>
                 <div className="d-flex justify-content-between align-items-center">
                   {selectBox()}
-                  {UserselectBox()}
+                  {userSelectBox()}
                   <div className="search-box position-relative text-center me-2 ms-auto pb-2">
                     <FontAwesomeIcon
                       icon={faSearch}
@@ -205,14 +205,16 @@ function UserManagement() {
                                   <FontAwesomeIcon
                                     width={8}
                                     icon={faArrowUpLong}
-                                    className={`ms-1 ${sortBy == 'name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`ms-1 ${
+                                      sortBy == 'name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                   <FontAwesomeIcon
                                     width={8}
                                     icon={faArrowDownLong}
-                                    className={`${sortBy == 'name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`${
+                                      sortBy == 'name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                 </div>
                               </div>
@@ -224,14 +226,16 @@ function UserManagement() {
                                   <FontAwesomeIcon
                                     icon={faArrowUpLong}
                                     width={8}
-                                    className={`ms-1 ${sortBy == 'email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`ms-1 ${
+                                      sortBy == 'email' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                   <FontAwesomeIcon
                                     icon={faArrowDownLong}
                                     width={8}
-                                    className={`${sortBy == 'email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`${
+                                      sortBy == 'email' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                 </div>
                               </div>
@@ -243,14 +247,16 @@ function UserManagement() {
                                   <FontAwesomeIcon
                                     icon={faArrowUpLong}
                                     width={8}
-                                    className={`ms-1 ${sortBy == 'phone_no' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`ms-1 ${
+                                      sortBy == 'phone_no' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                   <FontAwesomeIcon
                                     icon={faArrowDownLong}
                                     width={8}
-                                    className={`${sortBy == 'phone_no' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`${
+                                      sortBy == 'phone_no' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                 </div>
                               </div>
@@ -262,14 +268,16 @@ function UserManagement() {
                                   <FontAwesomeIcon
                                     icon={faArrowUpLong}
                                     width={8}
-                                    className={`ms-1 ${sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`ms-1 ${
+                                      sortBy == 'created_at' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                   <FontAwesomeIcon
                                     icon={faArrowDownLong}
                                     width={8}
-                                    className={`${sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`${
+                                      sortBy == 'created_at' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                 </div>
                               </div>
@@ -286,14 +294,16 @@ function UserManagement() {
                                   <FontAwesomeIcon
                                     icon={faArrowUpLong}
                                     width={8}
-                                    className={`ms-1 ${sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`ms-1 ${
+                                      sortBy == 'platform_type' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                   <FontAwesomeIcon
                                     icon={faArrowDownLong}
                                     width={8}
-                                    className={`${sortBy == 'platform_type' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`${
+                                      sortBy == 'platform_type' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                 </div>
                               </div>
@@ -305,14 +315,16 @@ function UserManagement() {
                                   <FontAwesomeIcon
                                     icon={faArrowUpLong}
                                     width={8}
-                                    className={`ms-1 ${sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`ms-1 ${
+                                      sortBy == 'plan_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                   <FontAwesomeIcon
                                     icon={faArrowDownLong}
                                     width={8}
-                                    className={`${sortBy == 'plan_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                      }`}
+                                    className={`${
+                                      sortBy == 'plan_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                    }`}
                                   />
                                 </div>
                               </div>
@@ -365,14 +377,14 @@ function UserManagement() {
                                 </tr>
                               );
                             })) || (
-                              <>
-                                <tr>
-                                  <td className="border border-0 p-0 pt-2 ps-2">
-                                    <p>No Data Found</p>
-                                  </td>
-                                </tr>
-                              </>
-                            )}
+                            <>
+                              <tr>
+                                <td className="border border-0 p-0 pt-2 ps-2">
+                                  <p>No Data Found</p>
+                                </td>
+                              </tr>
+                            </>
+                          )}
                         </tbody>
                       </Table>
                     </>

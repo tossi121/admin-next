@@ -12,9 +12,27 @@ function Sidebar(props) {
   const [expandedId, setExpandedId] = useState(null);
 
   const toggleSubmenu = (index) => {
-    const updatedMenuItems = [...menuItems];
-    updatedMenuItems[index].isOpen = !updatedMenuItems[index].isOpen;
+    // Map over the menu items and update the isOpen property based on the clicked index
+    const updatedMenuItems = menuItems.map((menuItem, i) => {
+      if (i === index) {
+        // If the current index matches the clicked index, set isOpen to true
+        return {
+          ...menuItem,
+          isOpen: true,
+        };
+      } else {
+        // For other menu items, set isOpen to false
+        return {
+          ...menuItem,
+          isOpen: false,
+        };
+      }
+    });
+
+    // Update the menuItems state with the updated values
     setMenuItems(updatedMenuItems);
+
+    // Set the expandedId state to the clicked index
     setExpandedId(index);
   };
 
@@ -26,24 +44,25 @@ function Sidebar(props) {
   return (
     <>
       <section
-        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${toggleResponsive ? 'hide-sidebar' : 'full-width'
-          }`}
+        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${
+          toggleResponsive ? 'hide-sidebar' : 'full-width'
+        }`}
       >
-        {(toggle && (
+        {toggle && (
           <div className="position-absolute logo-icon">
             <Link href={'/'}>
               <Image src="/images/logo.svg" alt="logo" className="ms-3" width={160} height={65} />
             </Link>
           </div>
-        )) || (
-            <>
-              <div className="position-absolute logo-icon-sm">
-                <Link href={'/'}>
-                  <Image src="/logo-icon.png" alt="logo" className="ms-3" width={30} height={30} />
-                </Link>
-              </div>
-            </>
-          )}
+        )}
+
+        {!toggle && (
+          <div className="position-absolute logo-icon-sm">
+            <Link href={'/'}>
+              <Image src="/logo-icon.png" alt="logo" className="ms-3" width={30} height={30} />
+            </Link>
+          </div>
+        )}
 
         <div className="menu-wrapper position-relative vh-100">
           <span
@@ -52,58 +71,55 @@ function Sidebar(props) {
           >
             <FontAwesomeIcon icon={faBars} width={25} className="fs-20" />
           </span>
-          <>
-            <ul className="navbar-nav px-3">
-              {navbarData?.map((menuItem, index) => (
-                <li
-                  key={index}
-                  className={`nav-item position-relative cursor-pointer`}
-                  onClick={() => toggleSubmenu(index)}
-                >
-                  {/* Render menu item content */}
-                  <div className={`nav-link fw-500 base-color-3 ${(expandedId == index && 'active') || ''}`}>
-                    <div className="d-flex align-items-center">
-                      <FontAwesomeIcon icon={menuItem.icon} width={15} className="fs-14 me-2" />
-                      {toggle && (
-                        <>
-                          <span className="ms-1 text-nowrap">{menuItem.text}</span>
-                          <button className={`border-0 ms-auto bg-white  ${(expandedId == index && 'active') || ''}`}>
-                            {menuItem.isOpen ? (
-                              <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
-                            ) : (
-                              <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />
-                            )}
-                          </button>
-                        </>
-                      )}
-                    </div>
-                  </div>
 
-                  {/* Render submenu content */}
-                  {toggle && (
-                    <div className={`${(menuItem.isOpen && 'sub-menu') || 'h-0'}`}>
-                      {menuItem.isOpen && (
-                        <ul className="list-unstyled w-100">
-                          {menuItem.subMenu?.map((subMenuItem, subIndex) => (
-                            <li key={subIndex} className={`w-100 d-flex`}>
-                              <Link
-                                href={subMenuItem.url}
-                                className={`mb-2 ms-5 w-100 base-color-3 ${
-                                  isActivePage(subMenuItem.url) ? 'active' : ''
-                                }`}
-                              >
-                                {subMenuItem.text}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </>
+          <ul className="navbar-nav px-3">
+            {menuItems.map((menuItem, index) => (
+              <li
+                key={index}
+                className={`nav-item position-relative cursor-pointer`}
+                onClick={() => toggleSubmenu(index)}
+              >
+                <div className={`nav-link fw-500 base-color-3 ${expandedId === index ? 'active' : ''}`}>
+                  <div className="d-flex align-items-center">
+                    <FontAwesomeIcon icon={menuItem.icon} width={15} className="fs-14 me-2" />
+                    {toggle && (
+                      <>
+                        <span className="ms-1 text-nowrap">{menuItem.menu}</span>
+                        <button className={`border-0 ms-auto bg-white ${expandedId === index ? 'active' : ''}`}>
+                          {menuItem.isOpen ? (
+                            <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
+                          ) : (
+                            <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />
+                          )}
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {toggle && menuItem.isOpen && (
+                  <div className={`sub-menu ${menuItem.isOpen ? 'open' : ''}`}>
+                    {menuItem.isOpen && (
+                      <ul className="list-unstyled w-100">
+                        {menuItem.subMenu.map((subMenuItem, subIndex) => (
+                          <li key={subIndex} className={`w-100 d-flex`}>
+                            <Link
+                              href={subMenuItem.url}
+                              className={`mb-2 ms-5 w-100 base-color-3 ${
+                                isActivePage(subMenuItem.url) ? 'active' : ''
+                              }`}
+                            >
+                              {subMenuItem.text}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>
