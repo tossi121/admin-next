@@ -7,6 +7,10 @@ html {
 
 a {
   text-decoration: none;
+  &:hover {
+    transition: all 0.4s;
+    color: var(--base-link-color);
+  }
 }
 
 .fw-400 {

@@ -3,36 +3,6 @@
   height: 65px;
   box-shadow: var(--dashboard-common-shadow);
 
-  .Profile {
-    .Profile-box-dropdown {
-      &:after {
-        border: unset;
-        width: 15px;
-        height: 15px;
-        background: url(/images/team-roster/arrow-down.svg);
-        background-size: cover;
-        position: absolute;
-        top: 50%;
-        right: 0px;
-        transform: translateY(-50%);
-      }
-    }
-    .dropdown-menu {
-      overflow: hidden;
-      top: 5px !important;
-      right: 0 !important;
-      left: auto !important;
-      transform: translate(4px, 20px) !important;
-      .dropdown-item {
-        &:hover,
-        &:focus {
-          color: var(--base-color-1);
-          background: var(--base-color-4);
-        }
-      }
-    }
-  }
-
   .toggle-btn {
     top: 20%;
   }
@@ -59,8 +29,6 @@
   }
 
   .navbar-nav {
-    // height: calc(100vh - 64px) !important;
-    // overflow-y: auto;
     &::-webkit-scrollbar {
       width: 0px;
       height: 0px;
@@ -86,7 +54,7 @@
 
       .nav-link {
         display: block;
-        padding: 13px 8px;
+        padding: 13px 5px;
         border-radius: 6px;
         .sidebar-icons {
           width: 22px;
@@ -130,7 +98,7 @@
   transform: rotate(270deg);
 }
 .sidebar-sm {
-  width: 70px;
+  width: 80px;
   z-index: 999;
   transition: all 0.2s;
 
