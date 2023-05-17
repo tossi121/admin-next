@@ -7,14 +7,20 @@ import { useState } from 'react';
 import { navbarData } from './NavBar';
 
 function Sidebar(props) {
-  const { toggle, ToggleFun, toggleResponsive } = props;
-  const router = useRouter();
+  const { toggle, toggleMenu, toggleResponsive } = props;
   const [menuItems, setMenuItems] = useState([...navbarData]);
+  const [expandedId, setExpandedId] = useState(null);
 
   const toggleSubmenu = (index) => {
     const updatedMenuItems = [...menuItems];
     updatedMenuItems[index].isOpen = !updatedMenuItems[index].isOpen;
     setMenuItems(updatedMenuItems);
+    setExpandedId(index);
+  };
+
+  const isActivePage = (url) => {
+    const router = useRouter();
+    return router.pathname === url;
   };
 
   return (
@@ -43,43 +49,50 @@ function Sidebar(props) {
         <div className="menu-wrapper position-relative vh-100">
           <span
             className="btn-expanded position-absolute justify-content-center p-2 bg-white d-lg-flex d-none cursor-pointer"
-            onClick={ToggleFun}
+            onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={faBars} width={25} className="fs-20" />
           </span>
           <>
-            <ul className={`navbar-nav px-3`}>
-              {menuItems?.map((menuItem, index) => (
+            <ul className="navbar-nav px-3">
+              {navbarData?.map((menuItem, index) => (
                 <li
                   key={index}
-                  className="nav-item position-relative cursor-pointer"
+                  className={`nav-item position-relative cursor-pointer`}
                   onClick={() => toggleSubmenu(index)}
                 >
-                  <div className="nav-link fw-500 base-color-2">
+                  {/* Render menu item content */}
+                  <div className={`nav-link fw-500 base-color-3 ${(expandedId == index && 'active') || ''}`}>
                     <div className="d-flex align-items-center">
                       <FontAwesomeIcon icon={menuItem.icon} width={15} className="fs-14 me-2" />
                       {toggle && (
                         <>
                           <span className="ms-1 text-nowrap">{menuItem.text}</span>
-                          <button className="border-0 ms-auto bg-white active">
-                            {(menuItem.isOpen && (
+                          <button className={`border-0 ms-auto bg-white  ${(expandedId == index && 'active') || ''}`}>
+                            {menuItem.isOpen ? (
                               <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
-                            )) || <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />}
+                            ) : (
+                              <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />
+                            )}
                           </button>
                         </>
                       )}
                     </div>
                   </div>
+
+                  {/* Render submenu content */}
                   {toggle && (
                     <div className={`${(menuItem.isOpen && 'sub-menu') || 'h-0'}`}>
                       {menuItem.isOpen && (
                         <ul className="list-unstyled w-100">
                           {menuItem.subMenu?.map((subMenuItem, subIndex) => (
-                            <li
-                              key={subIndex}
-                              className={`w-100 d-flex ${router.pathname === subMenuItem.url ? 'active' : ''}`}
-                            >
-                              <Link href={subMenuItem.url} className="mb-2 ms-5 w-100 base-color-3">
+                            <li key={subIndex} className={`w-100 d-flex`}>
+                              <Link
+                                href={subMenuItem.url}
+                                className={`mb-2 ms-5 w-100 base-color-3 ${
+                                  isActivePage(subMenuItem.url) ? 'active' : ''
+                                }`}
+                              >
                                 {subMenuItem.text}
                               </Link>
                             </li>

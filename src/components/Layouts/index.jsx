@@ -12,7 +12,7 @@ function DashboardLayout(props) {
   const [toggleResponsive, setToggleResponsive] = useState(true);
   const [responsiveSidebar, setResponsiveSidebar] = useState(false);
 
-  function SidebarToggle() {
+  function sidebarToggle() {
     setisSidebar(!isSidebar);
     setToggleResponsive(!toggleResponsive);
   }
@@ -23,13 +23,13 @@ function DashboardLayout(props) {
   return (
     <>
       <>
-        <Topbar ToggleFun={SidebarToggle} />
+        <Topbar ToggleFun={sidebarToggle} />
         <div className="d-flex h-100 layout-wrapper w-100">
           <Sidebar
             responisveToggle={responsiveSidebar}
             setResponsiveSidebar={setResponsiveSidebar}
             toggle={isSidebar}
-            ToggleFun={SidebarToggle}
+            toggleMenu={sidebarToggle}
             setToggle={setisSidebar}
             responsiveToggle={responsiveToggle}
             toggleResponsive={toggleResponsive}

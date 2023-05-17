@@ -11,6 +11,7 @@ export const navbarData = [
       { text: 'Reviews', url: '/user-management/reviews' },
       { text: 'Active Prime Users', url: '/user-management/active-prime-user' },
     ],
+    isOpen: false,
   },
   {
     text: 'Stock List',
@@ -18,7 +19,8 @@ export const navbarData = [
     subMenu: [
       { text: 'Stock Analysis', url: '/stock-list/stock-analysis' },
       { text: 'F&O Stocks', url: '/stock-list/fno-list' },
-      { text: 'Nifty50 Stocks', url: '/stock-list/nifty50' }
+      { text: 'Nifty50 Stocks', url: '/stock-list/nifty50' },
     ],
+    isOpen: false,
   },
 ];
