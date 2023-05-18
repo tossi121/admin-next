@@ -72,7 +72,7 @@ function Sidebar(props) {
               >
                 <div className={`nav-link fw-500 base-color-3 ${expandedId === index ? 'active' : ''}`}>
                   <div className="d-flex align-items-center">
-                    <FontAwesomeIcon icon={menuItem.icon} width={15} className="fs-14 me-2" />
+                    <FontAwesomeIcon icon={menuItem.icon} width={15} height={15} className="fs-14 me-2" />
                     {toggle && (
                       <>
                         <span className="ms-1 text-nowrap">{menuItem.menu}</span>
@@ -88,20 +88,22 @@ function Sidebar(props) {
                   </div>
                 </div>
 
-                <div className={`sub-menu ${expandedId === index ? 'open' : ''}`}>
-                  <ul className={`list-unstyled w-100 ${expandedId === index ? 'open' : ''}`}>
-                    {menuItem.subMenu.map((subMenuItem, subIndex) => (
-                      <li key={subIndex} className={`w-100 d-flex ${expandedId === index ? 'open' : ''}`}>
-                        <Link
-                          href={subMenuItem.url}
-                          className={`mb-2 ms-5 w-100 base-color-3 ${isActivePage(subMenuItem.url) ? 'active' : ''}`}
-                        >
-                          {subMenuItem.text}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {toggle && menuItem.isOpen && (
+                  <div className={`sub-menu ${expandedId === index ? 'open' : ''}`}>
+                    <ul className={`list-unstyled w-100 ${expandedId === index ? 'open' : ''}`}>
+                      {menuItem.subMenu.map((subMenuItem, subIndex) => (
+                        <li key={subIndex} className={`w-100 d-flex ${expandedId === index ? 'open' : ''}`}>
+                          <Link
+                            href={subMenuItem.url}
+                            className={`mb-2 ms-5 w-100 base-color-3 ${isActivePage(subMenuItem.url) ? 'active' : ''}`}
+                          >
+                            {subMenuItem.text}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </li>
             ))}
           </ul>

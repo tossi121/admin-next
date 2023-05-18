@@ -1,8 +1,4 @@
-import {
-  faChartLine
-
-  , faCircleExclamation, faUser, faUserGroup
-} from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faCircleExclamation, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 
 export const navbarData = [
   {
@@ -28,17 +24,11 @@ export const navbarData = [
   {
     menu: 'Terms',
     icon: faCircleExclamation,
-    subMenu: [
-      { text: 'Manage Terms', url: '/manage-terms' },
-    ],
-    isOpen: false,
+    subMenu: [{ text: 'Manage Terms', url: '/manage-terms' }],
   },
   {
     menu: 'Profiles',
     icon: faUser,
-    subMenu: [
-      { text: 'Indian Stocks Profile', url: '/profile/indianstockprofile' },
-    ],
-    isOpen: false,
+    subMenu: [{ text: 'Indian Stocks Profile', url: '/profile/indianstockprofile' }],
   },
 ];

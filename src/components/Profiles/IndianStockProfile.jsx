@@ -5,9 +5,9 @@ import { Card, Col, Row, Table } from 'react-bootstrap';
 import CommonPagination from '../Pagination/CommonPagination';
 import TableLoader from '_utils/Loader/TableLoader';
 import { getIndianStockList } from '_services/nifty_service_api';
+import SelectBox from 'components/SelectBox';
 
 const IndianStockProfile = () => {
-  const [show, setShow] = useState(false);
   const [totalItems, setTotalItems] = useState(null);
   const [totalPages, setTotalPages] = useState(null);
   const [pageSize, setPageSize] = useState(10);
@@ -15,7 +15,6 @@ const IndianStockProfile = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState('');
   const [stockList, setStockList] = useState([]);
-  const lengthMenu = [10, 20, 50, 100];
   const [sortBy, setsortBy] = useState('company_name');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
@@ -34,7 +33,7 @@ const IndianStockProfile = () => {
       pageSize: pageSize,
       search_keyword: searchInput,
       order_by: sortBy,
-      order_dir: sortType
+      order_dir: sortType,
     };
     setIsLoading(true);
     const response = await getIndianStockList(params);
@@ -49,41 +48,15 @@ const IndianStockProfile = () => {
     setIsLoading(false);
   }
 
-  function selectBox() {
-    return (
-      <>
-        <div className="form-group input-box me-3 fs-14 mt-md-0 text-nowrap ps-2">
-          Show{' '}
-          <select
-            className="border bg-white rounded-3 cursor-pointer label-color-4 custom-select px-2 py-1 mx-1"
-            onChange={(e) => {
-              setPageSize(e.target.value);
-              setCurrentPage(1);
-            }}
-          >
-            {lengthMenu.map((item, key) => {
-              return (
-                <option key={key} defaultValue={key === 0} value={item}>
-                  {item}
-                </option>
-              );
-            })}
-          </select>{' '}
-          Entries
-        </div>
-      </>
-    );
-  }
-
   function handleSorting(params) {
-    setsortBy(params)
-    setSortToggle(prevstate => !prevstate)
+    setsortBy(params);
+    setSortToggle((prevstate) => !prevstate);
     if (sortToggle) {
-      setsortType('desc')
-      setSortStyle('text-danger')
+      setsortType('desc');
+      setSortStyle('text-danger');
     } else {
-      setsortType('asc')
-      setSortStyle('text-success')
+      setsortType('asc');
+      setSortStyle('text-success');
     }
   }
 
@@ -92,7 +65,7 @@ const IndianStockProfile = () => {
       <section className="stock-analysis">
         <Row>
           <Col>
-              <h5 className="fw-500 mb-3">Indian Stock Profile</h5>
+            <h5 className="fw-500 mb-3">Indian Stock Profile</h5>
           </Col>
         </Row>
         <Row>
@@ -101,9 +74,14 @@ const IndianStockProfile = () => {
               <Card.Body>
                 <>
                   <div className="d-flex justify-content-between align-items-center">
-                    {selectBox()}
+                    <SelectBox setPageSize={setPageSize} setCurrentPage={setCurrentPage} />
                     <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
+                      <FontAwesomeIcon
+                        icon={faSearch}
+                        width="16"
+                        height="16"
+                        className="position-absolute end-0 mt-1 me-2 base-color-3"
+                      />
                       <input
                         type="text"
                         className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -127,8 +105,20 @@ const IndianStockProfile = () => {
                               <div onClick={() => handleSorting('symbol')}>
                                 <div>Symbol</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'symbol' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'symbol' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon
+                                    icon={faArrowUpLong}
+                                    width={8}
+                                    className={`ms-1 ${
+                                      sortBy == 'symbol' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                    }`}
+                                  />
+                                  <FontAwesomeIcon
+                                    icon={faArrowDownLong}
+                                    width={8}
+                                    className={`${
+                                      sortBy == 'symbol' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                    }`}
+                                  />
                                 </div>
                               </div>
                             </th>
@@ -136,8 +126,20 @@ const IndianStockProfile = () => {
                               <div onClick={() => handleSorting('company_name')}>
                                 <div>Company Name</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon
+                                    icon={faArrowUpLong}
+                                    width={8}
+                                    className={`ms-1 ${
+                                      sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                    }`}
+                                  />
+                                  <FontAwesomeIcon
+                                    icon={faArrowDownLong}
+                                    width={8}
+                                    className={`${
+                                      sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                    }`}
+                                  />
                                 </div>
                               </div>
                             </th>
@@ -162,12 +164,13 @@ const IndianStockProfile = () => {
                                   </td> */}
                                 </tr>
                               );
-                            })) ||
+                            })) || (
                             <tr>
                               <td className="border border-0 p-0 pt-2 ps-2">
                                 <p>No Data Found</p>
                               </td>
-                            </tr>}
+                            </tr>
+                          )}
                         </tbody>
                       </Table>
                     )}

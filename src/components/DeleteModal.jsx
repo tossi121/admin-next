@@ -15,7 +15,7 @@ function DeleteModal({ showModal, setShowModal, deleteStock, stockText }) {
         <Button variant=" " className="web-button text-white" onClick={() => setShowModal(false)}>
           Cancel
         </Button>
-        <Button variant="outline-danger" onClick={deleteStock}>
+        <Button  variant="outline-danger"onClick={deleteStock}>
           Delete
         </Button>
       </Modal.Footer>

@@ -310,7 +310,7 @@ function StockAnalysis() {
                                       <FontAwesomeIcon
                                         className="ms-2 cursor-pointer base-color-3"
                                         icon={faTrash}
-                                        width={16}
+                                        width={14}
                                         title="Delete"
                                         onClick={() => handleDelete(item.id)}
                                       />
