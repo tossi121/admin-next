@@ -65,27 +65,26 @@ function Sidebar(props) {
 
           <ul className="navbar-nav px-3">
             {menuItems.map((menuItem, index) => (
-              <li
-                key={index}
-                className={`nav-item position-relative cursor-pointer`}
-                onClick={() => toggleSubmenu(index)}
-              >
-                <div className={`nav-link fw-500 base-color-3 ${expandedId === index ? 'active' : ''}`}>
-                  <div className="d-flex align-items-center">
-                    <FontAwesomeIcon icon={menuItem.icon} width={15} height={15} className="fs-14 me-2" />
-                    {toggle && (
-                      <>
-                        <span className="ms-1 text-nowrap">{menuItem.menu}</span>
-                        <button className={`border-0 ms-auto bg-white ${expandedId === index ? 'active' : ''}`}>
-                          {menuItem.isOpen ? (
-                            <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
-                          ) : (
-                            <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />
-                          )}
-                        </button>
-                      </>
-                    )}
-                  </div>
+              <li key={index} className={`nav-item position-relative`}>
+                <div
+                  className={`nav-link fw-500 base-color-3 d-flex align-items-center cursor-pointer  ${
+                    expandedId === index ? 'active' : ''
+                  }`}
+                  onClick={() => toggleSubmenu(index)}
+                >
+                  <FontAwesomeIcon icon={menuItem.icon} width={15} height={15} className="fs-14 me-2" />
+                  {toggle && (
+                    <>
+                      <span className="ms-1 text-nowrap">{menuItem.menu}</span>
+                      <button className={`border-0 ms-auto bg-white ${expandedId === index ? 'active' : ''}`}>
+                        {menuItem.isOpen ? (
+                          <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
+                        ) : (
+                          <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />
+                        )}
+                      </button>
+                    </>
+                  )}
                 </div>
 
                 {toggle && menuItem.isOpen && (
