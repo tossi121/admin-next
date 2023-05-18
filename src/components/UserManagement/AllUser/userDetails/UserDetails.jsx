@@ -222,7 +222,7 @@ function UserDetails(props) {
                       <PreferenceTab userDetails={userDetails} />
                     </Tab>
                     <Tab eventKey="Orders" className="px-2" title="Orders">
-                      <div className="table-responsive table-user text-nowrap">
+                      <div className="table-responsive  text-nowrap">
                         {(isLoading && <TableLoader />) || (
                           <>
                             <TransactionsTab currentData={currentData} />
@@ -288,7 +288,7 @@ function UserDetails(props) {
                       </Dropdown>
                     </Tab>
                     <Tab eventKey="alerts" className="px-1" title="Alerts">
-                      <div className="table-responsive table-user text-nowrap">
+                      <div className="table-responsive  text-nowrap">
                         {(isLoading && <TableLoader />) || (
                           <>
                             <AlertsTab currentalertData={currentalertData} />
@@ -307,7 +307,7 @@ function UserDetails(props) {
                       </div>
                     </Tab>
                     <Tab eventKey="watchlist" className="px-1" title="Watchlist">
-                      <div className="table-responsive table-user text-nowrap">
+                      <div className="table-responsive  text-nowrap">
                         {(isLoading && <TableLoader />) || (
                           <>
                             <WatchlistTab currentWatchlistData={currentWatchlistData} />
@@ -327,7 +327,7 @@ function UserDetails(props) {
                     </Tab>
                     {/*inside tabing */}
                     <Tab eventKey="screenerfilter" className="px-2" title="Screener Filter">
-                      <div className="table-responsive table-user text-nowrap">
+                      <div className="table-responsive  text-nowrap">
                         <ScreenerFilter
                           isLoading={isLoading}
                           advancedScreenerFilter={advancedScreenerFilter}
@@ -345,7 +345,7 @@ function UserDetails(props) {
                       </div>
                     </Tab>
                     <Tab eventKey="active_login_details" className="px-1" title="Login Status">
-                      <div className="table-responsive table-user text-nowrap">
+                      <div className="table-responsive  text-nowrap">
                         {(isLoading && <TableLoader />) || (
                           <>
                             <LastLoginTab lastLoginData={lastLoginData} />

@@ -69,9 +69,9 @@ function CreateTermsModal(props) {
           <Card className="mt-3">
             <Card.Body>
               <Form className="input-login" onSubmit={handleCreateStock}>
-                <Row className="mb-3">
+                <Row className="mb-1">
                   <Col>
-                    <Card.Title className="fs-4">Add Terms</Card.Title>
+                    <h5 className="fw-500">Add Terms</h5>
                   </Col>
                   <Col className="text-end">
                     <FontAwesomeIcon
@@ -85,36 +85,36 @@ function CreateTermsModal(props) {
                 </Row>
                 <Row>
                   <Col lg={6}>
-                    <Form.Group className="mb-4 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="title">
+                        Title
+                      </Form.Label>
                       <Form.Control
                         name="title"
                         id="title"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
-                        placeholder=" "
+                        className="common-input-feild"
+                        placeholder="Enter Title"
                         value={formValues.title}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="title">
-                        Title
-                      </Form.Label>
                       <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.title}</p>
                     </Form.Group>
                   </Col>
                   <Col lg={6}>
-                    <Form.Group className="mb-4 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="slugUrl">
+                        Slug
+                      </Form.Label>
                       <Form.Control
                         name="slugUrl"
                         id="slugUrl"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
-                        placeholder=" "
+                        className="common-input-feild"
+                        placeholder="Enter Slug"
                         value={formValues.slugUrl}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="slugUrl">
-                        Slug
-                      </Form.Label>
                       <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.slugUrl}</p>
                     </Form.Group>
                   </Col>
@@ -144,22 +144,26 @@ function CreateTermsModal(props) {
 
                 <Row className="mb-4">
                   <Col lg={6}>
-                    <Form.Label column lg={12} htmlFor="shortDesc">
-                      Short Description
-                    </Form.Label>
-                    <JoditEditor ref={editor} value={shortDesc} onChange={(newContent) => setShortDesc(newContent)} />
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" column lg={12} htmlFor="shortDesc">
+                        Short Description
+                      </Form.Label>
+                      <JoditEditor ref={editor} value={shortDesc} onChange={(newContent) => setShortDesc(newContent)} />
+                    </Form.Group>
                   </Col>
                   <Col lg={6}>
-                    <Form.Label column lg={12} htmlFor="descr">
-                      Description
-                    </Form.Label>
-                    <JoditEditor ref={editor} value={descr} onChange={(newContent) => setDescr(newContent)} />
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" column lg={12} htmlFor="descr">
+                        Description
+                      </Form.Label>
+                      <JoditEditor ref={editor} value={descr} onChange={(newContent) => setDescr(newContent)} />
+                    </Form.Group>
                   </Col>
                 </Row>
                 <Button variant="light" className="me-3" onClick={() => setShow(false)}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={handleCreateStock}>
+                <Button variant="primary" className='web-button' onClick={handleCreateStock}>
                   Add New Term
                 </Button>
               </Form>

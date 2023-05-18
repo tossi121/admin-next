@@ -3,10 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Modal, Row, Table } from 'react-bootstrap';
 import CommonPagination from '../Pagination/CommonPagination';
-import EditTermsModal from './EditTermsModal';
-import CreateTermsModal from './CreateTermsModal';
-// import { useHistory } from 'react-router-dom';
-// import { useAuth } from '../../../_context/authContext';
+import dynamic from 'next/dynamic';
+const EditTermsModal = dynamic(() => import('./EditTermsModal'), { ssr: false, })
+const CreateTermsModal = dynamic(() => import('./CreateTermsModal'), { ssr: false, })
 import TableLoader from '_utils/Loader/TableLoader';
 import parse from 'html-react-parser';
 import { toast } from 'react-toastify';
@@ -26,18 +25,10 @@ const Terms = () => {
   
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const [sortBy, setsortBy] = useState('id');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -161,107 +152,103 @@ const Terms = () => {
             <section className="stock-analysis">
               <Row>
                 <Col>
-                  <div className="page-title-box">
-                    <h4 className="page-title">Terms</h4>
-                  </div>
+                  <h5 className="fw-500 mb-3">Terms</h5>
                 </Col>
               </Row>
               <Row>
                 <Col>
                   <Card>
                     <Card.Body>
-                      <section className="stock-analysis">
-                        <div className="d-flex justify-content-between align-items-center">
-                          {selectBox()}
-                          <Button variant="primary mx-4" onClick={() => setShow(true)}>
-                            Add New Terms
-                          </Button>
-                          <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                            <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
-                            <input
-                              type="text"
-                              className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
-                              placeholder="Search By Term or Short Description"
-                              value={searchInput}
-                              onChange={(e) => {
-                                setSearchInput(e.target.value);
-                                setCurrentPage(1);
-                              }}
-                            />
-                            <span className="input-border"></span>
-                          </div>
-                        </div>
-
-                        <div className="table-responsive table-user stock-analysis-table">
-                          {(isLoading && <TableLoader />) || (
-                            <Table className="table text-nowrap">
-                              <thead>
-                                <tr>
-                                  <th scope="col">
-                                    <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('id')}>
-                                      <div>Sr. No.</div>
-                                      <div>
-                                        <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                        <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
-                                      </div>
-                                    </div>
-                                  </th>
-                                  <th scope="col">
-                                    <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('title')}>
-                                      <div>Term</div>
-                                      <div>
-                                        <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'title' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                        <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'title' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
-                                      </div>
-                                    </div>
-                                  </th>
-                                  <th scope="col">Short Description</th>
-                                  <th scope="col">Action</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {(termsData?.length > 0 &&
-                                  termsData.map((item, index) => {
-                                    return (
-                                      <tr key={index}>
-                                        <td>{item?.id}</td>
-                                        <td>{item?.title}</td>
-                                        <td className="text-wrap">
-                                          {((item?.shortDesc == null || item?.shortDesc == '') && 'N/A') || parse(item?.shortDesc)}
-                                        </td>
-                                        <td>
-                                          <FontAwesomeIcon
-                                            icon={faEdit}
-                                            width={16}
-                                            className="cursor-pointer"
-                                            title="Edit"
-                                            onClick={() => handleEdit(item?.id)}
-                                          />
-                                          <FontAwesomeIcon
-                                            className="ms-2 cursor-pointer"
-                                            icon={faTrash}
-                                            width={16}
-                                            title="Delete"
-                                            onClick={() => handleDelete(item?.id)}
-                                          />
-                                        </td>
-                                      </tr>
-                                    );
-                                  })) || <h5 className="text-nowrap">No data found</h5>}
-                              </tbody>
-                            </Table>
-                          )}
-                        </div>
-                        {termsData.length > 0 && totalItems && pageSize && (
-                          <CommonPagination
-                            pageSize={pageSize}
-                            totalCount={totalItems}
-                            currentPage={currentPage}
-                            setCurrentPage={setCurrentPage}
-                            isLoading={isLoading}
+                      <div className="d-flex justify-content-between align-items-center mb-2">
+                        {selectBox()}
+                        <Button variant="primary mx-4" className='web-button' onClick={() => setShow(true)}>
+                          Add New Terms
+                        </Button>
+                        <div className="search-box position-relative text-center me-2 ms-auto pb-2">
+                          <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
+                          <input
+                            type="text"
+                            className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
+                            placeholder="Search By Term or Short Description"
+                            value={searchInput}
+                            onChange={(e) => {
+                              setSearchInput(e.target.value);
+                              setCurrentPage(1);
+                            }}
                           />
+                          <span className="input-border"></span>
+                        </div>
+                      </div>
+
+                      <div className="table-responsive stock-analysis-table text-nowrap">
+                        {(isLoading && <TableLoader />) || (
+                          <Table className="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">
+                                  <div onClick={() => handleSorting('id')}>
+                                    <div>Sr. No.</div>
+                                    <div>
+                                      <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                      <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    </div>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div onClick={() => handleSorting('title')}>
+                                    <div>Term</div>
+                                    <div>
+                                      <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'title' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                      <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'title' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    </div>
+                                  </div>
+                                </th>
+                                <th scope="col">Short Description</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {(termsData?.length > 0 &&
+                                termsData.map((item, index) => {
+                                  return (
+                                    <tr key={index}>
+                                      <td>{item?.id}</td>
+                                      <td>{item?.title}</td>
+                                      <td className="text-wrap">
+                                        {((item?.shortDesc == null || item?.shortDesc == '') && 'N/A') || parse(item?.shortDesc)}
+                                      </td>
+                                      <td>
+                                        <FontAwesomeIcon
+                                          icon={faEdit}
+                                          width={16}
+                                          className="cursor-pointer base-color-3"
+                                          title="Edit"
+                                          onClick={() => handleEdit(item?.id)}
+                                        />
+                                        <FontAwesomeIcon
+                                          className="ms-2 cursor-pointer base-color-3"
+                                          icon={faTrash}
+                                          width={16}
+                                          title="Delete"
+                                          onClick={() => handleDelete(item?.id)}
+                                        />
+                                      </td>
+                                    </tr>
+                                  );
+                                })) || <h5 className="text-nowrap">No data found</h5>}
+                            </tbody>
+                          </Table>
                         )}
-                      </section>
+                      </div>
+                      {termsData.length > 0 && totalItems && pageSize && (
+                        <CommonPagination
+                          pageSize={pageSize}
+                          totalCount={totalItems}
+                          currentPage={currentPage}
+                          setCurrentPage={setCurrentPage}
+                          isLoading={isLoading}
+                        />
+                      )}
                     </Card.Body>
                   </Card>
                 </Col>
