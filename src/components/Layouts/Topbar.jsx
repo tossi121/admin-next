@@ -21,7 +21,7 @@ function Topbar(props) {
       <div className="w-100 top-bar position-sticky top-0 bg-white">
         <Row className="mx-0 border h-100 align-items-center">
           <Col>
-            <div className="text-end">
+            <div className="text-end me-2">
               <Dropdown>
                 <Dropdown.Toggle className="rounded-circle border-0 bg-white" id="dropdown-basic">
                   <FontAwesomeIcon width={15} height={15} icon={faUserAlt} className="base-link-color" />

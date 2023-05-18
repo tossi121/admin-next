@@ -1,6 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
+import Footer from 'components/Footer';
 
 const Sidebar = dynamic(import('./Sidebar'));
 const Topbar = dynamic(import('./Topbar'));
@@ -43,6 +44,7 @@ function DashboardLayout(props) {
             {children}
           </div>
         </div>
+        <Footer />
       </>
     </>
   );

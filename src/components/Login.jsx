@@ -104,6 +104,7 @@ const Login = () => {
                     icon={faUserAlt}
                     className="end-0 position-absolute login-icon"
                   />
+                  <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.email}</p>
                 </Form.Group>
               </div>
               <div className="mb-2">
@@ -134,6 +135,9 @@ const Login = () => {
                       onClick={togglePassword}
                     />
                   )}
+                  <p className="text-danger fs-14 error-message my-1 position-absolute text-nowrap">
+                    {formErrors.password}
+                  </p>
                 </Form.Group>
               </div>
 
@@ -148,7 +152,6 @@ const Login = () => {
             </Form>
           </Col>
         </Row>
-      
       </Container>
     </section>
   );
