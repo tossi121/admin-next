@@ -5,7 +5,7 @@ const ScreenerGroup = dynamic(import('components/Screener/ScreenerGroup'));
 function DefaultPage() {
   return (
     <>
-      <ScreenerGroup />
+      {/* <ScreenerGroup /> */}
     </>
   );
 }

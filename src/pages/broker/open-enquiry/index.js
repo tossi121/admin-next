@@ -5,7 +5,7 @@ const OpenEnquiry = dynamic(import('components/Broker/LatestOpenenquiry/OpenEnqu
 function DefaultPage() {
   return (
     <>
-      <OpenEnquiry />
+      {/* <OpenEnquiry /> */}
     </>
   );
 }

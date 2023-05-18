@@ -6,7 +6,7 @@ const GeneralPromoCode = dynamic(import('components/Setting/GeneralPromoCode/Gen
 function DefaultPage() {
   return (
     <>
-      <GeneralPromoCode />
+      {/* <GeneralPromoCode /> */}
     </>
   );
 }
