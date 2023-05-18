@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDownLong, faArrowUpLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { getActiveUserData } from '_services/nifty_service_api';
 import CommonPagination from 'components/Pagination/CommonPagination';
+import SelectBox from 'components/SelectBox';
 
 function ActiveUsers() {
   const [userList, setUserList] = useState([]);
@@ -15,7 +16,7 @@ function ActiveUsers() {
   const [pageSize, setPageSize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  const lengthMenu = [10, 20, 50, 100];
+
   const [searchInput, setSearchInput] = useState('');
   const [sortBy, setsortBy] = useState('membership_id');
   const [sortType, setsortType] = useState('asc');
@@ -50,32 +51,6 @@ function ActiveUsers() {
     setIsLoading(false);
   }
 
-  function selectBox() {
-    return (
-      <>
-        <div className="form-group input-box me-3 mb-2 fs-14 mt-md-0 text-nowrap">
-          Show{' '}
-          <select
-            className="border rounded-3 cursor-pointer label-color-4 custom-select px-2 py-1 mx-1 bg-white"
-            onChange={(e) => {
-              setPageSize(e.target.value);
-              setCurrentPage(1);
-            }}
-          >
-            {lengthMenu.map((item, key) => {
-              return (
-                <option key={key} defaultValue={key == 0} value={item}>
-                  {item}
-                </option>
-              );
-            })}
-          </select>{' '}
-          Entries
-        </div>
-      </>
-    );
-  }
-
   function handleSorting(params) {
     setsortBy(params);
     setSortToggle((prevstate) => !prevstate);
@@ -103,7 +78,7 @@ function ActiveUsers() {
           <Card>
             <Card.Body>
               <div className="d-flex justify-content-between align-items-center">
-                {selectBox()}
+                <SelectBox setPageSize={setPageSize} setCurrentPage={setCurrentPage} />
                 <div className="search-box position-relative text-center me-2 ms-auto pb-2">
                   <FontAwesomeIcon
                     icon={faSearch}

@@ -1,9 +1,11 @@
-import { faChartLine, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine
+  
+  , faUserGroup } from '@fortawesome/free-solid-svg-icons';
 
 export const navbarData = [
   {
     menu: 'User Management',
-    icon: faUser,
+    icon: faUserGroup,
     subMenu: [
       { text: 'All Users', url: '/user-management' },
       { text: 'Queries', url: '/user-management/queries' },
@@ -11,7 +13,6 @@ export const navbarData = [
       { text: 'Reviews', url: '/user-management/reviews' },
       { text: 'Active Prime Users', url: '/user-management/active-prime-user' },
     ],
-    isOpen: true,
   },
   {
     menu: 'Stock List',

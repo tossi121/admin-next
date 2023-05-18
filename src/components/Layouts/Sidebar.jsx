@@ -12,32 +12,23 @@ function Sidebar(props) {
   const [expandedId, setExpandedId] = useState(null);
 
   const toggleSubmenu = (index) => {
-    // Map over the menu items and update the isOpen property based on the clicked index
+    // Create a new array of menu items by mapping over the existing menuItems array
     const updatedMenuItems = menuItems.map((menuItem, i) => {
-      if (i === index) {
-        // If the current index matches the clicked index, set isOpen to true
-        return {
-          ...menuItem,
-          isOpen: true,
-        };
-      } else {
-        // For other menu items, set isOpen to false
-        return {
-          ...menuItem,
-          isOpen: false,
-        };
-      }
+      return {
+        ...menuItem,
+        isOpen: i === index ? !menuItem.isOpen : false, // Toggle the isOpen property for the selected menu item
+      };
     });
 
-    // Update the menuItems state with the updated values
+    // Update the menuItems state with the updated array
     setMenuItems(updatedMenuItems);
 
-    // Set the expandedId state to the clicked index
+    // Set the expandedId state to the index of the selected menu item
     setExpandedId(index);
   };
 
+  const router = useRouter();
   const isActivePage = (url) => {
-    const router = useRouter();
     return router.pathname === url;
   };
 
@@ -97,26 +88,20 @@ function Sidebar(props) {
                   </div>
                 </div>
 
-                {toggle && menuItem.isOpen && (
-                  <div className={`sub-menu ${menuItem.isOpen ? 'open' : ''}`}>
-                    {menuItem.isOpen && (
-                      <ul className="list-unstyled w-100">
-                        {menuItem.subMenu.map((subMenuItem, subIndex) => (
-                          <li key={subIndex} className={`w-100 d-flex`}>
-                            <Link
-                              href={subMenuItem.url}
-                              className={`mb-2 ms-5 w-100 base-color-3 ${
-                                isActivePage(subMenuItem.url) ? 'active' : ''
-                              }`}
-                            >
-                              {subMenuItem.text}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                )}
+                <div className={`sub-menu ${expandedId === index ? 'open' : ''}`}>
+                  <ul className={`list-unstyled w-100 ${expandedId === index ? 'open' : ''}`}>
+                    {menuItem.subMenu.map((subMenuItem, subIndex) => (
+                      <li key={subIndex} className={`w-100 d-flex ${expandedId === index ? 'open' : ''}`}>
+                        <Link
+                          href={subMenuItem.url}
+                          className={`mb-2 ms-5 w-100 base-color-3 ${isActivePage(subMenuItem.url) ? 'active' : ''}`}
+                        >
+                          {subMenuItem.text}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </li>
             ))}
           </ul>

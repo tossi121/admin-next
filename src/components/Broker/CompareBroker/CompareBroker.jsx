@@ -23,7 +23,7 @@ const CompareBroker = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState('');
-  const lengthMenu = [10, 20, 50, 100];
+  
   const [showModal, setShowModal] = useState(false);
   // const { isLoggedIn } = useAuth();
   // const history = useHistory();
@@ -99,7 +99,7 @@ const CompareBroker = () => {
           <p className="mb-0">Are you sure you want to delete the stock?</p>
         </Modal.Body>
         <Modal.Footer className=" justify-content-center">
-          <Button variant="primary" onClick={() => setShowModal(false)}>
+          <Button variant=" " className="web-button text-white" onClick={() => setShowModal(false)}>
             Cancel
           </Button>
           <Button variant="danger" onClick={deleteStock}>

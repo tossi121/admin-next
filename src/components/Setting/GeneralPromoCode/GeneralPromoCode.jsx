@@ -25,7 +25,7 @@ const GeneralPromoCode = () => {
   const [Editshow, setEditShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
-  const lengthMenu = [10, 20, 50, 100];
+  
   // const { isLoggedIn } = useAuth();
   // const history = useHistory();
   const [sortBy, setsortBy] = useState('promo_general_id');
@@ -129,7 +129,7 @@ const GeneralPromoCode = () => {
           <p className="mb-0">Are you sure you want to delete the stock?</p>
         </Modal.Body>
         <Modal.Footer className=" justify-content-center">
-          <Button variant="primary" onClick={() => setShowModal(false)}>
+          <Button variant=" " className="web-button text-white" onClick={() => setShowModal(false)}>
             Cancel
           </Button>
           <Button variant="danger" onClick={deletePromoData}>

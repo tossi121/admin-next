@@ -19,7 +19,7 @@ const IndianStockProfile = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState('');
   const [stockList, setStockList] = useState([]);
-  const lengthMenu = [10, 20, 50, 100];
+  
   // const { isLoggedIn } = useAuth();
   // const history = useHistory();
   const [sortBy, setsortBy] = useState('company_name');

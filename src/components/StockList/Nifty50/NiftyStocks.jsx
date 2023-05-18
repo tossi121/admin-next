@@ -6,6 +6,7 @@ import { CSVLink } from 'react-csv';
 import CommonPagination from '../../Pagination/CommonPagination';
 import TableLoader from '_utils/Loader/TableLoader';
 import { getNifty50List } from '_services/nifty_service_api';
+import SelectBox from 'components/SelectBox';
 
 function NiftyStocks() {
   const [searchInput, setSearchInput] = useState('');
@@ -15,7 +16,6 @@ function NiftyStocks() {
   const [totalPages, setTotalPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [niftyDataList, setNiftyDataList] = useState([]);
-  const lengthMenu = [10, 20, 50, 100];
   const [sortBy, setsortBy] = useState('symbol_name');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
@@ -34,7 +34,7 @@ function NiftyStocks() {
       pageSize: pageSize,
       search_keyword: searchInput,
       order_by: sortBy,
-      order_dir: sortType
+      order_dir: sortType,
     };
     setIsLoading(true);
     const response = await getNifty50List(params);
@@ -49,41 +49,15 @@ function NiftyStocks() {
     setIsLoading(false);
   }
 
-  function selectBox() {
-    return (
-      <>
-        <div className="form-group input-box me-3 fs-14 mt-md-0 text-nowrap ps-2">
-          Show{' '}
-          <select
-            className="border bg-white rounded-3 cursor-pointer label-color-4 custom-select px-2 py-1 mx-1"
-            onChange={(e) => {
-              setPageSize(e.target.value);
-              setCurrentPage(1)
-            }}
-          >
-            {lengthMenu.map((item, key) => {
-              return (
-                <option key={key} defaultValue={key === 0} value={item}>
-                  {item}
-                </option>
-              );
-            })}
-          </select>{' '}
-          Entries
-        </div>
-      </>
-    );
-  }
-
   function handleSorting(params) {
-    setsortBy(params)
-    setSortToggle(prevstate => !prevstate)
+    setsortBy(params);
+    setSortToggle((prevstate) => !prevstate);
     if (sortToggle) {
-      setsortType('desc')
-      setSortStyle('text-danger')
+      setsortType('desc');
+      setSortStyle('text-danger');
     } else {
-      setsortType('asc')
-      setSortStyle('text-success')
+      setsortType('asc');
+      setSortStyle('text-success');
     }
   }
 
@@ -102,7 +76,7 @@ function NiftyStocks() {
                 <Card.Body>
                   <>
                     <div className="d-flex justify-content-between align-items-center mb-2">
-                      {selectBox()}
+                      <SelectBox setPageSize={setPageSize} setCurrentPage={setCurrentPage} />
                       <CSVLink
                         data={niftyDataList}
                         filename="NiftyAdminStocks"
@@ -112,7 +86,12 @@ function NiftyStocks() {
                       </CSVLink>
 
                       <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                        <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
+                        <FontAwesomeIcon
+                          icon={faSearch}
+                          width="16"
+                          height="16"
+                          className="position-absolute end-0 mt-1 me-2 base-color-3"
+                        />
                         <input
                           type="text"
                           className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -136,8 +115,20 @@ function NiftyStocks() {
                                 <div onClick={() => handleSorting('symbol_name')}>
                                   <div>Symbol</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon
+                                      icon={faArrowUpLong}
+                                      width={8}
+                                      className={`ms-1 ${
+                                        sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
+                                    />
+                                    <FontAwesomeIcon
+                                      icon={faArrowDownLong}
+                                      width={8}
+                                      className={`${
+                                        sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
+                                    />
                                   </div>
                                 </div>
                               </th>
@@ -145,8 +136,28 @@ function NiftyStocks() {
                                 <div onClick={() => handleSorting('equity_capital_in_rs')}>
                                   <div>Equity Capital(Rs.)</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'equity_capital_in_rs' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'equity_capital_in_rs' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon
+                                      icon={faArrowUpLong}
+                                      width={8}
+                                      className={`ms-1 ${
+                                        sortBy == 'equity_capital_in_rs'
+                                          ? sortStyle == 'text-danger'
+                                            ? sortStyle
+                                            : ''
+                                          : ''
+                                      }`}
+                                    />
+                                    <FontAwesomeIcon
+                                      icon={faArrowDownLong}
+                                      width={8}
+                                      className={`${
+                                        sortBy == 'equity_capital_in_rs'
+                                          ? sortStyle == 'text-success'
+                                            ? sortStyle
+                                            : ''
+                                          : ''
+                                      }`}
+                                    />
                                   </div>
                                 </div>
                               </th>
@@ -154,8 +165,28 @@ function NiftyStocks() {
                                 <div onClick={() => handleSorting('market_cap_in_rs')}>
                                   <div>Free Float Martket Capital(Rs.)</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'market_cap_in_rs' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'market_cap_in_rs' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon
+                                      icon={faArrowUpLong}
+                                      width={8}
+                                      className={`ms-1 ${
+                                        sortBy == 'market_cap_in_rs'
+                                          ? sortStyle == 'text-danger'
+                                            ? sortStyle
+                                            : ''
+                                          : ''
+                                      }`}
+                                    />
+                                    <FontAwesomeIcon
+                                      icon={faArrowDownLong}
+                                      width={8}
+                                      className={`${
+                                        sortBy == 'market_cap_in_rs'
+                                          ? sortStyle == 'text-success'
+                                            ? sortStyle
+                                            : ''
+                                          : ''
+                                      }`}
+                                    />
                                   </div>
                                 </div>
                               </th>
@@ -163,8 +194,20 @@ function NiftyStocks() {
                                 <div onClick={() => handleSorting('weight')}>
                                   <div>Weight</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'weight' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'weight' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon
+                                      icon={faArrowUpLong}
+                                      width={8}
+                                      className={`ms-1 ${
+                                        sortBy == 'weight' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
+                                    />
+                                    <FontAwesomeIcon
+                                      icon={faArrowDownLong}
+                                      width={8}
+                                      className={`${
+                                        sortBy == 'weight' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
+                                    />
                                   </div>
                                 </div>
                               </th>
@@ -181,12 +224,13 @@ function NiftyStocks() {
                                     <td>{item.weight}</td>
                                   </tr>
                                 );
-                              })) ||
+                              })) || (
                               <tr>
                                 <td className="border border-0 p-0 pt-2 ps-2">
                                   <p>No Data Found</p>
                                 </td>
-                              </tr>}
+                              </tr>
+                            )}
                           </tbody>
                         </Table>
                       )}

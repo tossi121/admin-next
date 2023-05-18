@@ -8,6 +8,7 @@ import PrimeMembership from './PrimeMembership';
 import CommonPagination from 'components/Pagination/CommonPagination';
 import { getUserDataList } from '_services/nifty_service_api';
 import Link from 'next/link';
+import SelectBox from 'components/SelectBox';
 
 function UserManagement() {
   const [userList, setUserList] = useState([]);
@@ -18,7 +19,6 @@ function UserManagement() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedId, setSelectedId] = useState(null);
   const [showPrime, setShowPrime] = useState(false);
-  const lengthMenu = [10, 20, 50, 100];
   const [userFilter, setUserFilter] = useState('0,1');
   const [searchInput, setSearchInput] = useState('');
   const [sortBy, setsortBy] = useState('user_id');
@@ -84,32 +84,6 @@ function UserManagement() {
     return dataArray;
   }
 
-  function selectBox() {
-    return (
-      <>
-        <div className="form-group input-box me-3 mb-2 fs-14 mt-md-0 text-nowrap">
-          Show{' '}
-          <select
-            className="border rounded-3 cursor-pointer label-color-4 custom-select px-2 py-1 mx-1 bg-white"
-            onChange={(e) => {
-              setPageSize(e.target.value);
-              setCurrentPage(1);
-            }}
-          >
-            {lengthMenu.map((item, key) => {
-              return (
-                <option key={key} defaultValue={key == 0} value={item}>
-                  {item}
-                </option>
-              );
-            })}
-          </select>{' '}
-          Entries
-        </div>
-      </>
-    );
-  }
-
   function userSelectBox() {
     return (
       <>
@@ -170,7 +144,7 @@ function UserManagement() {
             <Card>
               <Card.Body>
                 <div className="d-flex justify-content-between align-items-center">
-                  {selectBox()}
+                  <SelectBox setPageSize={setPageSize} setCurrentPage={setCurrentPage} />
                   {userSelectBox()}
                   <div className="search-box position-relative text-center me-2 ms-auto pb-2">
                     <FontAwesomeIcon

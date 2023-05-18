@@ -20,7 +20,7 @@ const OpenEnquiry = () => {
   const [brokerData, setBrokerData] = useState([]);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const lengthMenu = [10, 20, 50, 100];
+  
   // const { isLoggedIn } = useAuth();
   // const history = useHistory();
   const [sortBy, setsortBy] = useState('id');

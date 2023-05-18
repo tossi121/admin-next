@@ -91,7 +91,7 @@ function EditStockModal(props) {
     if (response.result == 1) {
       toast.success(response.message);
       handleClose();
-      stockData()
+      stockData();
     } else {
       toast.error(response.message);
     }
@@ -362,11 +362,11 @@ function EditStockModal(props) {
                 </Col>
               </Row> */}
               <Row>
-                <Col className='my-3'>
-                  <Button variant="light" className='me-3' onClick={handleClose}>
+                <Col className="my-3">
+                  <Button variant="light" className="me-3" onClick={handleClose}>
                     Close
                   </Button>
-                  <Button variant="primary" className='web-button' type='submit' onClick={handleEditStock}>
+                  <Button variant="primary" className="web-button" type="submit" onClick={handleEditStock}>
                     Save Changes
                   </Button>
                 </Col>
