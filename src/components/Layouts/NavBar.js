@@ -26,7 +26,7 @@ export const navbarData = [
     ],
   },
   {
-    text: 'Terms',
+    menu: 'Terms',
     icon: faCircleExclamation,
     subMenu: [
       { text: 'Manage Terms', url: '/manage-terms' },
@@ -34,7 +34,7 @@ export const navbarData = [
     isOpen: false,
   },
   {
-    text: 'Profiles',
+    menu: 'Profiles',
     icon: faUser,
     subMenu: [
       { text: 'Indian Stocks Profile', url: '/profile/indianstockprofile' },
