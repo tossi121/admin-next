@@ -122,7 +122,7 @@ const ReviewList = () => {
                     </div>
                   </div>
 
-                  <div className="table-responsive table-user stock-analysis-table text-nowrap">
+                  <div className="table-responsive  stock-analysis-table text-nowrap">
                     {(isLoading && <TableLoader />) || (
                       <Table className="table mb-0">
                         <thead>

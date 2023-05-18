@@ -195,7 +195,7 @@ const ScreenerGroup = () => {
                       </div>
                     </div>
 
-                    <div className="table-responsive table-user stock-analysis-table">
+                    <div className="table-responsive  stock-analysis-table">
                       {(isLoading && <TableLoader />) || (
                         <Table className="table">
                           <thead>

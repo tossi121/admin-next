@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-// import { createTermsData, updateTermsData } from '../../../_services/nifty_service_api';
 import JoditEditor from 'jodit-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -92,9 +91,9 @@ function EditTermsModal(props) {
           <Card className="mt-3">
             <Card.Body>
               <Form className="input-login" onSubmit={handelTerms}>
-                <Row className="mb-3">
+                <Row className="mb-1">
                   <Col>
-                    <Card.Title className="fs-4">Edit Terms</Card.Title>
+                    <h5 className='fw-500'>Edit Terms</h5>
                   </Col>
                   <Col className="text-end">
                     <FontAwesomeIcon
@@ -108,36 +107,36 @@ function EditTermsModal(props) {
                 </Row>
                 <Row>
                   <Col lg={6}>
-                    <Form.Group className="mb-4 border-bottom input-label">
+                    <Form.Group className="my-2">
+                      <Form.Label className="common-form-label" htmlFor="title">
+                        Title
+                      </Form.Label>
                       <Form.Control
                         name="title"
                         id="title"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.title}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="title">
-                        Title
-                      </Form.Label>
                       <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.title}</p>
                     </Form.Group>
                   </Col>
                   <Col lg={6}>
-                    <Form.Group className="mb-4 border-bottom input-label">
+                    <Form.Group className="my-2">
+                      <Form.Label className="common-form-label" htmlFor="slugUrl">
+                        Slug
+                      </Form.Label>
                       <Form.Control
                         name="slugUrl"
                         id="slugUrl"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.slugUrl}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="slugUrl">
-                        Slug
-                      </Form.Label>
                       <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.slugUrl}</p>
                     </Form.Group>
                   </Col>
@@ -167,30 +166,34 @@ function EditTermsModal(props) {
 
                 <Row className="mb-4">
                   <Col lg={6}>
-                    <Form.Label column lg={12} htmlFor="shortDesc">
-                      Short Description
-                    </Form.Label>
-                    <JoditEditor
-                      ref={editor}
-                      value={formValues?.shortDesc || shortDesc}
-                      onChange={(newContent) => setShortDesc(newContent)}
-                    />
+                    <Form.Group className="my-2">
+                      <Form.Label className="common-form-label" column lg={12} htmlFor="shortDesc">
+                        Short Description
+                      </Form.Label>
+                      <JoditEditor
+                        ref={editor}
+                        value={formValues?.shortDesc || shortDesc}
+                        onChange={(newContent) => setShortDesc(newContent)}
+                      />
+                    </Form.Group>
                   </Col>
                   <Col lg={6}>
-                    <Form.Label column lg={12} htmlFor="descr">
-                      Description
-                    </Form.Label>
-                    <JoditEditor
-                      ref={editor}
-                      value={formValues?.descr || descr}
-                      onChange={(newContent) => setDescr(newContent)}
-                    />
+                    <Form.Group className="my-2">
+                      <Form.Label className="common-form-label" column lg={12} htmlFor="descr">
+                        Description
+                      </Form.Label>
+                      <JoditEditor
+                        ref={editor}
+                        value={formValues?.descr || descr}
+                        onChange={(newContent) => setDescr(newContent)}
+                      />
+                    </Form.Group>
                   </Col>
                 </Row>
                 <Button variant="light" className="me-2" onClick={() => setShow(false)}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={handelTerms}>
+                <Button variant="primary" className='web-button' onClick={handelTerms}>
                   Update
                 </Button>
               </Form>

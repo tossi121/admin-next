@@ -166,7 +166,7 @@ function UserManagement() {
                     <span className="input-border"></span>
                   </div>
                 </div>
-                <div className="table-responsive table-user text-nowrap user-manage">
+                <div className="table-responsive  text-nowrap user-manage">
                   {(isLoading && <TableLoader />) || (
                     <>
                       <Table className="table mb-0">

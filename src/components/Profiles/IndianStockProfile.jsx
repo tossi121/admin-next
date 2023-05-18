@@ -3,14 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row, Table } from 'react-bootstrap';
 import CommonPagination from '../Pagination/CommonPagination';
-// import { useAuth } from '../../../../_context/authContext';
-// import { useHistory } from 'react-router-dom';
 import TableLoader from '_utils/Loader/TableLoader';
 import { getIndianStockList } from '_services/nifty_service_api';
 
 const IndianStockProfile = () => {
-  const [currentData, setCurrentData] = useState([]);
-  const [selectedId, setSelectedId] = useState(null);
   const [show, setShow] = useState(false);
   const [totalItems, setTotalItems] = useState(null);
   const [totalPages, setTotalPages] = useState(null);
@@ -19,19 +15,11 @@ const IndianStockProfile = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState('');
   const [stockList, setStockList] = useState([]);
-  
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
+  const lengthMenu = [10, 20, 50, 100];
   const [sortBy, setsortBy] = useState('company_name');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -60,11 +48,6 @@ const IndianStockProfile = () => {
     }
     setIsLoading(false);
   }
-
-  const handleEdit = (id) => {
-    setSelectedId(id);
-    setShow(true);
-  };
 
   function selectBox() {
     return (
@@ -109,9 +92,7 @@ const IndianStockProfile = () => {
       <section className="stock-analysis">
         <Row>
           <Col>
-            <div className="page-title-box">
-              <h4 className="page-title">Indian Stock Profile</h4>
-            </div>
+              <h5 className="fw-500 mb-3">Indian Stock Profile</h5>
           </Col>
         </Row>
         <Row>
@@ -122,7 +103,7 @@ const IndianStockProfile = () => {
                   <div className="d-flex justify-content-between align-items-center">
                     {selectBox()}
                     <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
                       <input
                         type="text"
                         className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -137,26 +118,26 @@ const IndianStockProfile = () => {
                     </div>
                   </div>
 
-                  <div className="table-responsive table-user stock-analysis-table text-nowrap">
+                  <div className="table-responsive stock-analysis-table text-nowrap">
                     {(isLoading && <TableLoader />) || (
                       <Table className="table mb-0">
                         <thead>
                           <tr>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('symbol')}>
+                              <div onClick={() => handleSorting('symbol')}>
                                 <div>Symbol</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'symbol' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'symbol' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'symbol' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'symbol' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>
                             <th scope="col">
-                              <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('company_name')}>
+                              <div onClick={() => handleSorting('company_name')}>
                                 <div>Company Name</div>
                                 <div>
-                                  <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                  <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'company_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                  <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'company_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                 </div>
                               </div>
                             </th>

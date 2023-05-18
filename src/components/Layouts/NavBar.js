@@ -1,6 +1,8 @@
-import { faChartLine
-  
-  , faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChartLine
+
+  , faCircleExclamation, faUser, faUserGroup
+} from '@fortawesome/free-solid-svg-icons';
 
 export const navbarData = [
   {
@@ -22,5 +24,21 @@ export const navbarData = [
       { text: 'F&O Stocks', url: '/stock-list/fno-list' },
       { text: 'Nifty50 Stocks', url: '/stock-list/nifty50' },
     ],
+  },
+  {
+    menu: 'Terms',
+    icon: faCircleExclamation,
+    subMenu: [
+      { text: 'Manage Terms', url: '/manage-terms' },
+    ],
+    isOpen: false,
+  },
+  {
+    menu: 'Profiles',
+    icon: faUser,
+    subMenu: [
+      { text: 'Indian Stocks Profile', url: '/profile/indianstockprofile' },
+    ],
+    isOpen: false,
   },
 ];
