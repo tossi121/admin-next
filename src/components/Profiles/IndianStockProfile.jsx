@@ -65,7 +65,7 @@ const IndianStockProfile = () => {
       <section className="stock-analysis">
         <Row>
           <Col>
-            <h5 className="fw-500 mb-3">Indian Stock Profile</h5>
+            <h5 className="fw-500 mb-3">Indian Stocks Profile</h5>
           </Col>
         </Row>
         <Row>

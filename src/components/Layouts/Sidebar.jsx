@@ -9,7 +9,7 @@ import { navbarData } from './NavBar';
 function Sidebar(props) {
   const { toggle, toggleMenu, toggleResponsive } = props;
   const [menuItems, setMenuItems] = useState([...navbarData]);
-  const [expandedId, setExpandedId] = useState(null);
+  const [expandedId, setExpandedId] = useState(0);
 
   const toggleSubmenu = (index) => {
     // Create a new array of menu items by mapping over the existing menuItems array
@@ -22,7 +22,6 @@ function Sidebar(props) {
 
     // Update the menuItems state with the updated array
     setMenuItems(updatedMenuItems);
-
     // Set the expandedId state to the index of the selected menu item
     setExpandedId(index);
   };

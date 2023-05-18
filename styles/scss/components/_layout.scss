@@ -66,14 +66,13 @@
 }
 
 .sub-menu {
-  /* ... your existing styles ... */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
 
 .sub-menu.open {
-  max-height: 500px; /* Adjust this value as needed */
+  max-height: 500px;
 }
 
 .btn-expanded {

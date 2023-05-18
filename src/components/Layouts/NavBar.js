@@ -4,6 +4,7 @@ export const navbarData = [
   {
     menu: 'User Management',
     icon: faUserGroup,
+    isOpen: true,
     subMenu: [
       { text: 'All Users', url: '/user-management' },
       { text: 'Queries', url: '/user-management/queries' },
