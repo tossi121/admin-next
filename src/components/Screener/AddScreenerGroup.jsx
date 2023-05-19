@@ -108,7 +108,7 @@ function AddScreenerGroup(props) {
                             <Form className="input-login" onSubmit={handleCreateScreneer}>
                                 <Row>
                                     <Col>
-                                        <Card.Title className='fs-4 mb-2'>Add New Group</Card.Title>
+                                        <h5 className='fw-500 mb-3'>Add New Group</h5>
                                     </Col>
                                     <Col className='text-end'>
                                         <FontAwesomeIcon icon={faTimes} width="18" height="18" className='fs-20 me-1 cursor-pointer' onClick={() => handleShow()} />
@@ -116,48 +116,46 @@ function AddScreenerGroup(props) {
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <Form.Group className="mt-3 border-bottom input-label">
+                                        <Form.Group className="my-2 pt-1 input-label">
+                                            <Form.Label className="common-form-label" htmlFor="name">
+                                                Group Name*
+                                            </Form.Label>
                                             <Form.Control
                                                 name="name"
                                                 id="name"
                                                 type="text"
-                                                className="border-0 shadow-none rounded-0 ps-1"
-                                                placeholder=" "
+                                                className="common-input-feild"
+                                                placeholder="Enter Group Name"
                                                 value={formValues.name}
                                                 onChange={handleChange}
                                             />
-                                            <Form.Label className="start-0 mb-0 position-absolute" htmlFor="name">
-                                                Group Name*
-                                            </Form.Label>
                                         </Form.Group>
                                         <p className="text-danger fs-14 error-message my-1 position-absolute">{formErrors.name}</p>
                                     </Col>
                                     <Col>
-                                        <Form.Group as={Row} className="mb-3 me-2">
-                                            <Form.Label column lg={12} htmlFor="select_symbol">
+                                        <Form.Group as={Row} className="my-2 input-label">
+                                            <Form.Label column lg={12} className="common-form-label" htmlFor="select_symbol">
                                                 Search Symbol*
                                             </Form.Label>
-                                            <Col lg={12}>
-                                                <Select
-                                                    className="react-select react-select-container"
-                                                    classNamePrefix="react-select"
-                                                    name="select_symbol"
-                                                    id='select_symbol'
-                                                    options={stockList.map((item) => ({
-                                                        value: item.company_name,
-                                                        label: item.company_name,
-                                                    }))}
-                                                    onChange={handleSelectChange}
-                                                    isSearchable
-                                                    placeholder="Select Broker"
-                                                />
-                                            </Col>
+                                            <Select
+                                                className="react-select react-select-container"
+                                                classNamePrefix="react-select"
+                                                name="select_symbol"
+                                                id='select_symbol'
+                                                options={stockList.map((item) => ({
+                                                    value: item.company_name,
+                                                    label: item.company_name,
+                                                }))}
+                                                onChange={handleSelectChange}
+                                                isSearchable
+                                                placeholder="Select Broker"
+                                            />
                                         </Form.Group>
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Form.Group as={Row} className="mb-2">
-                                        <Form.Label column lg={12} htmlFor="textarea">
+                                    <Form.Group as={Row} className="my-2 input-label">
+                                        <Form.Label column lg={12} className="common-form-label" htmlFor="textarea">
                                             Group Symbol*
                                         </Form.Label>
                                         <Col lg={12}>
@@ -165,6 +163,7 @@ function AddScreenerGroup(props) {
                                                 as="textarea"
                                                 rows={15}
                                                 id="textarea"
+                                                className="common-input-feild"
                                                 placeholder="Symbols"
                                                 name="symbol_name"
                                                 value={formValues.symbol_name}
@@ -176,20 +175,21 @@ function AddScreenerGroup(props) {
                                 </Row>
                                 <Row>
                                     <Col lg={3}>
-                                        <Form.Group as={Row} className="mb-3 ps-2">
-                                            <Col lg={1} className="mt-0 p-0">
-                                                <Form.Control
+                                        <Form.Group as={Row} className="common-form-label">
+                                            <Col lg={1}>
+                                                <input
                                                     type="checkbox"
                                                     name="is_active"
                                                     checked={formValues.is_active}
                                                     onChange={handleChange}
+                                                    className="common-input-feild ms-1"
                                                     id="is_active"
                                                 />
                                             </Col>
                                             <Form.Label
                                                 column
                                                 lg={4}
-                                                className="ps-0 pt-0 cursor-pointer"
+                                                className="ps-2 pt-0 cursor-pointer"
                                                 htmlFor="is_active"
                                             >
                                                 Is Active
@@ -197,12 +197,16 @@ function AddScreenerGroup(props) {
                                         </Form.Group>
                                     </Col>
                                 </Row>
-                                <Button variant="light" className='me-2' onClick={handleShow} >
-                                    Close
-                                </Button>
-                                <Button variant="primary" onClick={handleCreateScreneer}>
-                                    Add Group
-                                </Button>
+                                <Row>
+                                    <Col className='my-3'>
+                                        <Button variant="light" className='me-2' onClick={handleShow} >
+                                            Close
+                                        </Button>
+                                        <Button variant="primary" className='web-button' onClick={handleCreateScreneer}>
+                                            Add Group
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </Form>
                         </Card.Body>
                     </Card>

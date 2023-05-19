@@ -74,8 +74,8 @@ a {
   font-size: 28px;
 }
 
-.ms-custom{
-  margin-left: 2rem ;
+.ms-custom {
+  margin-left: 2rem;
 }
 
 .label-red {
@@ -335,6 +335,7 @@ table {
   color: #25c2e3;
   background-color: rgba(37, 194, 227, 0.18);
   box-shadow: none;
+  font-weight: 500 !important;
 }
 
 .badge-soft-dark {
@@ -343,6 +344,10 @@ table {
   box-shadow: none;
   font-size: 12px !important;
   font-weight: 500 !important;
+}
+
+.badge-size {
+  font-size: 10px !important;
 }
 
 //new classes added

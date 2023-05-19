@@ -22,11 +22,11 @@ const EditPromoCode = (props) => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
 
-  // useEffect(() => {
-  //   if (selectedId) {
-  //     handelPromoCodeData();
-  //   }
-  // }, [selectedId]);
+  useEffect(() => {
+    if (selectedId) {
+      handelPromoCodeData();
+    }
+  }, [selectedId]);
 
   async function handelPromoCodeData() {
     const params = {
@@ -118,7 +118,7 @@ const EditPromoCode = (props) => {
             <Form className="input-login" onSubmit={handlePromocode}>
               <Row>
                 <Col>
-                  <Card.Title className="fs-4 mb-2">Edit General Promo code</Card.Title>
+                  <h5 className='fw-500 mb-3'>Edit General Promo code</h5>
                 </Col>
                 <Col className="text-end">
                   <FontAwesomeIcon
@@ -131,72 +131,70 @@ const EditPromoCode = (props) => {
                 </Col>
               </Row>
               <Row>
-                <Col>
-                  <Form.Group className="mt-2 mb-3 border-bottom input-label">
+                <Col lg={3}>
+                  <Form.Group className="my-2 input-label">
+                    <Form.Label className="common-form-label" htmlFor="promocode_name">
+                      Promo Code
+                    </Form.Label>
                     <Form.Control
                       name="promocode_name"
                       id="promocode_name"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Promo Code"
                       value={formValues.promocode_name}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="promocode_name">
-                      Promo Code
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.promocode_name}</p>
                   </Form.Group>
                 </Col>
-                <Col>
-                  <Form.Group className="mt-2 mb-3 border-bottom input-label">
+                <Col lg={3}>
+                  <Form.Group className="my-2 input-label">
+                    <Form.Label className="common-form-label" htmlFor="promo_title">
+                      Title
+                    </Form.Label>
                     <Form.Control
                       name="promo_title"
                       id="promo_title"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Title"
                       value={formValues.promo_title}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="promo_title">
-                      Title
-                    </Form.Label>
                   </Form.Group>
                 </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Form.Group className="mt-2 mb-3 border-bottom input-label">
+                <Col lg={3}>
+                  <Form.Group className="my-2 input-label">
+                    <Form.Label className="common-form-label" htmlFor="promo_desc">
+                      Description
+                    </Form.Label>
                     <Form.Control
                       name="promo_desc"
                       id="promo_desc"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Description"
                       value={formValues.promo_desc}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="promo_desc">
-                      Description
-                    </Form.Label>
                   </Form.Group>
                 </Col>
 
-                <Col>
-                  <Form.Group className="mt-2 mb-3 border-bottom input-label">
+                <Col lg={3}>
+                  <Form.Group className="my-2 input-label">
+                    <Form.Label className="common-form-label" htmlFor="promocode_per">
+                      Discount Value
+                    </Form.Label>
                     <Form.Control
                       name="promocode_per"
                       id="promocode_per"
                       type="number"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Discount Value"
                       value={formValues.promocode_per}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="promocode_per">
-                      Discount Value
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.promocode_per}</p>
                   </Form.Group>
                 </Col>
@@ -236,47 +234,36 @@ const EditPromoCode = (props) => {
                   </Form.Group>
                 </Col>
               </Row>
-              <Row className="justify-content-center align-items-center position-relative date-picker">
-                <Col>
+              <Row className="position-relative date-picker">
+                <Col lg={3}>
                   <div className="mb-3 position-relative date-picker">
                     <label className="form-label mb-0">Start Date</label> <br />
-                    <Form.Group className="border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
                       <Form.Control
                         type="date"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         onChange={handleChange}
                         value={formValues.start_date.slice(0, 10)}
+                        name="start_date"
                         placeholder=" "
                       />
                     </Form.Group>
-                    <FontAwesomeIcon
-                      icon={faCalendarAlt}
-                      width={20}
-                      height={20}
-                      className="fs-4 position-absolute top-50 end-0 mt-1 me-2"
-                    />
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.start_date}</p>
                   </div>
                 </Col>
-                <Col>
+                <Col lg={3}>
                   <div className="mb-3 position-relative date-picker">
                     <label className="form-label mb-0">End Date</label> <br />
-                    <Form.Group className="border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
                       <Form.Control
                         type="date"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         onChange={handleChange}
                         placeholder=" "
                         name="end_date"
                         value={formValues.end_date.slice(0, 10)}
                       />
                     </Form.Group>
-                    <FontAwesomeIcon
-                      icon={faCalendarAlt}
-                      width={20}
-                      height={20}
-                      className="fs-4 position-absolute top-50 end-0 mt-1 me-2"
-                    />
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.end_date}</p>
                   </div>
                 </Col>
@@ -290,72 +277,79 @@ const EditPromoCode = (props) => {
                     <p className="text-danger fs-14 error-message">{formErrors.discount_for}</p>
                     <Col lg={12}>
                       <div className="d-flex align-items-center text-nowrap">
-                        <Form.Check
-                          type="radio"
-                          name="discount_for"
-                          id="non-prime"
-                          value="0"
-                          checked={formValues.discount_for == '0'}
-                          onChange={handleChange}
-                        />
-                        <Form.Check.Label className="ms-2 me-5 pe-5" htmlFor="non-prime">
-                          New Registered Users from Web (Non Prime)
-                        </Form.Check.Label>
-                        <Form.Check
-                          type="radio"
-                          name="discount_for"
-                          id="non-prime-app"
-                          value="1"
-                          checked={formValues.discount_for == '1'}
-                          onChange={handleChange}
-                        />
-                        <Form.Check.Label className="ms-2 me-5 pe-5" htmlFor="non-prime-app">
-                          New Registered Users from App (Non Prime)
-                        </Form.Check.Label>
-                        <Form.Check
-                          type="radio"
-                          name="discount_for"
-                          id="renewals"
-                          value="2"
-                          checked={formValues.discount_for == '2'}
-                          onChange={handleChange}
-                        />
-                        <Form.Check.Label className="ms-2 me-5 pe-5" htmlFor="renewals">
-                          Renewals
-                        </Form.Check.Label>
-                        <Form.Check
-                          type="radio"
-                          name="discount_for"
-                          id="individualuser"
-                          value="3"
-                          checked={formValues.discount_for == '3'}
-                          onChange={handleChange}
-                        />
-                        <Form.Check.Label className="ms-2 me-5 pe-5" htmlFor="individualuser">
-                          Individual User
-                        </Form.Check.Label>
-                      </div>
-                      <div className="w-25 mt-3 ms-auto">
-                        <Form.Group className="border-bottom input-label">
-                          <Form.Control
-                            name="multiple_user_id"
-                            id="multiple_user_id"
-                            type="text"
-                            className={`border-0 shadow-none rounded-0 ps-1 ${
-                              formValues.discount_for != '3' && 'bg-light cursor-notallowed'
-                            }`}
-                            placeholder=" "
-                            disabled={formValues.discount_for != '3'}
-                            value={formValues.multiple_user_id}
+                        <Col lg={3} className="d-flex align-items-center">
+                          <Form.Check
+                            type="radio"
+                            name="discount_for"
+                            id="non-prime"
+                            value="0"
+                            checked={formValues.discount_for == '0'}
                             onChange={handleChange}
                           />
-
-                          <Form.Label className="start-0 mb-0 position-absolute ps-1" htmlFor="multiple_user_id">
-                            Enter Email
-                          </Form.Label>
-                        </Form.Group>
-                        <p className="text-lighter">Enter Multiple Email with Comma Separated</p>
+                          <Form.Check.Label className="ms-2 me-5 pe-5" htmlFor="non-prime">
+                            New Registered Users from Web (Non Prime)
+                          </Form.Check.Label>
+                        </Col>
+                        <Col lg={3} className="d-flex align-items-center">
+                          <Form.Check
+                            type="radio"
+                            name="discount_for"
+                            id="non-prime-app"
+                            value="1"
+                            checked={formValues.discount_for == '1'}
+                            onChange={handleChange}
+                          />
+                          <Form.Check.Label className="ms-2 me-5 pe-5" htmlFor="non-prime-app">
+                            New Registered Users from App (Non Prime)
+                          </Form.Check.Label>
+                        </Col>
+                        <Col lg={3} className="d-flex align-items-center">
+                          <Form.Check
+                            type="radio"
+                            name="discount_for"
+                            id="renewals"
+                            value="2"
+                            checked={formValues.discount_for == '2'}
+                            onChange={handleChange}
+                          />
+                          <Form.Check.Label className="ms-2 me-5 pe-5" htmlFor="renewals">
+                            Renewals
+                          </Form.Check.Label>
+                        </Col>
+                        <Col lg={3} className="d-flex align-items-center">
+                          <Form.Check
+                            type="radio"
+                            name="discount_for"
+                            id="individualuser"
+                            value="3"
+                            checked={formValues.discount_for == '3'}
+                            onChange={handleChange}
+                          />
+                          <Form.Check.Label className="ms-2 me-5 pe-5" htmlFor="individualuser">
+                            Individual User
+                          </Form.Check.Label>
+                        </Col>
                       </div>
+                      <Col lg={12} className='justify-content-end d-flex'>
+                        <Col lg={3}>
+                          <Form.Group className="my-2 input-label">
+                            <Form.Label className="common-form-label" htmlFor="multiple_user_id">
+                              Enter Email
+                            </Form.Label>
+                            <Form.Control
+                              name="multiple_user_id"
+                              id="multiple_user_id"
+                              type="text"
+                              className={`common-input-feild ${formValues.discount_for != '3' && 'bg-light cursor-notallowed'
+                                }`}
+                              placeholder=""
+                              disabled={formValues.discount_for != '3'}
+                              value={formValues.multiple_user_id}
+                              onChange={handleChange}
+                            />
+                          </Form.Group>
+                        </Col>
+                      </Col>
                     </Col>
                   </Form.Group>
                 </Col>
@@ -364,7 +358,7 @@ const EditPromoCode = (props) => {
               <Button variant="light" className="me-2" onClick={() => setShow(false)}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handlePromocode}>
+              <Button variant="primary" className='web-button' onClick={handlePromocode}>
                 Submit
               </Button>
             </Form>

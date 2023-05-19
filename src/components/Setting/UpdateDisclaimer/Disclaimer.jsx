@@ -2,12 +2,8 @@ import { UpdateAppVersion, getAppVersionData } from '_services/nifty_service_api
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Form, Row } from 'react-bootstrap'
 import { toast } from 'react-toastify';
-// import { useHistory } from 'react-router-dom';
-// import { useAuth } from '../../../../_context/authContext';
 
 const Disclaimer = () => {
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const initialValues = {
     appVersion: '',
     android_app_version: '',
@@ -22,12 +18,6 @@ const Disclaimer = () => {
   };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     globalSettingData();
@@ -97,9 +87,7 @@ const Disclaimer = () => {
     <section>
       <Row>
         <Col>
-          <div className="page-title-box">
-            <h4 className="page-title">Update Disclaimer</h4>
-          </div>
+          <h5 className="fw-500 mb-3">Update Disclaimer</h5>
         </Col>
       </Row>
       <Row>
@@ -109,29 +97,29 @@ const Disclaimer = () => {
               <Form onSubmit={handleUpdateAppVersion}>
                 <Row>
                   <Col className="input-focus">
-                    <Form.Group as={Row} className="mb-3">
-                      <Form.Label column lg={12} htmlFor="example-Left">
+                    <Form.Group as={Row} className="my-2 input-label">
+                      <Form.Label column lg={12} className="common-form-label" htmlFor="example-Left">
                         Current Disclaimer
                       </Form.Label>
                       <Col lg={12}>
-                        <Form.Control as="textarea" className='bg-light cursor-notallowed' rows={6} id="disclaimer_text" name='disclaimer_text'
+                        <Form.Control as="textarea" className="common-input-feild bg-light cursor-notallowed" rows={6} id="disclaimer_text" name='disclaimer_text'
                           value={formValues.disclaimer_text} onChange={handleChange} readOnly />
                       </Col>
                     </Form.Group>
                   </Col>
                   <Col className="input-focus">
-                    <Form.Group as={Row} className="mb-1">
-                      <Form.Label column lg={12} htmlFor="example-Left">
+                    <Form.Group as={Row} className="my-2 input-label">
+                      <Form.Label column lg={12} className="common-form-label" htmlFor="example-Left">
                         Update Disclaimer
                       </Form.Label>
                       <Col lg={12}>
-                        <Form.Control as="textarea" rows={6} id="update_disclaimer_text" name='update_disclaimer_text' value={formValues.update_disclaimer_text} onChange={handleChange} />
+                        <Form.Control as="textarea" className="common-input-feild" rows={6} id="update_disclaimer_text" name='update_disclaimer_text' value={formValues.update_disclaimer_text} onChange={handleChange} />
                       </Col>
                     </Form.Group>
                     <p className="text-danger fs-14 error-message pt-0 mt-0 mb-2">{formErrors.update_disclaimer_text}</p>
                   </Col>
                 </Row>
-                <Button variant="primary" onClick={handleUpdateAppVersion}>
+                <Button variant="primary" className='web-button mt-2' onClick={handleUpdateAppVersion}>
                   Submit
                 </Button>
               </Form>

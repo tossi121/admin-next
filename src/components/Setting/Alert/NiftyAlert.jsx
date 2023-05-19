@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-// import { useAuth } from '../../../../_context/authContext';
-// import { useHistory } from 'react-router-dom';
 import { getAlertData, saveAlertData } from '_services/nifty_service_api';
 
 const NiftyAlert = () => {
@@ -18,14 +16,6 @@ const NiftyAlert = () => {
     is_active: '',
   };
   const [formValues, setFormValues] = useState(initialValues);
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     globalSettingData();
@@ -85,9 +75,7 @@ const NiftyAlert = () => {
     <section>
       <Row>
         <Col>
-          <div className="page-title-box">
-            <h4 className="page-title">Update Header Alert</h4>
-          </div>
+          <h5 className="fw-500 mb-3">Update Header Alert</h5>
         </Col>
       </Row>
       <Row>
@@ -97,66 +85,66 @@ const NiftyAlert = () => {
               <Form className="input-login my-2" onSubmit={handleAlert}>
                 <Row>
                   <Col>
-                    <Form.Group className="stock-create my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="content">
+                        Content
+                      </Form.Label>
                       <Form.Control
                         name="content"
                         id="content"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.content}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="content">
-                        Content
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                   <Col>
-                    <Form.Group className="stock-create my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="url">
+                        Url
+                      </Form.Label>
                       <Form.Control
                         name="url"
                         id="url"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.url}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="url">
-                        Url
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                   <Col>
-                    <Form.Group className="stock-create my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="urlcontent">
+                        Url Content
+                      </Form.Label>
                       <Form.Control
                         name="urlcontent"
                         id="urlcontent"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.urlcontent}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="urlcontent">
-                        Url Content
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                 </Row>
 
                 <Row>
                   <Col className="input-focus">
-                    <Form.Group className="border-bottom">
-                      <Form.Label className="mb-0" htmlFor="background_color1">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="background_color1">
                         Background Color Left
                       </Form.Label>
                       <Form.Control
                         name="background_color1"
                         id="background_color1"
                         type="color"
-                        className="border-0 shadow-none rounded-0 ps-1 w-100"
+                        className="w-100 common-input-feild"
                         placeholder=" "
                         value={formValues.background_color1}
                         onChange={handleChange}
@@ -164,15 +152,15 @@ const NiftyAlert = () => {
                     </Form.Group>
                   </Col>
                   <Col className="input-focus">
-                    <Form.Group className="border-bottom">
-                      <Form.Label className="mb-0" htmlFor="background_color2">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="background_color2">
                         Background Color Right
                       </Form.Label>
                       <Form.Control
                         name="background_color2"
                         id="background_color2"
                         type="color"
-                        className="border-0 shadow-none rounded-0 ps-1 w-100"
+                        className="w-100 common-input-feild"
                         placeholder=" "
                         value={formValues.background_color2}
                         onChange={handleChange}
@@ -180,15 +168,15 @@ const NiftyAlert = () => {
                     </Form.Group>
                   </Col>
                   <Col className="input-focus">
-                    <Form.Group className="border-bottom">
-                      <Form.Label className="mb-0" htmlFor="content_color">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="content_color">
                         Content Color
                       </Form.Label>
                       <Form.Control
                         name="content_color"
                         id="content_color"
                         type="color"
-                        className="border-0 shadow-none rounded-0 ps-1 w-100"
+                        className="w-100 common-input-feild"
                         placeholder=" "
                         value={formValues.content_color}
                         onChange={handleChange}
@@ -198,15 +186,15 @@ const NiftyAlert = () => {
                 </Row>
                 <Row className="mt-2 align-items-center">
                   <Col className="input-focus">
-                    <Form.Group className="border-bottom">
-                      <Form.Label className="mb-0" htmlFor="button_color">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="button_color">
                         Button Color
                       </Form.Label>
                       <Form.Control
                         name="button_color"
                         id="button_color"
                         type="color"
-                        className="border-0 shadow-none rounded-0 ps-1 w-100"
+                        className="w-100 common-input-feild"
                         placeholder=" "
                         value={formValues.button_color}
                         onChange={handleChange}
@@ -214,15 +202,15 @@ const NiftyAlert = () => {
                     </Form.Group>
                   </Col>
                   <Col className="input-focus">
-                    <Form.Group className="border-bottom">
-                      <Form.Label className="mb-0" htmlFor="button_text_color">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="button_text_color">
                         Button Text Color
                       </Form.Label>
                       <Form.Control
                         name="button_text_color"
                         id="button_text_color"
                         type="color"
-                        className="border-0 shadow-none rounded-0 ps-1 w-100"
+                        className="w-100 common-input-feild"
                         placeholder=" "
                         value={formValues.button_text_color}
                         onChange={handleChange}
@@ -230,9 +218,12 @@ const NiftyAlert = () => {
                     </Form.Group>
                   </Col>
                   <Col className="input-focus">
-                    <Form.Label className="fin-select d-block border-bottom mb-0" htmlFor="is_active">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="is_active">
+                        Active
+                      </Form.Label>
                       <select
-                        className="fin-field w-100 bg-white"
+                        className="w-100 bg-white p-2 rounded-2 common-input-feild"
                         required
                         name="is_active"
                         id="is_active"
@@ -243,11 +234,10 @@ const NiftyAlert = () => {
                         <option value="1">&#160;&#160;Yes</option>
                         <option value="0">&#160;&#160;NO</option>
                       </select>
-                      <span className="fin-label">Active</span>
-                    </Form.Label>
+                    </Form.Group>
                   </Col>
                 </Row>
-                <Button variant="primary" className="mt-3" onClick={handleAlert}>
+                <Button variant="primary" className="mt-3 web-button" onClick={handleAlert}>
                   Submit
                 </Button>
               </Form>

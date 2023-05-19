@@ -1,8 +1,6 @@
 import { getGlobalPromoList, saveGlobalPromoList } from '_services/nifty_service_api';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
-// import { useAuth } from '../../../../_context/authContext';
-// import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const PromoCode = () => {
@@ -17,14 +15,6 @@ const PromoCode = () => {
     is_active: false,
   };
   const [formValues, setFormValues] = useState(initialValues);
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     globalSettingData();
@@ -82,9 +72,7 @@ const PromoCode = () => {
     <section>
       <Row>
         <Col>
-          <div className="page-title-box">
-            <h4 className="page-title">Update Promo Details</h4>
-          </div>
+          <h5 className="fw-500 mb-3">Update Promo Details</h5>
         </Col>
       </Row>
       <Row>
@@ -94,60 +82,60 @@ const PromoCode = () => {
               <Form className="input-login my-2" onSubmit={handleGlobalSetting}>
                 <Row>
                   <Col lg={6}>
-                    <Form.Group className="stock-create my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="promocode_name">
+                        Promo Code
+                      </Form.Label>
                       <Form.Control
                         name="promocode_name"
                         id="promocode_name"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.promocode_name}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="promocode_name">
-                        Promo Code
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                   <Col lg={6}>
-                    <Form.Group className="stock-create my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="promo_title">
+                        Title
+                      </Form.Label>
                       <Form.Control
                         name="promo_title"
                         id="promo_title"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.promo_title}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="promo_title">
-                        Title
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                 </Row>
 
-                <Row>
+                <Row className='align-items-center'>
                   <Col lg={6}>
-                    <Form.Group className="stock-create my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="promo_desc">
+                        Description
+                      </Form.Label>
                       <Form.Control
                         name="promo_desc"
                         id="promo_desc"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.promo_desc}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="promo_desc">
-                        Description
-                      </Form.Label>
                     </Form.Group>
                   </Col>
-                  <Col>
-                    <Form.Group as={Row} className="mt-3 ps-2">
-                      <Col lg={1} className="mt-0 p-0 w-max-content">
-                        <Form.Control
+                  <Col className='mt-3'>
+                    <Form.Group as={Row} className="mt-3 ps-2 pt-2">
+                      <Col lg={1} className="mt-0 p-0 pe-2 w-max-content">
+                        <input
                           type="checkbox"
                           name="is_active"
                           checked={formValues.is_active}
@@ -163,35 +151,35 @@ const PromoCode = () => {
                 </Row>
                 <Row>
                   <Col lg={6}>
-                    <Form.Group className="stock-create my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="promocode_per">
+                        Discount Value
+                      </Form.Label>
                       <Form.Control
                         name="promocode_per"
                         id="promocode_per"
                         type="number"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.promocode_per}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="promocode_per">
-                        Discount Value
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                   <Col lg={6}>
-                    <Form.Group className="stock-create my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="mail_days">
+                        Valit Till
+                      </Form.Label>
                       <Form.Control
                         name="mail_days"
                         id="mail_days"
                         type="number"
-                        className="border-0 shadow-none rounded-0 ps-1"
+                        className="common-input-feild"
                         placeholder=" "
                         value={formValues.mail_days}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="mail_days">
-                        Valit Till
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                 </Row>
@@ -230,7 +218,7 @@ const PromoCode = () => {
                     </Form.Group>
                   </Col>
                 </Row>
-                <Button variant="primary" onClick={handleGlobalSetting}>
+                <Button variant="primary" className='web-button' onClick={handleGlobalSetting}>
                   Submit
                 </Button>
               </Form>

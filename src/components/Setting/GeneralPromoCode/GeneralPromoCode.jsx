@@ -11,6 +11,8 @@ import moment from 'moment';
 import TableLoader from '_utils/Loader/TableLoader';
 import { toast } from 'react-toastify';
 import { deletePromoList, getGeneralPromoList } from '_services/nifty_service_api';
+import SelectBox from 'components/SelectBox';
+import DeleteModal from 'components/DeleteModal';
 
 const GeneralPromoCode = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -25,7 +27,7 @@ const GeneralPromoCode = () => {
   const [Editshow, setEditShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
-  
+
   // const { isLoggedIn } = useAuth();
   // const history = useHistory();
   const [sortBy, setsortBy] = useState('promo_general_id');
@@ -95,51 +97,6 @@ const GeneralPromoCode = () => {
     setAddShow(true);
   };
 
-  function selectBox() {
-    return (
-      <>
-        <div className="form-group input-box me-3 fs-14 mt-md-0 text-nowrap ps-2">
-          Show{' '}
-          <select
-            className="border bg-white rounded-3 cursor-pointer label-color-4 custom-select px-2 py-1 mx-1"
-            onChange={(e) => {
-              setPageSize(e.target.value);
-            }}
-          >
-            {lengthMenu.map((item, key) => {
-              return (
-                <option key={key} defaultValue={key === 0} value={item}>
-                  {item}
-                </option>
-              );
-            })}
-          </select>{' '}
-          Entries
-        </div>
-      </>
-    );
-  }
-
-  function deleteModal() {
-    return (
-      <Modal show={showModal} onHide={() => setShowModal(false)} size={'sm'} centered>
-        <Modal.Body className="text-center">
-          <FontAwesomeIcon icon={faTrashAlt} className="text-danger fs-1" width={20} />
-          <h4>Are you sure?</h4>
-          <p className="mb-0">Are you sure you want to delete the stock?</p>
-        </Modal.Body>
-        <Modal.Footer className=" justify-content-center">
-          <Button variant=" " className="web-button text-white" onClick={() => setShowModal(false)}>
-            Cancel
-          </Button>
-          <Button variant="danger" onClick={deletePromoData}>
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-
   function handleSorting(params) {
     setsortBy(params)
     setSortToggle(prevstate => !prevstate)
@@ -155,6 +112,7 @@ const GeneralPromoCode = () => {
 
   return (
     <>
+      <DeleteModal showModal={showModal} setShowModal={setShowModal} deleteStock={handleDelete} stockText="stock" />
       {Addshow && <AddPromoCode promoCodeData={promoCodeData} show={Addshow} setShow={setAddShow} />}
       {Editshow && <EditPromoCode promoCodeData={promoCodeData} show={Editshow} setShow={setEditShow} selectedId={selectedId} />}
 
@@ -162,9 +120,7 @@ const GeneralPromoCode = () => {
         <section>
           <Row>
             <Col>
-              <div className="page-title-box">
-                <h4 className="page-title">General Promo Code</h4>
-              </div>
+              <h5 className="fw-500 mb-3">General Promo Code</h5>
             </Col>
           </Row>
           <Row>
@@ -172,18 +128,17 @@ const GeneralPromoCode = () => {
               <Card>
                 <Card.Body>
                   <>
-                    {deleteModal()}
-                    <div className="d-flex justify-content-between align-items-center">
-                      {selectBox()}
-                      <Button variant="primary mx-4" onClick={() => handleAdd()}>
+                    <div className="d-flex justify-content-between align-items-center mb-3">
+                      <SelectBox setPageSize={setPageSize} setCurrentPage={setCurrentPage} />
+                      <Button variant="primary mx-4" className='web-button' onClick={() => handleAdd()}>
                         Add General Promo
                       </Button>
                       <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                        <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                        <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
                         <input
                           type="text"
                           className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
-                          placeholder="Search"
+                          placeholder="Search.."
                           value={searchInput}
                           onChange={(e) => setSearchInput(e.target.value)}
                         />
@@ -197,56 +152,56 @@ const GeneralPromoCode = () => {
                           <thead>
                             <tr>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('promo_general_id')}>
+                                <div onClick={() => handleSorting('promo_general_id')}>
                                   <div>Id</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'promo_general_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'promo_general_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'promo_general_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'promo_general_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('promocode_name')}>
+                                <div onClick={() => handleSorting('promocode_name')}>
                                   <div>Promo</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'promocode_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'promocode_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'promocode_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'promocode_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('discount_for')}>
+                                <div onClick={() => handleSorting('discount_for')}>
                                   <div>Discount For</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'discount_for' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'discount_for' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'discount_for' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'discount_for' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('promocode_per')}>
+                                <div onClick={() => handleSorting('promocode_per')}>
                                   <div>Discount Value</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'promocode_per' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'promocode_per' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'promocode_per' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'promocode_per' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('start_date')}>
+                                <div onClick={() => handleSorting('start_date')}>
                                   <div>Start Date</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'start_date' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'start_date' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'start_date' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'start_date' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('end_date')}>
+                                <div onClick={() => handleSorting('end_date')}>
                                   <div>End Date</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'end_date' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'end_date' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'end_date' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'end_date' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -292,12 +247,12 @@ const GeneralPromoCode = () => {
                                       <FontAwesomeIcon
                                         icon={faEdit}
                                         width={16}
-                                        className="cursor-pointer"
+                                        className="cursor-pointer base-color-3"
                                         title="Edit"
                                         onClick={() => handleEdit(item?.promo_general_id)}
                                       />
                                       <FontAwesomeIcon
-                                        className="ms-2 cursor-pointer"
+                                        className="ms-2 cursor-pointer base-color-3"
                                         icon={faTrash}
                                         width={16}
                                         title="Delete"

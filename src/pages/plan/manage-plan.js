@@ -5,7 +5,7 @@ const ManagePlans = dynamic(import('components/Plan/ManagePlan'));
 function DefaultPage() {
   return (
     <>
-      {/* <ManagePlans /> */}
+      <ManagePlans />
     </>
   );
 }

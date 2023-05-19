@@ -1,11 +1,4 @@
-import {
-  faChartLine,
-  faCircleExclamation,
-  faFileLines,
-  faGear,
-  faUser,
-  faUserGroup,
-} from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faCircleExclamation, faFileLines, faGear, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 
 export const navbarData = [
   {
@@ -63,5 +56,16 @@ export const navbarData = [
       { text: 'General Promo Code', url: '/settings/genral-promo' },
       { text: 'Global Setting', url: '/settings/global-setting' },
     ],
+    subMenu: [{ text: 'Nifty Alert', url: '/settings/nifty-alert' },
+    { text: 'Update Disclaimer', url: '/settings/update-disclaimer' },
+    { text: 'Update App Version', url: '/settings/update-app-version' },
+    { text: 'Promo Code', url: '/settings/promo-code' },
+    { text: 'General Promo Code', url: '/settings/genral-promo' },
+    { text: 'Global Setting', url: '/settings/global-setting' }],
+  },
+  {
+    menu: 'Screener',
+    icon: faCircleExclamation,
+    subMenu: [{ text: 'Predefine Groups', url: '/screener/screener-group' },],
   },
 ];
