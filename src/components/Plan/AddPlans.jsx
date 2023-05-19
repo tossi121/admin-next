@@ -51,6 +51,7 @@ function AddPlans(props) {
       toast.success(response.message);
       handleClose();
       planData()
+      setFormValues('')
     } else {
       toast.error(response.message);
     }
@@ -86,116 +87,116 @@ function AddPlans(props) {
   return (
     <>
       <Modal show={show} onHide={handleClose} size={'lg'} centered>
-        <Modal.Header onHide={handleClose} closeButton className="border-bottom">
-          <Modal.Title as="h4">Create Plan</Modal.Title>
+        <Modal.Header onHide={handleClose} className='pb-2' closeButton>
+          <Modal.Title as="h5">Create Plan</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="px-3 py-0">
+        <Modal.Body className="py-0">
           <>
             <Form className="input-login my-2 text-nowrap" onSubmit={handleCreateStock}>
-              <Row className="mt-4">
+              <Row>
                 <Col>
-                  <Form.Group className="stock-create border-bottom input-label">
+                  <Form.Group className="my-2 input-label">
+                    <Form.Label className="common-form-label" htmlFor="plan_name">
+                      Plan Name
+                    </Form.Label>
                     <Form.Control
                       name="plan_name"
                       id="plan_name"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Plan Name "
                       value={formValues.plan_name}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="plan_name">
-                      Plan Name
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.plan_name}</p>
                   </Form.Group>
                 </Col>
                 <Col>
-                  <Form.Group className="stock-create border-bottom input-label">
+                  <Form.Group className="my-2 input-label">
+                    <Form.Label className="common-form-label" htmlFor="plan_short_message">
+                      Plan Short Message
+                    </Form.Label>
                     <Form.Control
                       name="plan_short_message"
                       id="plan_short_message"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Plan Short Message "
                       value={formValues.plan_short_message}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="plan_short_message">
-                      Plan Short Message
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.plan_short_message}</p>
                   </Form.Group>
                 </Col>
               </Row>
               <Row>
                 <Col lg={6}>
-                  <Form.Group className="stock-create border-bottom input-label">
+                  <Form.Group className="my-2 input-label">
+                    <Form.Label className="common-form-label" htmlFor="plan_duration">
+                      Plan Duration
+                    </Form.Label>
                     <Form.Control
                       name="plan_duration"
                       id="plan_duration"
                       type="number"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Plan Duration "
                       value={formValues.plan_duration}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="plan_duration">
-                      Plan Duration
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.plan_duration}</p>
                   </Form.Group>
                 </Col>
                 <Col lg={6}>
-                  <Form.Group className="stock-create border-bottom input-label">
+                  <Form.Group className="my-2 input-label">
+                    <Form.Label className="common-form-label" htmlFor="plan_old_price">
+                      Plan Old Price
+                    </Form.Label>
                     <Form.Control
                       name="plan_old_price"
                       id="plan_old_price"
                       type="number"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Plan Old Price "
                       value={formValues.plan_old_price}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="plan_old_price">
-                      Plan Old Price
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.plan_old_price}</p>
                   </Form.Group>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Form.Group className="mb-3 border-bottom input-label">
+                  <Form.Group className="my-2 border-bottom input-label">
+                    <Form.Label className="common-form-label" htmlFor="plan_pricing">
+                      Plan Price
+                    </Form.Label>
                     <Form.Control
                       name="plan_pricing"
                       id="plan_pricing"
                       type="text"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Plan Price "
                       value={formValues.plan_pricing}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="plan_pricing">
-                      Plan Price
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.plan_pricing}</p>
                   </Form.Group>
                 </Col>
                 <Col>
-                  <Form.Group className="mb-3 border-bottom input-label">
+                  <Form.Group className="my-2 border-bottom input-label">
+                    <Form.Label className="common-form-label" htmlFor="plan_sequence">
+                      Plan Sequence
+                    </Form.Label>
                     <Form.Control
                       name="plan_sequence"
                       id="plan_sequence"
                       type="number"
-                      className="border-0 shadow-none rounded-0 ps-1"
-                      placeholder=" "
+                      className="common-input-feild"
+                      placeholder="Enter Plan Sequence "
                       value={formValues.plan_sequence}
                       onChange={handleChange}
                     />
-                    <Form.Label className="start-0 mb-0 position-absolute" htmlFor="plan_sequence">
-                      Plan Sequence
-                    </Form.Label>
                     <p className="text-danger fs-14 error-message position-absolute">{formErrors.plan_sequence}</p>
                   </Form.Group>
                 </Col>
@@ -203,13 +204,13 @@ function AddPlans(props) {
 
               <Row className="align-items-center">
                 <Col className="input-focus">
-                  <Form.Group as={Row} className="mb-3">
+                  <Form.Group as={Row} className="my-2">
                     <Form.Label column lg={12} htmlFor="discount-type">
                       Choose Discount Type
                     </Form.Label>
                     <Col lg={12}>
                       <div className="d-flex">
-                        <Form.Check
+                        <input
                           type="radio"
                           name="plan_type"
                           id="percentage"
@@ -220,7 +221,7 @@ function AddPlans(props) {
                         <Form.Check.Label className="mx-2" htmlFor="percentage">
                           Nifty Subscription
                         </Form.Check.Label>
-                        <Form.Check
+                        <input
                           type="radio"
                           name="plan_type"
                           id="flat"
@@ -237,10 +238,10 @@ function AddPlans(props) {
                   </Form.Group>
                 </Col>
 
-                <Col>
-                  <Form.Group as={Row} className="mt-3 ps-4">
-                    <Col lg={1} className="mt-0 p-0">
-                      <Form.Control
+                <Col lg={3}>
+                  <Form.Group as={Row} className="mt-3 ps-4 d-flex align-items-center pt-2">
+                    <Col lg={1} className="mt-0">
+                      <input
                         type="checkbox"
                         name="is_plan_recommend"
                         checked={formValues.is_plan_recommend}
@@ -248,15 +249,15 @@ function AddPlans(props) {
                         id="is_plan_recommend"
                       />
                     </Col>
-                    <Form.Label column lg={4} className="ps-3 pt-0 cursor-pointer" htmlFor="is_plan_recommend">
+                    <Form.Label column lg={4} className="ps-2 cursor-pointer" htmlFor="is_plan_recommend">
                       Is Plan Used
                     </Form.Label>
                   </Form.Group>
                 </Col>
-                <Col>
-                  <Form.Group as={Row} className="mt-3 ps-2">
-                    <Col lg={1} className="mt-0 p-0">
-                      <Form.Control
+                <Col lg={3}>
+                  <Form.Group as={Row} className="mt-3 ps-2 d-flex align-items-center pt-2">
+                    <Col lg={1} className="mt-0">
+                      <input
                         type="checkbox"
                         name="is_plan_used"
                         checked={formValues.is_plan_used}
@@ -264,23 +265,25 @@ function AddPlans(props) {
                         id="is_plan_used"
                       />
                     </Col>
-                    <Form.Label column lg={4} className="ps-3 pt-0 cursor-pointer" htmlFor="is_plan_used">
+                    <Form.Label column lg={4} className="ps-2 cursor-pointer" htmlFor="is_plan_used">
                       Is Plan Recommend
                     </Form.Label>
                   </Form.Group>
                 </Col>
               </Row>
+              <Row>
+                <Col className='my-3 pt-1'>
+                  <Button variant="primary" className='web-button me-2' onClick={handleCreateStock}>
+                    Add New Plan
+                  </Button>
+                  <Button variant="light" onClick={handleClose}>
+                    Close
+                  </Button>
+                </Col>
+              </Row>
             </Form>
           </>
         </Modal.Body>
-        <Modal.Footer className="border-top">
-          <Button variant="primary" onClick={handleCreateStock}>
-            Add New Plan
-          </Button>
-          <Button variant="light" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

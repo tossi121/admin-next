@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Form, Row } from 'react-bootstrap'
 import { toast } from 'react-toastify';
-// import { useHistory } from 'react-router-dom';
-// import { useAuth } from '../../../../_context/authContext';
 import moment from 'moment';
 import { UpdateAppVersion, getAppVersionData } from '_services/nifty_service_api';
 
 const AppVersion = () => {
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const initialValues = {
     appVersion: '',
     android_app_version: '',
@@ -19,12 +15,6 @@ const AppVersion = () => {
     ios_app_version_mandatory: false,
   };
   const [formValues, setFormValues] = useState(initialValues);
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     globalSettingData();
@@ -81,9 +71,7 @@ const AppVersion = () => {
     <section>
       <Row>
         <Col>
-          <div className="page-appVersion-box">
-            <h4 className="page-appVersion">Update App Version</h4>
-          </div>
+          <h5 className="fw-500 mb-3">Update App Version</h5>
         </Col>
       </Row>
       <Row>
@@ -91,46 +79,46 @@ const AppVersion = () => {
           <Card>
             <Card.Body>
               <Form className="input-login" onSubmit={handleUpdateAppVersion}>
-                <h4>Android App Version</h4>
+                <h6>Android App Version</h6>
                 <Row>
                   <Col lg={6}>
-                    <Form.Group className="my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="appVersion">
+                        Previous Version
+                      </Form.Label>
                       <Form.Control
                         name="appVersion"
                         id="appVersion"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1 bg-light cursor-notallowed"
+                        className="common-input-feild cursor-notallowed bg-light"
                         placeholder=" "
                         value={formValues.appVersion}
                         readOnly
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="appVersion">
-                        Previous Version
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                   <Col className="input-focus">
-                    <Form.Group className="my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="android_app_version">
+                        Set Version
+                      </Form.Label>
                       <Form.Control
                         name="android_app_version"
                         id="android_app_version"
                         type="number"
-                        className="border-0 shadow-none rounded-0 ps-1"
-                        placeholder=" "
+                        className="common-input-feild"
+                        placeholder="Enter Andriod Version"
                         value={formValues.android_app_version}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="android_app_version">
-                        Set Version
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                 </Row>
                 <Row>
                   <Col lg={4}>
                     <Form.Group as={Row} className="mb-3 ps-2">
-                      <Col lg={1} className="mt-0 p-0">
-                        <Form.Control
+                      <Col lg={1} className="mt-0 p-0 ps-2">
+                        <input
                           type="checkbox"
                           name="android_app_version_mandatory"
                           checked={formValues.android_app_version_mandatory}
@@ -140,7 +128,7 @@ const AppVersion = () => {
                       </Col>
                       <Form.Label
                         column
-                        lg={6}
+                        lg={8}
                         className="ps-0 pt-0 cursor-pointer"
                         htmlFor="android_app_version_mandatory"
                       >
@@ -150,46 +138,46 @@ const AppVersion = () => {
                   </Col>
                 </Row>
 
-                <h4>IOS App Version</h4>
+                <h6>IOS App Version</h6>
                 <Row>
                   <Col lg={6}>
-                    <Form.Group className="my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="ios_version">
+                        Previous Version
+                      </Form.Label>
                       <Form.Control
                         name="ios_version"
                         id="ios_version"
                         type="text"
-                        className="border-0 shadow-none rounded-0 ps-1 bg-light cursor-notallowed"
+                        className="common-input-feild cursor-notallowed bg-light"
                         placeholder=" "
                         value={formValues.ios_version}
                         readOnly
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="ios_version">
-                        Previous Version
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                   <Col className="input-focus">
-                    <Form.Group className="my-3 border-bottom input-label">
+                    <Form.Group className="my-2 input-label">
+                      <Form.Label className="common-form-label" htmlFor="ios_app_version">
+                        Set Version
+                      </Form.Label>
                       <Form.Control
                         name="ios_app_version"
                         id="ios_app_version"
                         type="number"
-                        className="border-0 shadow-none rounded-0 ps-1"
-                        placeholder=" "
+                        className="common-input-feild"
+                        placeholder="Enter Ios Version"
                         value={formValues.ios_app_version}
                         onChange={handleChange}
                       />
-                      <Form.Label className="start-0 mb-0 position-absolute" htmlFor="ios_app_version">
-                        Set Version
-                      </Form.Label>
                     </Form.Group>
                   </Col>
                 </Row>
                 <Row>
                   <Col lg={4}>
                     <Form.Group as={Row} className="mb-3 ps-2">
-                      <Col lg={1} className="mt-0 p-0">
-                        <Form.Control
+                      <Col lg={1} className="mt-0 p-0 ps-2">
+                        <input
                           type="checkbox"
                           name="ios_app_version_mandatory"
                           checked={formValues.ios_app_version_mandatory}
@@ -208,7 +196,7 @@ const AppVersion = () => {
                     </Form.Group>
                   </Col>
                 </Row>
-                <Button variant="primary" onClick={handleUpdateAppVersion}>
+                <Button variant="primary" className='web-button' onClick={handleUpdateAppVersion}>
                   Submit
                 </Button>
               </Form>

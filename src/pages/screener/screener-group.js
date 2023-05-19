@@ -1,12 +1,11 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-
-const GeneralPromoCode = dynamic(import('components/Setting/GeneralPromoCode/GeneralPromoCode'));
+const ScreenerGroup = dynamic(import('components/Screener/ScreenerGroup'));
 
 function DefaultPage() {
   return (
     <>
-      {/* <GeneralPromoCode /> */}
+      <ScreenerGroup />
     </>
   );
 }

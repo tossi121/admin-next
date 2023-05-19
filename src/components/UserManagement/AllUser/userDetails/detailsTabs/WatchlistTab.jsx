@@ -46,37 +46,37 @@ const WatchlistTab = (props) => {
                                         <td>
                                             <span>
                                                 Volume:{jsonData?.volume ?
-                                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-success">
+                                                    <Badge pill bg="" className="me-1 fs-6 badge-size badge-soft-success">
                                                         Active
                                                     </Badge> :
-                                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-danger">
+                                                    <Badge pill bg="" className="me-1 fs-6 badge-size badge-soft-danger">
                                                         Inactive
                                                     </Badge>}&nbsp;
                                             </span>
                                             <span>
                                                 Current Price:{jsonData?.currentPrice ?
-                                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-success">
+                                                    <Badge pill bg="" className="me-1 fs-6 badge-size badge-soft-success">
                                                         Active
                                                     </Badge> :
-                                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-danger">
+                                                    <Badge pill bg="" className="me-1 fs-6 badge-size badge-soft-danger">
                                                         Inactive
                                                     </Badge>} &nbsp;
                                             </span>
                                             <span>
                                                 Change:{jsonData?.change ?
-                                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-success">
+                                                    <Badge pill bg="" className="me-1 fs-6 badge-size badge-soft-success">
                                                         Active
                                                     </Badge> :
-                                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-danger">
+                                                    <Badge pill bg="" className="me-1 fs-6 badge-size badge-soft-danger">
                                                         Inactive
                                                     </Badge>}&nbsp;
                                             </span>
                                             <span>
                                                 Change Percent:{jsonData?.changePercent ?
-                                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-success">
+                                                    <Badge pill bg="" className="me-1 fs-6 badge-size badge-soft-success">
                                                         Active
                                                     </Badge> :
-                                                    <Badge pill bg="" className="me-1 fs-6 badge-soft-danger">
+                                                    <Badge pill bg="" className="me-1 fs-6 badge-size badge-soft-danger">
                                                         Inactive
                                                     </Badge>} &nbsp;
                                             </span>

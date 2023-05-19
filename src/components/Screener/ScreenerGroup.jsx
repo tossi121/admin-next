@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react'
 import { Badge, Button, Card, Col, Modal, Row, Table } from 'react-bootstrap';
 import CommonPagination from '../Pagination/CommonPagination';
 import AddScreenerGroup from './AddScreenerGroup';
-// import { useAuth } from '../../../_context/authContext';
-// import { useHistory } from 'react-router';
 import TableLoader from '_utils/Loader/TableLoader';
 import EditScreenerGroup from './EditScreenerGroup';
 import { toast } from 'react-toastify';
 import { deleteScreenerData, getScreenerListData } from '_services/nifty_service_api';
+import DeleteModal from 'components/DeleteModal';
+import SelectBox from 'components/SelectBox';
 
 const ScreenerGroup = () => {
   const [show, setShow] = useState(false)
@@ -24,19 +24,10 @@ const ScreenerGroup = () => {
   const [totalItems, setTotalItems] = useState(null)
   const [deleteId, setDeleteId] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const [sortBy, setsortBy] = useState('screener_group_id');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
-
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -93,51 +84,6 @@ const ScreenerGroup = () => {
     }
   }
 
-  function deleteModal() {
-    return (
-      <Modal show={showModal} onHide={() => setShowModal(false)} size={'sm'} centered>
-        <Modal.Body className="text-center">
-          <FontAwesomeIcon icon={faTrashAlt} className="text-danger fs-1" width={20} />
-          <h4>Are you sure?</h4>
-          <p className="mb-0">Are you sure you want to delete the stock?</p>
-        </Modal.Body>
-        <Modal.Footer className=" justify-content-center">
-          <Button variant=" " className="web-button text-white" onClick={() => setShowModal(false)}>
-            Cancel
-          </Button>
-          <Button variant="danger" onClick={deleteStock}>
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-
-  function selectBox() {
-    return (
-      <>
-        <div className="form-group input-box me-3 fs-14 mt-md-0 text-nowrap ps-2">
-          Show{" "}
-          <select
-            className="border bg-white rounded-3 cursor-pointer label-color-4 custom-select px-2 py-1 mx-1"
-            onChange={(e) => {
-              setPageSize(e.target.value)
-            }}
-          >
-            {lengthMenu.map((item, key) => {
-              return (
-                <option key={key} defaultValue={key === 0} value={item}>
-                  {item}
-                </option>
-              )
-            })}
-          </select>{" "}
-          Entries
-        </div>
-      </>
-    )
-  }
-
   function handleSorting(params) {
     setsortBy(params)
     setSortToggle(prevstate => !prevstate)
@@ -152,16 +98,14 @@ const ScreenerGroup = () => {
 
   return (
     <>
+      <DeleteModal showModal={showModal} setShowModal={setShowModal} deleteStock={deleteStock} stockText="stock" />
       {showEdit && <EditScreenerGroup ScreenerData={screenerListData} setShow={setShowEdit} selectedId={selectedId} />}
       {show && <AddScreenerGroup ScreenerData={screenerListData} setShow={setShow} />}
       {!show && !showEdit && (
         <section >
-          {deleteModal()}
           <Row>
             <Col>
-              <div className="page-title-box">
-                <h4 className="page-title">Screener Group</h4>
-              </div>
+              <h5 className="fw-500 mb-3">Screener Group</h5>
             </Col>
           </Row>
           <Row>
@@ -169,9 +113,9 @@ const ScreenerGroup = () => {
               <Card>
                 <Card.Body>
                   <section>
-                    <div className="d-flex justify-content-between align-items-center">
-                      {selectBox()}
-                      <Button variant="primary mx-4" onClick={() => setShow(true)}>
+                    <div className="d-flex justify-content-between align-items-center mb-3">
+                      <SelectBox setPageSize={setPageSize} setCurrentPage={setCurrentPage} />
+                      <Button variant="primary mx-4" className='web-button' onClick={() => setShow(true)}>
                         Add New Group
                       </Button>
                       <div className="search-box position-relative text-center me-2 ms-auto pb-2">
@@ -179,7 +123,7 @@ const ScreenerGroup = () => {
                           icon={faSearch}
                           width="16"
                           height="16"
-                          className="position-absolute"
+                          className="position-absolute end-0 mt-1 me-2 base-color-3"
                         />
                         <input
                           type="text"
@@ -201,11 +145,11 @@ const ScreenerGroup = () => {
                           <thead>
                             <tr>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('screener_group_id')}>
+                                <div onClick={() => handleSorting('screener_group_id')}>
                                   <div>Id</div>
                                   <div className='d-flex justify-content-center align-content-center'>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'screener_group_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={` ${sortBy == 'screener_group_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'screener_group_id' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={` ${sortBy == 'screener_group_id' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -213,17 +157,17 @@ const ScreenerGroup = () => {
                                 <div className='d-flex align-items-center cursor-pointer text-nowrap' onClick={() => handleSorting('screener_group_name')}>
                                   <div>Group Name</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'screener_group_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'screener_group_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'screener_group_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'screener_group_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
                               <th scope="col">
-                                <div className='d-flex align-items-center cursor-pointer' onClick={() => handleSorting('symbol_name')}>
+                                <div onClick={() => handleSorting('symbol_name')}>
                                   <div>Symbols</div>
                                   <div>
-                                    <FontAwesomeIcon icon={faArrowUpLong} width={5} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
-                                    <FontAwesomeIcon icon={faArrowDownLong} width={5} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'symbol_name' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''}`} />
+                                    <FontAwesomeIcon icon={faArrowDownLong} width={8} className={`${sortBy == 'symbol_name' ? (sortStyle == 'text-success' ? sortStyle : '') : ''}`} />
                                   </div>
                                 </div>
                               </th>
@@ -247,16 +191,16 @@ const ScreenerGroup = () => {
                                         Inactive
                                       </Badge>}
                                     </td>
-                                    <td>
+                                    <td className='d-flex'>
                                       <FontAwesomeIcon
                                         icon={faEdit}
                                         width={16}
-                                        className="cursor-pointer"
+                                        className="cursor-pointer base-color-3"
                                         title="Edit"
                                         onClick={() => handleEdit(item.screener_group_id)}
                                       />
                                       <FontAwesomeIcon
-                                        className="ms-2 cursor-pointer"
+                                        className="ms-2 cursor-pointer base-color-3"
                                         icon={faTrash}
                                         width={16}
                                         title="Delete"
