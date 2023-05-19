@@ -1,10 +1,16 @@
-import { faChartLine, faCircleExclamation, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChartLine,
+  faCircleExclamation,
+  faFileLines,
+  faGear,
+  faUser,
+  faUserGroup,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const navbarData = [
   {
     menu: 'User Management',
     icon: faUserGroup,
-    isOpen: true,
     subMenu: [
       { text: 'All Users', url: '/user-management' },
       { text: 'Queries', url: '/user-management/queries' },
@@ -39,6 +45,23 @@ export const navbarData = [
       { text: 'Broker Review List', url: '/broker/review-list' },
       { text: 'Latest A/C Open Enq', url: '/broker/open-enquiry' },
       { text: 'Compare Broker', url: '/broker/compare-broker' },
+    ],
+  },
+  {
+    menu: 'Plans',
+    icon: faFileLines,
+    subMenu: [{ text: 'Manage Plans', url: '/plan/manage-plan' }],
+  },
+  {
+    menu: 'Settings',
+    icon: faGear,
+    subMenu: [
+      { text: 'Nifty Alert', url: '/settings/nifty-alert' },
+      { text: 'Update Disclaimer', url: '/settings/update-disclaimer' },
+      { text: 'Update App Version', url: '/settings/update-app-version' },
+      { text: 'Promo Code', url: '/settings/promo-code' },
+      { text: 'General Promo Code', url: '/settings/genral-promo' },
+      { text: 'Global Setting', url: '/settings/global-setting' },
     ],
   },
 ];

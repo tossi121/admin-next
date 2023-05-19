@@ -65,13 +65,17 @@
   }
 }
 
+
+
+
 .sub-menu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 1.2s ease;
 }
 
 .sub-menu.open {
+  transition: max-height 1.2s ease;
   max-height: 500px;
 }
 
@@ -107,8 +111,13 @@
 }
 
 .dashboard-content-section {
-  transition: all 0.2s;
+  transition: all 0.3s;
   width: calc(100% - 280px);
+}
+
+.dashboard-content-sm {
+  transition: all 0.3s;
+  width: 96% !important;
 }
 
 .arrow-btn {
@@ -120,4 +129,3 @@
     transition: 0.2s all ease-in-out;
   }
 }
-
