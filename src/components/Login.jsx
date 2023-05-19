@@ -88,7 +88,7 @@ const Login = () => {
                 <p className="base-color-2 fw-500 text-center"> Sign in to your account</p>
               </div>
               <div className="mb-4">
-                <Form.Group className=" border-bottom input-label base-color-1" controlId="formBasicEmail">
+                <Form.Group className="border-bottom input-label base-color-1" controlId="formBasicEmail">
                   <Form.Control
                     type="email"
                     className="border-0 base-color-1 shadow-none rounded-0 ps-1"

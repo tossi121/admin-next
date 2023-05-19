@@ -26,7 +26,7 @@ function Topbar(props) {
                 <Dropdown.Toggle className="rounded-circle border-0 bg-white" id="dropdown-basic">
                   <FontAwesomeIcon width={15} height={15} icon={faUserAlt} className="base-link-color" />
                 </Dropdown.Toggle>
-                <Dropdown.Menu className="ps-2" onClick={logout}>
+                <Dropdown.Menu className="ps-2 logout-btn" onClick={logout}>
                   <FontAwesomeIcon width={15} height={15} icon={faRightToBracket} className="base-link-color" />
                   <span className="base-link-color ms-2 fw-normal cursor-pointer">Logout</span>
                 </Dropdown.Menu>

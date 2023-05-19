@@ -10,8 +10,8 @@ const Footer = () => {
       <Container>
         <Row>
           <Col lg={12}>
-            <div className="text-center">
-              Copyright &copy;{' '} 
+            <div className="text-center base-color-1">
+              Copyright &copy;{' '}
               <Link href="/" className="base-link-color">
                 NiftyTrader
               </Link>

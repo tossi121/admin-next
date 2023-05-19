@@ -123,7 +123,7 @@ function Sidebar(props) {
             {menuItems.map((menuItem, index) => (
               <li key={index} className={`ms-2 nav-item position-relative`}>
                 <div
-                  className={`nav-link fw-500 base-color-3 d-flex align-items-center cursor-pointer  ${
+                  className={`nav-link fw-500 base-color-1 d-flex align-items-center cursor-pointer  ${
                     expandedId === index ? 'active' : ''
                   } ${toggle || 'px-0'} `}
                   onClick={() => toggleSubmenu(index)}
