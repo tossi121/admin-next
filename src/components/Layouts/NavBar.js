@@ -1,4 +1,4 @@
-import { faChartLine, faCircleExclamation, faFileLines, faGear, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faCircleExclamation, faFileLines, faGear, faHandshake, faPieChart, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 
 export const navbarData = [
   {
@@ -33,7 +33,7 @@ export const navbarData = [
   },
   {
     menu: 'Broker',
-    icon: faCircleExclamation,
+    icon: faHandshake,
     subMenu: [
       { text: 'Broker Review List', url: '/broker/review-list' },
       { text: 'Latest A/C Open Enq', url: '/broker/open-enquiry' },
@@ -65,7 +65,7 @@ export const navbarData = [
   },
   {
     menu: 'Screener',
-    icon: faCircleExclamation,
+    icon: faPieChart,
     subMenu: [{ text: 'Predefine Groups', url: '/screener/screener-group' },],
   },
 ];
