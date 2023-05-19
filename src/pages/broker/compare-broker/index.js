@@ -5,7 +5,7 @@ const CompareBroker = dynamic(import('components/Broker/CompareBroker/CompareBro
 function DefaultPage() {
   return (
     <>
-      {/* <CompareBroker /> */}
+      <CompareBroker />
     </>
   );
 }

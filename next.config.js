@@ -9,7 +9,8 @@ const nextConfig = {
     unoptimized: true,
   },
   env: {
-    BASE_URL: 'http://192.168.29.205:83/services/webapi/',
+    // BASE_URL: 'http://192.168.29.205:83/services/webapi/',
+    BASE_URL: 'https://dev-api.niftytrader.in:83/services/webapi/',
     USER_LIST_DATA: 'AppUser/get-user-list',
     LOGIN: 'AppUser/admin-login',
     USER_ORDER_LIST_DATA: 'AppUser/get-order-list',

@@ -281,7 +281,7 @@ function EditBrokerModal(props) {
               <Form>
                 <Row>
                   <Col>
-                    <Card.Title className="fs-4 mb-2">Edit Broker</Card.Title>
+                    <h5 className="fw-500 ps-2">Edit Broker</h5>
                   </Col>
                   <Col className="text-end">
                     <FontAwesomeIcon
@@ -298,521 +298,522 @@ function EditBrokerModal(props) {
                   <Form className="input-login" onSubmit={handleCreateStock}>
                     <Tabs defaultActiveKey="Overview" id="uncontrolled-tab-example" className="mb-0">
                       <Tab eventKey="Overview" className="ps-2" title="Overview">
-                        <h5 className="mt-0 mb-2 fs-4">Overview</h5>
-                        <Row>
+                        <h5 className="common-heading mt-3 fs-18">Overview</h5>
+                        <Row className=' align-items-center'>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="overview_broker_name">
+                                Broker Name
+                              </Form.Label>
                               <Form.Control
                                 name="overview_broker_name"
                                 id="overview_broker_name"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Broker Name"
                                 value={formValues.overview_broker_name}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="overview_broker_name">
-                                Broker Name
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="overview_year_of_incorporation"
-                                id="overview_year_of_incorporation"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.overview_year_of_incorporation}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="overview_year_of_incorporation"
                               >
                                 Year of Incorporation
                               </Form.Label>
+                              <Form.Control
+                                name="overview_year_of_incorporation"
+                                id="overview_year_of_incorporation"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Year of Incorporation"
+                                value={formValues.overview_year_of_incorporation}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="overview_website">
+                                Website
+                              </Form.Label>
                               <Form.Control
                                 name="overview_website"
                                 id="overview_website"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Website"
                                 value={formValues.overview_website}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="overview_website">
-                                Website
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="overview_broker_phone">
+                                Phone
+                              </Form.Label>
                               <Form.Control
                                 name="overview_broker_phone"
                                 id="overview_broker_phone"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Phone"
                                 value={formValues.overview_broker_phone}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="overview_broker_phone">
-                                Phone
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                         </Row>
-                        <Row>
+                        <Row className=' align-items-center'>
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="overview_exchanges_enabled"
-                                id="overview_exchanges_enabled"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.overview_exchanges_enabled}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="overview_exchanges_enabled"
                               >
                                 Exchanges enabled
                               </Form.Label>
+                              <Form.Control
+                                name="overview_exchanges_enabled"
+                                id="overview_exchanges_enabled"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Exchanges enabled"
+                                value={formValues.overview_exchanges_enabled}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
 
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="overview_demat_nsdl_cdsl">
+                                Demat (NSDL/CDSL)
+                              </Form.Label>
                               <Form.Control
                                 name="overview_demat_nsdl_cdsl"
                                 id="overview_demat_nsdl_cdsl"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Demat (NSDL/CDSL)"
                                 value={formValues.overview_demat_nsdl_cdsl}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="overview_demat_nsdl_cdsl">
-                                Demat (NSDL/CDSL)
-                              </Form.Label>
                             </Form.Group>
                           </Col>
 
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="overview_broker_rating">
+                                Broker Rating
+                              </Form.Label>
                               <Form.Control
                                 name="overview_broker_rating"
                                 id="overview_broker_rating"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Broker Rating"
                                 value={formValues.overview_broker_rating}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="overview_broker_rating">
-                                Broker Rating
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                         </Row>
 
-                        <h5 className="mt-0 mb-2 fs-4">Brokerage</h5>
-                        <Row>
+                        <h5 className="common-heading mt-3 fs-18">Brokerage</h5>
+                        <Row className=' align-items-center'>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="brokerage_equity">
+                                Equity
+                              </Form.Label>
                               <Form.Control
                                 name="brokerage_equity"
                                 id="brokerage_equity"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placehoEnter Equitylder=" "
                                 value={formValues.brokerage_equity}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="brokerage_equity">
-                                Equity
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="brokerage_equity_futures">
+                                Equity Futures
+                              </Form.Label>
                               <Form.Control
                                 name="brokerage_equity_futures"
                                 id="brokerage_equity_futures"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Equity Futures"
                                 value={formValues.brokerage_equity_futures}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="brokerage_equity_futures">
-                                Equity Futures
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="brokerage_equity_options">
+                                Equity Options
+                              </Form.Label>
                               <Form.Control
                                 name="brokerage_equity_options"
                                 id="brokerage_equity_options"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Equity Options"
                                 value={formValues.brokerage_equity_options}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="brokerage_equity_options">
-                                Equity Options
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="brokerage_currency_futures"
-                                id="brokerage_currency_futures"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.brokerage_currency_futures}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="brokerage_currency_futures"
                               >
                                 Currency Futures
                               </Form.Label>
+                              <Form.Control
+                                name="brokerage_currency_futures"
+                                id="brokerage_currency_futures"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Currency Futures"
+                                value={formValues.brokerage_currency_futures}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                         </Row>
-                        <Row>
+                        <Row className=' align-items-center'>
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="brokerage_currency_options"
-                                id="brokerage_currency_options"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.brokerage_currency_options}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="brokerage_currency_options"
                               >
                                 Currency Options
                               </Form.Label>
+                              <Form.Control
+                                name="brokerage_currency_options"
+                                id="brokerage_currency_options"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Currency Options"
+                                value={formValues.brokerage_currency_options}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="brokerage_commodity">
+                                Commodity
+                              </Form.Label>
                               <Form.Control
                                 name="brokerage_commodity"
                                 id="brokerage_commodity"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Commodity"
                                 value={formValues.brokerage_commodity}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="brokerage_commodity">
-                                Commodity
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                         </Row>
-                        <h5 className="mt-0 mb-2 fs-4">Other Info</h5>
+                        <h5 className="common-heading mt-3 fs-18">Other Info</h5>
 
                         <Row>
                           <Col>
-                            <Form.Group className="mt-3 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="other_info_company_logo">
+                                Company Logo
+                              </Form.Label>
                               <Form.Control
                                 name="other_info_company_logo"
                                 id="other_info_company_logo"
                                 type="file"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Company Logo "
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="other_info_company_logo">
-                                Company Logo
-                              </Form.Label>
                             </Form.Group>
-                            <p className="mt-2"> {formValues.other_info_company_logo}</p>
+                            <p className="mt-2 fs-14"> {formValues.other_info_company_logo}</p>
                           </Col>
                           <Col>
-                            <Form.Group className="mt-3 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="other_info_fav_icon">
+                                Fav Icon
+                              </Form.Label>
                               <Form.Control
                                 name="other_info_fav_icon"
                                 id="other_info_fav_icon"
                                 type="file"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Fav Icon"
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="other_info_fav_icon">
-                                Fav Icon
-                              </Form.Label>
+                              <p className="mt-2 fs-14"> {formValues.other_info_fav_icon}</p>
                             </Form.Group>
-                            <p className="mt-2"> {formValues.other_info_fav_icon}</p>
                           </Col>
                           <Col>
-                            <Form.Group className="my-3 border-bottom input-label">
-                              <Form.Control
-                                name="other_info_nifty_page_url"
-                                id="other_info_nifty_page_url"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.other_info_nifty_page_url}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="other_info_nifty_page_url"
                               >
                                 Nifty Page Url
                               </Form.Label>
+                              <Form.Control
+                                name="other_info_nifty_page_url"
+                                id="other_info_nifty_page_url"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Nifty Page Url"
+                                value={formValues.other_info_nifty_page_url}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-3 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="other_info_slug_url">
+                                Slug Url
+                              </Form.Label>
                               <Form.Control
                                 name="other_info_slug_url"
                                 id="other_info_slug_url"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Slug Url "
                                 value={formValues.other_info_slug_url}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="other_info_slug_url">
-                                Slug Url
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                         </Row>
                       </Tab>
 
                       <Tab eventKey="Account" className="ps-2" title="Account & Transparency">
-                        <h5 className="mt-0 mb-2 fs-4">Account Opening Costs</h5>
-                        <Row>
+                        <h5 className="common-heading mt-3 fs-18">Account Opening Costs</h5>
+                        <Row className=' align-items-center'>
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="account_opening_cost_trading_only"
-                                id="account_opening_cost_trading_only"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.account_opening_cost_trading_only}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="account_opening_cost_trading_only"
                               >
                                 Trading only
                               </Form.Label>
+                              <Form.Control
+                                name="account_opening_cost_trading_only"
+                                id="account_opening_cost_trading_only"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Trading only "
+                                value={formValues.account_opening_cost_trading_only}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
 
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="account_opening_cost_trading_demat"
-                                id="account_opening_cost_trading_demat"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.account_opening_cost_trading_demat}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="account_opening_cost_trading_demat"
                               >
                                 Trading & Demat
                               </Form.Label>
+                              <Form.Control
+                                name="account_opening_cost_trading_demat"
+                                id="account_opening_cost_trading_demat"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder=" Enter Trading & Demat"
+                                value={formValues.account_opening_cost_trading_demat}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
 
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="account_opening_cost_commodity"
-                                id="account_opening_cost_commodity"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.account_opening_cost_commodity}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="account_opening_cost_commodity"
                               >
                                 Commodity
                               </Form.Label>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-
-                        <Row>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
                               <Form.Control
-                                name="transparency_other_cost_equity"
-                                id="transparency_other_cost_equity"
+                                name="account_opening_cost_commodity"
+                                id="account_opening_cost_commodity"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.transparency_other_cost_equity}
+                                className="common-input-feild"
+                                placeholder="Enter Commodity "
+                                value={formValues.account_opening_cost_commodity}
                                 onChange={handleChange}
                               />
+                            </Form.Group>
+                          </Col>
+                          <Col>
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="transparency_other_cost_equity"
                               >
                                 Equity
                               </Form.Label>
-                            </Form.Group>
-                          </Col>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
                               <Form.Control
-                                name="transparency_other_cost_futures"
-                                id="transparency_other_cost_futures"
+                                name="transparency_other_cost_equity"
+                                id="transparency_other_cost_equity"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.transparency_other_cost_futures}
+                                className="common-input-feild"
+                                placehoder="Enter Equityl "
+                                value={formValues.transparency_other_cost_equity}
                                 onChange={handleChange}
                               />
+                            </Form.Group>
+                          </Col>
+                        </Row>
+
+                        <Row className=' align-items-center'>
+                          <Col>
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="transparency_other_cost_futures"
                               >
                                 Futures
                               </Form.Label>
+                              <Form.Control
+                                name="transparency_other_cost_futures"
+                                id="transparency_other_cost_futures"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Futures"
+                                value={formValues.transparency_other_cost_futures}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="transparency_other_cost_options"
-                                id="transparency_other_cost_options"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.transparency_other_cost_options}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="transparency_other_cost_options"
                               >
                                 Options
                               </Form.Label>
+                              <Form.Control
+                                name="transparency_other_cost_options"
+                                id="transparency_other_cost_options"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Options"
+                                value={formValues.transparency_other_cost_options}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="transparency_other_cost_commodities"
-                                id="transparency_other_cost_commodities"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.transparency_other_cost_commodities}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="transparency_other_cost_commodities"
                               >
                                 Commodities
                               </Form.Label>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-
-                        <Row>
-                          <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
                               <Form.Control
-                                name="transparency_other_cost_amc_charge"
-                                id="transparency_other_cost_amc_charge"
+                                name="transparency_other_cost_commodities"
+                                id="transparency_other_cost_commodities"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.transparency_other_cost_amc_charge}
+                                className="common-input-feild"
+                                placeholder="Enter Commodities"
+                                value={formValues.transparency_other_cost_commodities}
                                 onChange={handleChange}
                               />
+                            </Form.Group>
+                          </Col>
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="transparency_other_cost_amc_charge"
                               >
                                 AMC charge
                               </Form.Label>
-                            </Form.Group>
-                          </Col>
-                          <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
                               <Form.Control
-                                name="transparency_other_cost_dp_transaction_charge"
-                                id="transparency_other_cost_dp_transaction_charge"
+                                name="transparency_other_cost_amc_charge"
+                                id="transparency_other_cost_amc_charge"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.transparency_other_cost_dp_transaction_charge}
+                                className="common-input-feild"
+                                placeholderEnter AMC charge=" "
+                                value={formValues.transparency_other_cost_amc_charge}
                                 onChange={handleChange}
                               />
-                              <Form.Label
-                                className="start-0 mb-0 position-absolute"
-                                htmlFor="transparency_other_cost_dp_transaction_charge"
-                              >
-                                DP Transaction Charge
-                              </Form.Label>
-                            </Form.Group>
-                          </Col>
-                          <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="transparency_other_cost_offline_order_place_charge"
-                                id="transparency_other_cost_offline_order_place_charge"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.transparency_other_cost_offline_order_place_charge}
-                                onChange={handleChange}
-                              />
-                              <Form.Label
-                                className="start-0 mb-0 position-absolute"
-                                htmlFor="transparency_other_cost_offline_order_place_charge"
-                              >
-                                Offline order placing Charge
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                         </Row>
 
-                        <Row>
-                          <h5 className="my-2 fs-4">Platforms</h5>
+                        <Row className=' align-items-center'>
                           <Col lg={3}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group className="mb-2">
+                              <Form.Label
+                                className="common-form-label"
+                                htmlFor="transparency_other_cost_dp_transaction_charge"
+                              >
+                                DP Transaction Charge
+                              </Form.Label>
+                              <Form.Control
+                                name="transparency_other_cost_dp_transaction_charge"
+                                id="transparency_other_cost_dp_transaction_charge"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter DP Transaction Charge"
+                                value={formValues.transparency_other_cost_dp_transaction_charge}
+                                onChange={handleChange}
+                              />
+                            </Form.Group>
+                          </Col>
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label
+                                className="common-form-label"
+                                htmlFor="transparency_other_cost_offline_order_place_charge"
+                              >
+                                Offline order placing Charge
+                              </Form.Label>
+                              <Form.Control
+                                name="transparency_other_cost_offline_order_place_charge"
+                                id="transparency_other_cost_offline_order_place_charge"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Offline order placing Charge"
+                                value={formValues.transparency_other_cost_offline_order_place_charge}
+                                onChange={handleChange}
+                              />
+                            </Form.Group>
+                          </Col>
+                        </Row>
+
+                        <Row className=' align-items-center'>
+                          <h5 className="common-heading mt-3 fs-18">Platforms</h5>
+                          <Col lg={3}>
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="platform_software"
                                   checked={formValues.platform_software}
@@ -832,9 +833,10 @@ function EditBrokerModal(props) {
                           </Col>
 
                           <Col lg={3}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className='ms-3'
                                   type="checkbox"
                                   name="platform_mobile"
                                   checked={formValues.platform_mobile}
@@ -849,9 +851,10 @@ function EditBrokerModal(props) {
                           </Col>
 
                           <Col lg={3}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="platform_web_html"
                                   checked={formValues.platform_web_html}
@@ -873,44 +876,45 @@ function EditBrokerModal(props) {
                       </Tab>
 
                       <Tab eventKey="Features" className="ps-2" title="Features">
-                        <h5 className="mt-0 mb-2 fs-4">Charting</h5>
-                        <Row>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                        <h5 className="common-heading mt-3 fs-18">Charting</h5>
+                        <Row className='align-items-center'>
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="charting_intraday">
+                                Intraday
+                              </Form.Label>
                               <Form.Control
                                 name="charting_intraday"
                                 id="charting_intraday"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Intraday"
                                 value={formValues.charting_intraday}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="charting_intraday">
-                                Intraday
-                              </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="charting_end_of_day">
+                                End of Day
+                              </Form.Label>
                               <Form.Control
                                 name="charting_end_of_day"
                                 id="charting_end_of_day"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholderEnter End of Day=" "
                                 value={formValues.charting_end_of_day}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="charting_end_of_day">
-                                End of Day
-                              </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group as={Row} className="ps-2 mt-3">
+                          <Col lg={3}>
+                            <Form.Group as={Row} className="ms-4 mt-4">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className='ms-3'
                                   type="checkbox"
                                   name="charting_coding_backtesting"
                                   checked={formValues.charting_coding_backtesting}
@@ -920,8 +924,8 @@ function EditBrokerModal(props) {
                               </Col>
                               <Form.Label
                                 column
-                                lg={4}
-                                className="ps-0 pt-0 cursor-pointer"
+                                lg={6}
+                                className="pt-0 cursor-pointer"
                                 htmlFor="charting_coding_backtesting"
                               >
                                 Coding/Backtesting
@@ -930,12 +934,13 @@ function EditBrokerModal(props) {
                           </Col>
                         </Row>
 
-                        <h5 className="my-3 fs-4">Reporting</h5>
-                        <Row>
-                          <Col>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                        <h5 className="common-heading mt-3 fs-18">Reporting</h5>
+                        <Row className=' align-items-center'>
+                          <Col lg={3}>
+                            <Form.Group as={Row} className="mb-2 ps-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className='ms-2'
                                   type="checkbox"
                                   name="reporting_trade_reports"
                                   checked={formValues.reporting_trade_reports}
@@ -945,7 +950,7 @@ function EditBrokerModal(props) {
                               </Col>
                               <Form.Label
                                 column
-                                lg={4}
+                                lg={6}
                                 className="ps-0 pt-0 cursor-pointer"
                                 htmlFor="reporting_trade_reports"
                               >
@@ -953,10 +958,11 @@ function EditBrokerModal(props) {
                               </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                          <Col lg={3}>
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className='ms-2'
                                   type="checkbox"
                                   name="reporting_pnl_reports"
                                   checked={formValues.reporting_pnl_reports}
@@ -966,7 +972,7 @@ function EditBrokerModal(props) {
                               </Col>
                               <Form.Label
                                 column
-                                lg={4}
+                                lg={6}
                                 className="ps-0 pt-0 cursor-pointer"
                                 htmlFor="reporting_pnl_reports"
                               >
@@ -974,10 +980,11 @@ function EditBrokerModal(props) {
                               </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                          <Col lg={4}>
+                            <Form.Group as={Row} className="mb-2 ms-4">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className='ms-3'
                                   type="checkbox"
                                   name="reporting_contract_notes"
                                   checked={formValues.reporting_contract_notes}
@@ -987,7 +994,7 @@ function EditBrokerModal(props) {
                               </Col>
                               <Form.Label
                                 column
-                                lg={4}
+                                lg={6}
                                 className="ps-0 pt-0 cursor-pointer"
                                 htmlFor="reporting_contract_notes"
                               >
@@ -996,118 +1003,119 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                         </Row>
-                        <h5 className="my-2 fs-4">Margins</h5>
+                        <h5 className="common-heading mt-3 fs-18">Margins</h5>
 
-                        <Row>
+                        <Row className=' align-items-center'>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="margin_equity">
+                                Equity
+                              </Form.Label>
                               <Form.Control
                                 name="margin_equity"
                                 id="margin_equity"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Equity "
                                 value={formValues.margin_equity}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="margin_equity">
-                                Equity
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="margin_equity_futures">
+                                Equity Futures
+                              </Form.Label>
                               <Form.Control
                                 name="margin_equity_futures"
                                 id="margin_equity_futures"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Equity Futures "
                                 value={formValues.margin_equity_futures}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="margin_equity_futures">
-                                Equity Futures
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="margin_equity_options">
+                                Equity Options
+                              </Form.Label>
                               <Form.Control
                                 name="margin_equity_options"
                                 id="margin_equity_options"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Equity Options"
                                 value={formValues.margin_equity_options}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="margin_equity_options">
-                                Equity Options
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="margin_currency_futures">
+                                Curreny Futures
+                              </Form.Label>
                               <Form.Control
                                 name="margin_currency_futures"
                                 id="margin_currency_futures"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Curreny Futures"
                                 value={formValues.margin_currency_futures}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="margin_currency_futures">
-                                Curreny Futures
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                         </Row>
 
-                        <Row>
+                        <Row className=' align-items-center'>
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="margin_currency_options">
+                                Curreny Options
+                              </Form.Label>
                               <Form.Control
                                 name="margin_currency_options"
                                 id="margin_currency_options"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Curreny Options"
                                 value={formValues.margin_currency_options}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="margin_currency_options">
-                                Curreny Options
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="margin_commodities">
+                                Commodities
+                              </Form.Label>
                               <Form.Control
                                 name="margin_commodities"
                                 id="margin_commodities"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Commodities"
                                 value={formValues.margin_commodities}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="margin_commodities">
-                                Commodities
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                         </Row>
                       </Tab>
 
                       <Tab eventKey="Support" className="ps-2 text-nowrap" title="Support & Tools">
-                        <h5 className="mt-0 mb-2 fs-4">Support & Tools</h5>
-                        <Row>
+                        <h5 className="common-heading mt-3 fs-18">Support & Tools</h5>
+                        <Row className=' align-items-center'>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="support_research_tips"
                                   checked={formValues.support_research_tips}
@@ -1126,9 +1134,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="support_brokerage_calculator"
                                   checked={formValues.support_brokerage_calculator}
@@ -1147,9 +1156,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="support_margin_calculator"
                                   checked={formValues.support_margin_calculator}
@@ -1168,9 +1178,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="support_bracket_order_trailing"
                                   checked={formValues.support_bracket_order_trailing}
@@ -1190,9 +1201,10 @@ function EditBrokerModal(props) {
                           </Col>
 
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="support_training_education"
                                   checked={formValues.support_training_education}
@@ -1211,13 +1223,14 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                         </Row>
-                        <h5 className="mt-2 mb-3 fs-4">Convenience</h5>
+                        <h5 className="common-heading mt-3 fs-18">Convenience</h5>
 
-                        <Row>
+                        <Row className=' align-items-center'>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="convenience_account_3in_1"
                                   checked={formValues.convenience_account_3in_1}
@@ -1236,9 +1249,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="convenience_instant_fund_withdrawal"
                                   checked={formValues.convenience_instant_fund_withdrawal}
@@ -1257,9 +1271,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="convenience_relationship_managers"
                                   checked={formValues.convenience_relationship_managers}
@@ -1278,13 +1293,14 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                         </Row>
-                        <h5 className="mt-2 mb-3 fs-4">Equity Option</h5>
+                        <h5 className="common-heading mt-3 fs-18">Equity Option</h5>
 
-                        <Row>
+                        <Row className=' align-items-center'>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="equity_option_equity"
                                   checked={formValues.equity_option_equity}
@@ -1303,9 +1319,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="equity_option_equity_futures"
                                   checked={formValues.equity_option_equity_futures}
@@ -1324,9 +1341,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="equity_option_equity_options"
                                   checked={formValues.equity_option_equity_options}
@@ -1345,11 +1363,12 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                         </Row>
-                        <Row>
+                        <Row className=' align-items-center'>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="equity_option_currency_futures"
                                   checked={formValues.equity_option_currency_futures}
@@ -1368,9 +1387,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="equity_option_currency_options"
                                   checked={formValues.equity_option_currency_options}
@@ -1389,9 +1409,10 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                           <Col lg={2}>
-                            <Form.Group as={Row} className="mb-3 ps-2">
+                            <Form.Group as={Row} className="mb-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className=' ms-3'
                                   type="checkbox"
                                   name="equity_option_commodity"
                                   checked={formValues.equity_option_commodity}
@@ -1410,177 +1431,178 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                         </Row>
-                        <h5 className="my-2 fs-4">Broker</h5>
-                        <Row>
+                        <h5 className="common-heading mt-3 fs-18">Broker</h5>
+                        <Row className=' align-items-center'>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="broker_service_type">
+                                Service Type
+                              </Form.Label>
                               <Form.Control
                                 name="broker_service_type"
                                 id="broker_service_type"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Service Type "
                                 value={formValues.broker_service_type}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="broker_service_type">
-                                Service Type
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="broker_account_opening_charge"
-                                id="broker_account_opening_charge"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.broker_account_opening_charge}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="broker_account_opening_charge"
                               >
                                 Account Opening Charge
                               </Form.Label>
+                              <Form.Control
+                                name="broker_account_opening_charge"
+                                id="broker_account_opening_charge"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Account Opening Charge"
+                                value={formValues.broker_account_opening_charge}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                           <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="broker_account_maintain_charge"
-                                id="broker_account_maintain_charge"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.broker_account_maintain_charge}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="broker_account_maintain_charge"
                               >
                                 Account Mainteanance Charge
                               </Form.Label>
+                              <Form.Control
+                                name="broker_account_maintain_charge"
+                                id="broker_account_maintain_charge"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Account Mainteanance Charge"
+                                value={formValues.broker_account_maintain_charge}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="broker_equity_delivery_brokerage"
-                                id="broker_equity_delivery_brokerage"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.broker_equity_delivery_brokerage}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="broker_equity_delivery_brokerage"
                               >
                                 Equity Delivery Brokerage
                               </Form.Label>
+                              <Form.Control
+                                name="broker_equity_delivery_brokerage"
+                                id="broker_equity_delivery_brokerage"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Equity Delivery Brokerage "
+                                value={formValues.broker_equity_delivery_brokerage}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                         </Row>
 
                         <Row className="mb-2">
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="broker_equity_intraday_brokerage"
-                                id="broker_equity_intraday_brokerage"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.broker_equity_intraday_brokerage}
-                                onChange={handleChange}
-                              />
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="broker_equity_intraday_brokerage"
                               >
                                 Equity Intraday Brokerage
                               </Form.Label>
+                              <Form.Control
+                                name="broker_equity_intraday_brokerage"
+                                id="broker_equity_intraday_brokerage"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Equity Intraday Brokerage "
+                                value={formValues.broker_equity_intraday_brokerage}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
                           <Col lg={3}>
-                            <Form.Group className="my-2 border-bottom input-label">
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="broker_trade_description">
+                                Trade Description
+                              </Form.Label>
                               <Form.Control
                                 name="broker_trade_description"
                                 id="broker_trade_description"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Trade Description"
                                 value={formValues.broker_trade_description}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="broker_trade_description">
-                                Trade Description
-                              </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="broker_theme_color">
+                                Broker Theme Color
+                              </Form.Label>
                               <Form.Control
                                 name="broker_theme_color"
                                 id="broker_theme_color"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Broker Theme Color"
                                 value={formValues.broker_theme_color}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="broker_theme_color">
-                                Broker Theme Color
-                              </Form.Label>
                             </Form.Group>
                           </Col>
                         </Row>
                       </Tab>
 
                       <Tab eventKey="Broker" className="ps-2" title="Top 5 Broker">
-                        <h5 className="mt-0 mb-2 fs-4">Top 5 Broker Web</h5>
-                        <Row>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                        <h5 className="common-heading mt-3 fs-18">Top 5 Broker Web</h5>
+                        <Row className='align-items-center'>
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="top5_web_affiliate_link">
+                                Affiliate Url
+                              </Form.Label>
                               <Form.Control
                                 name="top5_web_affiliate_link"
                                 id="top5_web_affiliate_link"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Affiliate Url"
                                 value={formValues.top5_web_affiliate_link}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="top5_web_affiliate_link">
-                                Affiliate Url
-                              </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="top5_web_sequence">
+                                Sequence
+                              </Form.Label>
                               <Form.Control
                                 name="top5_web_sequence"
                                 id="top5_web_sequence"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Sequence"
                                 value={formValues.top5_web_sequence}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="top5_web_sequence">
-                                Sequence
-                              </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group as={Row} className="mt-3 ps-2">
+                          <Col className='mt-4' lg={4}>
+                            <Form.Group as={Row} className="mt-2 ps-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className='ms-4'
                                   type="checkbox"
                                   name="top5_web_is_active"
                                   checked={formValues.top5_web_is_active}
@@ -1590,7 +1612,7 @@ function EditBrokerModal(props) {
                               </Col>
                               <Form.Label
                                 column
-                                lg={4}
+                                lg={6}
                                 className="ps-0 pt-0 cursor-pointer"
                                 htmlFor="top5_web_is_active"
                               >
@@ -1599,45 +1621,46 @@ function EditBrokerModal(props) {
                             </Form.Group>
                           </Col>
                         </Row>
-                        <h5 className="mt-0 mb-3 fs-4">Top 5 Broker Web</h5>
+                        <h5 className="common-heading mt-3 fs-18">Top 5 Broker App</h5>
 
-                        <Row className="mb-2">
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                        <Row className="align-items-center">
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="top5_app_affiliate_link">
+                                Affiliate Url
+                              </Form.Label>
                               <Form.Control
                                 name="top5_app_affiliate_link"
                                 id="top5_app_affiliate_link"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Affiliate Url"
                                 value={formValues.top5_app_affiliate_link}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="top5_app_affiliate_link">
-                                Affiliate Url
-                              </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="top5_app_sequence">
+                                Sequence
+                              </Form.Label>
                               <Form.Control
                                 name="top5_app_sequence"
                                 id="top5_app_sequence"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Sequence"
                                 value={formValues.top5_app_sequence}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="top5_app_sequence">
-                                Sequence
-                              </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group as={Row} className="mt-3 ps-2">
+                          <Col lg={4} className='mt-4'>
+                            <Form.Group as={Row} className="mt-2 ps-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className='ms-4'
                                   type="checkbox"
                                   name="top5_app_is_active"
                                   checked={formValues.top5_app_is_active}
@@ -1659,47 +1682,48 @@ function EditBrokerModal(props) {
                       </Tab>
 
                       <Tab eventKey="Top-Broker" className="ps-2" title="Top Broker">
-                        <h5 className="mt-0 mb-2 fs-4">Top Broker Web</h5>
-                        <Row className="mb-2">
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
-                              <Form.Control
-                                name="top_broker_web_affiliate_link"
-                                id="top_broker_web_affiliate_link"
-                                type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
-                                value={formValues.top_broker_web_affiliate_link}
-                                onChange={handleChange}
-                              />
+                        <h5 className="common-heading mt-3 fs-18">Top Broker Web</h5>
+                        <Row className="align-items-center">
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
                               <Form.Label
-                                className="start-0 mb-0 position-absolute"
+                                className="common-form-label"
                                 htmlFor="top_broker_web_affiliate_link"
                               >
                                 Affiliate Url
                               </Form.Label>
+                              <Form.Control
+                                name="top_broker_web_affiliate_link"
+                                id="top_broker_web_affiliate_link"
+                                type="text"
+                                className="common-input-feild"
+                                placeholder="Enter Affiliate Url"
+                                value={formValues.top_broker_web_affiliate_link}
+                                onChange={handleChange}
+                              />
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group className="my-2 border-bottom input-label">
+                          <Col lg={3}>
+                            <Form.Group className="mb-2">
+                              <Form.Label className="common-form-label" htmlFor="top_broker_web_sequence">
+                                Sequence
+                              </Form.Label>
                               <Form.Control
                                 name="top_broker_web_sequence"
                                 id="top_broker_web_sequence"
                                 type="text"
-                                className="border-0 shadow-none rounded-0 ps-1"
-                                placeholder=" "
+                                className="common-input-feild"
+                                placeholder="Enter Sequence"
                                 value={formValues.top_broker_web_sequence}
                                 onChange={handleChange}
                               />
-                              <Form.Label className="start-0 mb-0 position-absolute" htmlFor="top_broker_web_sequence">
-                                Sequence
-                              </Form.Label>
                             </Form.Group>
                           </Col>
-                          <Col>
-                            <Form.Group as={Row} className="mt-3 ps-2">
+                          <Col lg={4} className='mt-4'>
+                            <Form.Group as={Row} className="mt-2 ps-2">
                               <Col lg={1} className="mt-0 p-0">
-                                <Form.Control
+                                <input
+                                  className='ms-4'
                                   type="checkbox"
                                   name="top_broker_web_is_active"
                                   checked={formValues.top_broker_web_is_active}
@@ -1723,12 +1747,16 @@ function EditBrokerModal(props) {
                   </Form>
                 </Row>
 
-                <Button variant="light" onClick={() => setShow(false)} className="me-2">
-                  Close
-                </Button>
-                <Button variant="primary" onClick={handleCreateStock}>
-                  Save Changes
-                </Button>
+                <Row>
+                  <Col className='mt-2'>
+                    <Button variant="light" onClick={() => setShow(false)} className="me-2">
+                      Close
+                    </Button>
+                    <Button variant="primary" className='web-button' onClick={handleCreateStock}>
+                      Save Changes
+                    </Button>
+                  </Col>
+                </Row>
               </Form>
             </Card.Body>
           </Card>

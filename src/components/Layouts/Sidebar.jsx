@@ -34,9 +34,8 @@ function Sidebar(props) {
   return (
     <>
       <section
-        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${
-          toggleResponsive ? 'hide-sidebar' : 'full-width'
-        }`}
+        className={`sidebar-section bg-white border border-top-0 position-fixed ${toggle || 'sidebar-sm'} ${toggleResponsive ? 'hide-sidebar' : 'full-width'
+          }`}
       >
         {toggle && (
           <div className="position-absolute logo-icon">
@@ -64,22 +63,21 @@ function Sidebar(props) {
 
           <ul className="navbar-nav px-3">
             {menuItems.map((menuItem, index) => (
-              <li key={index} className={`nav-item position-relative`}>
+              <li key={index} className={`ms-2 nav-item position-relative`}>
                 <div
-                  className={`nav-link fw-500 base-color-3 d-flex align-items-center cursor-pointer  ${
-                    expandedId === index ? 'active' : ''
-                  }`}
+                  className={`nav-link fw-500 base-color-3 d-flex align-items-center cursor-pointer  ${expandedId === index ? 'active' : ''
+                    }`}
                   onClick={() => toggleSubmenu(index)}
                 >
-                  <FontAwesomeIcon icon={menuItem.icon} width={15} height={15} className="fs-14 me-2" />
+                  <FontAwesomeIcon icon={menuItem.icon} width={16} height={16} className="me-2" />
                   {toggle && (
                     <>
-                      <span className="ms-1 text-nowrap">{menuItem.menu}</span>
+                      <span className="ms-1 text-nowrap fs-16">{menuItem.menu}</span>
                       <button className={`border-0 ms-auto bg-white ${expandedId === index ? 'active' : ''}`}>
                         {menuItem.isOpen ? (
-                          <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleDown} />
+                          <FontAwesomeIcon width={12} height={12} className="fs-12" icon={faAngleDown} />
                         ) : (
-                          <FontAwesomeIcon width={18} height={18} className="fs-12" icon={faAngleRight} />
+                          <FontAwesomeIcon width={12} height={12} className="fs-12" icon={faAngleRight} />
                         )}
                       </button>
                     </>
@@ -93,7 +91,7 @@ function Sidebar(props) {
                         <li key={subIndex} className={`w-100 d-flex ${expandedId === index ? 'open' : ''}`}>
                           <Link
                             href={subMenuItem.url}
-                            className={`mb-2 ms-5 w-100 base-color-3 ${isActivePage(subMenuItem.url) ? 'active' : ''}`}
+                            className={`mb-2 ms-custom w-100 base-color-3 ${isActivePage(subMenuItem.url) ? 'active' : ''}`}
                           >
                             {subMenuItem.text}
                           </Link>

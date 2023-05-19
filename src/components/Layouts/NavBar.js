@@ -32,4 +32,13 @@ export const navbarData = [
     icon: faUser,
     subMenu: [{ text: 'Indian Stocks Profile', url: '/profile/indianstockprofile' }],
   },
+  {
+    menu: 'Broker',
+    icon: faCircleExclamation,
+    subMenu: [
+      { text: 'Broker Review List', url: '/broker/review-list' },
+      { text: 'Latest A/C Open Enq', url: '/broker/open-enquiry' },
+      { text: 'Compare Broker', url: '/broker/compare-broker' },
+    ],
+  },
 ];

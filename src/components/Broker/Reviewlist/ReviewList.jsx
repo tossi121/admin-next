@@ -4,8 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { Card, Col, Form, Row, Table } from 'react-bootstrap';
 import CommonPagination from '../../Pagination/CommonPagination';
 import TableLoader from '_utils/Loader/TableLoader';
-// import { useAuth } from '../../../../_context/authContext';
-// import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getBrokerReviewData, updateBrokerReviewData } from '_services/nifty_service_api';
 import SelectBox from 'components/SelectBox';
@@ -18,19 +16,10 @@ const ReviewList = () => {
   const [totalItems, setTotalItems] = useState(null);
   const [totalPages, setTotalPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-
-  // const { isLoggedIn } = useAuth();
-  // const history = useHistory();
   const [sortBy, setsortBy] = useState('created_at');
   const [sortType, setsortType] = useState('asc');
   const [sortToggle, setSortToggle] = useState(false);
   const [sortStyle, setSortStyle] = useState('text-dark');
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     history.push('/auth/login');
-  //   }
-  // }, [isLoggedIn]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -94,9 +83,7 @@ const ReviewList = () => {
       <section className="stock-analysis">
         <Row>
           <Col>
-            <div className="page-title-box">
-              <h4 className="page-title">Broker Review</h4>
-            </div>
+            <h5 className="fw-500 mb-3">Broker Review</h5>
           </Col>
         </Row>
         <Row>
@@ -104,10 +91,10 @@ const ReviewList = () => {
             <Card>
               <Card.Body>
                 <>
-                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex justify-content-between align-items-center mb-2">
                     <SelectBox setPageSize={setPageSize} setCurrentPage={setCurrentPage} />
                     <div className="search-box position-relative text-center me-2 ms-auto pb-2">
-                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute" />
+                      <FontAwesomeIcon icon={faSearch} width="16" height="16" className="position-absolute end-0 mt-1 me-2 base-color-3" />
                       <input
                         type="text"
                         className="form-control fs-14 shadow-none rounded-0 p-1 bg-transparent"
@@ -122,103 +109,75 @@ const ReviewList = () => {
                     </div>
                   </div>
 
-                  <div className="table-responsive  stock-analysis-table text-nowrap">
+                  <div className="table-responsive stock-analysis-table text-nowrap">
                     {(isLoading && <TableLoader />) || (
                       <Table className="table mb-0">
                         <thead>
                           <tr>
                             <th scope="col">
                               <div
-                                className="d-flex align-items-center cursor-pointer"
                                 onClick={() => handleSorting('review_rating')}
                               >
                                 <div>Rating</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faArrowUpLong}
-                                    width={5}
-                                    className={`ms-1 ${
-                                      sortBy == 'review_rating' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'review_rating' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faArrowDownLong}
-                                    width={5}
-                                    className={`${
-                                      sortBy == 'review_rating' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong} width={8} className={`${sortBy == 'review_rating' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
                             </th>
                             <th scope="col">
                               <div
-                                className="d-flex align-items-center cursor-pointer"
                                 onClick={() => handleSorting('review_desc')}
                               >
                                 <div>Description</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faArrowUpLong}
-                                    width={5}
-                                    className={`ms-1 ${
-                                      sortBy == 'review_desc' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'review_desc' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faArrowDownLong}
-                                    width={5}
-                                    className={`${
-                                      sortBy == 'review_desc' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong} width={8} className={`${sortBy == 'review_desc' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
                             </th>
                             <th scope="col">
                               <div
-                                className="d-flex align-items-center cursor-pointer"
                                 onClick={() => handleSorting('username')}
                               >
                                 <div>User Name</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faArrowUpLong}
-                                    width={5}
-                                    className={`ms-1 ${
-                                      sortBy == 'username' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'username' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faArrowDownLong}
-                                    width={5}
-                                    className={`${
-                                      sortBy == 'username' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong} width={8} className={`${sortBy == 'username' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
                             </th>
                             <th scope="col">
                               <div
-                                className="d-flex align-items-center cursor-pointer"
                                 onClick={() => handleSorting('broker')}
                               >
                                 <div>Broker</div>
                                 <div>
                                   <FontAwesomeIcon
-                                    icon={faArrowUpLong}
-                                    width={5}
-                                    className={`ms-1 ${
-                                      sortBy == 'broker' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowUpLong} width={8} className={`ms-1 ${sortBy == 'broker' ? (sortStyle == 'text-danger' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                   <FontAwesomeIcon
-                                    icon={faArrowDownLong}
-                                    width={5}
-                                    className={`${
-                                      sortBy == 'broker' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
-                                    }`}
+                                    icon={faArrowDownLong} width={8} className={`${sortBy == 'broker' ? (sortStyle == 'text-success' ? sortStyle : '') : ''
+                                      }`}
                                   />
                                 </div>
                               </div>
@@ -245,12 +204,12 @@ const ReviewList = () => {
                                 </tr>
                               );
                             })) || (
-                            <tr>
-                              <td className="border border-0 p-0 pt-2 ps-2">
-                                <p>No Data Found</p>
-                              </td>
-                            </tr>
-                          )}
+                              <tr>
+                                <td className="border border-0 p-0 pt-2 ps-2">
+                                  <p>No Data Found</p>
+                                </td>
+                              </tr>
+                            )}
                         </tbody>
                       </Table>
                     )}
