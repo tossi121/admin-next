@@ -24,7 +24,7 @@ export const navbarData = [
   {
     menu: 'Terms',
     icon: faCircleExclamation,
-    subMenu: [{ text: 'Manage Terms', url: '/manage-terms' }],
+    subMenu: [{ text: 'Manage Terms', url: 'terms/manage-terms' }],
   },
   {
     menu: 'Profiles',
